@@ -20,8 +20,14 @@ YOLO 모델 이론 공부
 -----
 ## 나영훈
 ### 금주
+1. YOLO 모델 이론 공부 
+2. YOLO 모델 성능 비교.
+  - YOLOv2, YOLOv3, YOLOv4, Scaled YOLOv4 사용. 
+  - 시간 및 성능을 고려하여 Scaled YOLOv4, 306x306 혹은 416x416 사용.
 
 ### 차주
+YOLO Custom Model을 만들어 사용해보기.
+
 
 <br>
 
