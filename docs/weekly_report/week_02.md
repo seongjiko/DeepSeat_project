@@ -38,6 +38,7 @@ YOLO Custom Model을 만들어 사용해보기.
 
 ### 차주
 서버 구현을 위한 프레임워크(spring) 공부
+community page ui 구상, 구현
 <br>
 
 -----
