@@ -31,6 +31,8 @@ Temporary Items
 
 
 ### Server ###
+src/server/DeepSeatServer/Dockerfile.save
+src/server/DeepSeatServer/src/main/resources/application-db.properties
 
 ### Spring ###
 .apt_generated
