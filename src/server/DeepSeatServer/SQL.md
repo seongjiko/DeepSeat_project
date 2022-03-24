@@ -19,7 +19,7 @@ CREATE DATABASE DeepSeat DEFAULT CHARACTER SET utf8 collate utf8_bin;
 ## Table
 ### User
 ```sql
-
+최명근 바보
 ```
 
 ### Document
