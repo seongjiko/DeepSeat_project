@@ -22,6 +22,7 @@ CREATE DATABASE DeepSeat DEFAULT CHARACTER SET utf8 collate utf8_bin;
 create table user(
     userID varchar(10) not null primary key,
     userPW varchar(20) not null,
+    salt varchar(10) not null,
     nickname varchar(10) not null 
 );
 ```
@@ -59,7 +60,7 @@ create table comment(
 create table liked(
     likedID integer not null primary key auto_increment,
     userID varchar (10) not null,
-    docID integer default  null,
+    docID integer default null,
     commentID integer default null,
     foreign key (userID) references user (userID),
     foreign key (docID) references document(docID),

@@ -211,3 +211,12 @@ src/server/DeepSeatServer/.idea/$CACHE_FILE$
 src/server/DeepSeatServer/.idea/codestream.xml
 
 
+/.idea/compiler.xml
+/.idea/dataSources.xml
+/.idea/.gitignore
+/.idea/vcs.xml
+/.idea/modules.xml
+/.idea/misc.xml
+/.idea/gradle.xml
+/.idea/jarRepositories.xml
+/.idea/DeepSeat_project.iml
