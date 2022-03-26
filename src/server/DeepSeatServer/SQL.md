@@ -21,7 +21,7 @@ CREATE DATABASE DeepSeat DEFAULT CHARACTER SET utf8 collate utf8_bin;
 ```sql
 create table user(
     userID varchar(10) not null primary key,
-    userPW varchar(20) not null,
+    userPW varchar(64) not null,
     salt varchar(10) not null,
     nickname varchar(10) not null 
 );

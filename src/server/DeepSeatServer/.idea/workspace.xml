@@ -5,6 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7ae7fabb-aa65-4cdc-a144-b42785bda46f" name="변경" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/kotlin/com/deepseat/server/DeepSeatServer/dao/CommentDao.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/../../../.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/7.4.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.4.1/executionHistory/executionHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/7.4.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.4.1/fileHashes/fileHashes.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
@@ -106,7 +108,7 @@
       <updated>1647994289477</updated>
       <workItem from="1647994290821" duration="3771000" />
       <workItem from="1648018207622" duration="7199000" />
-      <workItem from="1648301048842" duration="9035000" />
+      <workItem from="1648301048842" duration="9497000" />
     </task>
     <servers />
   </component>
