@@ -25,7 +25,7 @@ class CommentDao {
         ps.close()
         connection.close()
 
-        return result <= 0
+        return result > 0
     }
 
     @Throws(ClassNotFoundException::class, SQLException::class)
@@ -41,12 +41,12 @@ class CommentDao {
 
         val result = if (rs.next()) {
             Comment(
-                rs.getInt("commentID"),
-                rs.getString("userID"),
-                rs.getInt("docID"),
-                rs.getString("content"),
-                rs.getString("wrote"),
-                rs.getInt("edited") == 0
+                    rs.getInt("commentID"),
+                    rs.getString("userID"),
+                    rs.getInt("docID"),
+                    rs.getString("content"),
+                    rs.getString("wrote"),
+                    rs.getInt("edited") == 0
             )
         } else {
             null
@@ -59,20 +59,55 @@ class CommentDao {
     }
 
     @Throws(ClassNotFoundException::class, SQLException::class)
-    fun delete(commentID: Int): Boolean {
+    fun getList(roomID: Int, seatID: Int, docID: Int): Array<Comment> {
         Class.forName(dbConfig.driverClassName)
 
         val connection = DriverManager.getConnection(dbConfig.url, dbConfig.username, dbConfig.password)
-        val ps = connection.prepareStatement("DELETE FROM comment WHERE commentID = ?")
+        val ps = connection.prepareStatement("SELECT * FROM comment WHERE roomID = ?, seatID = ?, docID = ?")
 
-        ps.setInt(1, commentID)
+        ps.setInt(1, roomID)
+        ps.setInt(2, seatID)
+        ps.setInt(3, docID)
+
+        val rs = ps.executeQuery()
+
+        val result: ArrayList<Comment> = arrayListOf()
+
+        while (rs.next()) {
+            result.add(Comment(
+                    rs.getInt("commentID"),
+                    rs.getString("userID"),
+                    rs.getInt("docID"),
+                    rs.getString("content"),
+                    rs.getString("wrote"),
+                    rs.getInt("edited") == 0
+            ))
+        }
+
+        ps.close()
+        connection.close()
+
+        return result.toTypedArray()
+    }
+
+    @Throws(ClassNotFoundException::class, SQLException::class)
+    fun delete(roomID: Int, seatID: Int, docID: Int, commentID: Int): Boolean {
+        Class.forName(dbConfig.driverClassName)
+
+        val connection = DriverManager.getConnection(dbConfig.url, dbConfig.username, dbConfig.password)
+        val ps = connection.prepareStatement("DELETE FROM comment WHERE roomID = ?, seatID = ?, docID = ?, commentID = ?")
+
+        ps.setInt(1, roomID)
+        ps.setInt(2, seatID)
+        ps.setInt(3, docID)
+        ps.setInt(4, commentID)
 
         val result = ps.executeUpdate()
 
         ps.close()
         connection.close()
 
-        return result <= 0
+        return result > 0
     }
 
     @Throws(ClassNotFoundException::class, SQLException::class)
@@ -91,7 +126,7 @@ class CommentDao {
         ps.close()
         connection.close()
 
-        return result <= 0
+        return result > 0
     }
 
 }

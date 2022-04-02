@@ -1,6 +1,7 @@
 package com.deepseat.server.DeepSeatServer.dao
 
 import com.deepseat.server.DeepSeatServer.config.DBConfig
+import com.deepseat.server.DeepSeatServer.model.Document
 import com.deepseat.server.DeepSeatServer.model.Liked
 import java.sql.DriverManager
 import java.sql.SQLException
@@ -15,7 +16,7 @@ class LikedDao {
         Class.forName(dbConfig.driverClassName)
 
         val connection = DriverManager.getConnection(dbConfig.url, dbConfig.username, dbConfig.password)
-        val ps = connection.prepareStatement("INSERT INTO liked(likedID, userID, docID, commentID) VALUES(?, ?, ?, ?)")
+        val ps = connection.prepareStatement("INSERT INTO liked(likedID, userID, docID, commentID) VALUES(?, ?, ?, ?);")
 
         ps.setInt(1, liked.likedID)
         ps.setString(2, liked.userID)
@@ -36,7 +37,7 @@ class LikedDao {
         ps.close()
         connection.close()
 
-        return result <= 0
+        return result > 0
     }
 
     @Throws(ClassNotFoundException::class, SQLException::class)
@@ -44,7 +45,7 @@ class LikedDao {
         Class.forName(dbConfig.driverClassName)
 
         val connection = DriverManager.getConnection(dbConfig.url, dbConfig.username, dbConfig.password)
-        val ps = connection.prepareStatement("SELECT * FROM liked WHERE likedID = ?")
+        val ps = connection.prepareStatement("SELECT * FROM liked WHERE likedID = ?;")
 
         ps.setInt(1, likedID)
 
@@ -52,10 +53,10 @@ class LikedDao {
 
         val result = if (rs.next()) {
             Liked(
-                rs.getInt("likedID"),
-                rs.getString("userID"),
-                rs.getObject("docID") as Int?,
-                rs.getObject("commentID") as Int?
+                    rs.getInt("likedID"),
+                    rs.getString("userID"),
+                    rs.getObject("docID") as Int?,
+                    rs.getObject("commentID") as Int?
             )
         } else {
             null
@@ -68,11 +69,40 @@ class LikedDao {
     }
 
     @Throws(ClassNotFoundException::class, SQLException::class)
+    fun getList(docID: Int = -1, commentID: Int = -1): Array<Liked> {
+        Class.forName(dbConfig.driverClassName)
+
+        val connection = DriverManager.getConnection(dbConfig.url, dbConfig.username, dbConfig.password)
+        val ps = connection.prepareStatement("SELECT * FROM liked WHERE docID = ? OR commentID = ?;")
+
+        ps.setInt(1, docID)
+        ps.setInt(2, commentID)
+
+        val rs = ps.executeQuery()
+
+        val result: ArrayList<Liked> = arrayListOf()
+
+        while (rs.next()) {
+            result.add(Liked(
+                    rs.getInt("likedID"),
+                    rs.getString("userID"),
+                    rs.getObject("docID") as Int?,
+                    rs.getObject("commentID") as Int?
+            ))
+        }
+
+        ps.close()
+        connection.close()
+
+        return result.toTypedArray()
+    }
+
+    @Throws(ClassNotFoundException::class, SQLException::class)
     fun delete(likedID: Int): Boolean {
         Class.forName(dbConfig.driverClassName)
 
         val connection = DriverManager.getConnection(dbConfig.url, dbConfig.username, dbConfig.password)
-        val ps = connection.prepareStatement("DELETE FROM liked WHERE likedID = ?")
+        val ps = connection.prepareStatement("DELETE FROM liked WHERE likedID = ?;")
 
         ps.setInt(1, likedID)
 

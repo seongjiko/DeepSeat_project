@@ -22,7 +22,7 @@ class UserDao {
         ps.setString(3, SaltGenerator.generate())
         ps.setString(4, user.nickname)
 
-        val result = ps.executeUpdate() <= 0
+        val result = ps.executeUpdate() > 0
 
         ps.close()
         connection.close()
@@ -67,7 +67,7 @@ class UserDao {
 
         ps.setString(1, userID)
 
-        val result = ps.executeUpdate() <= 0
+        val result = ps.executeUpdate() > 0
 
         ps.close()
         connection.close()
@@ -92,7 +92,7 @@ class UserDao {
         ps.close()
         connection.close()
 
-        return result <= 0
+        return result > 0
     }
 
 }
