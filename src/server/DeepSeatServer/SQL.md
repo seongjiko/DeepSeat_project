@@ -67,3 +67,36 @@ create table liked(
     foreign key (commentID) references comment (commentID)
 )
 ```
+
+### Seat
+```sql
+create table seat(
+    seatID integer not null primary key auto_increment,
+    roomID integer not null,
+    x integer not null,
+    y integer not null,
+    width integer not null,
+    height integer not null,
+    foreign key (roomID) references room (roomID)
+)
+```
+
+### Room
+```sql
+create table room(
+    roomID integer not null primary key auto_increment,
+    roomName varchar (30) not null
+)
+```
+### Observation
+```sql
+create table observation(
+    observerID bigint not null primary key auto_increment,
+    roomID integer not null,
+    seatID integer not null,
+    date varchar (50) not null,
+    state integer not null,
+    foreign key (roomID) references room (roomID),
+    foreign key (seatID) references seat (seatsID)
+)
+```
