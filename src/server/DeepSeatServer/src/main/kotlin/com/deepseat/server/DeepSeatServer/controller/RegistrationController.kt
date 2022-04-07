@@ -21,10 +21,4 @@ class RegistrationController {
         userDao.add(user)
     }
 
-    @PostMapping("/register/salt")
-    fun getSalt(@RequestParam userID: String): String? {
-        val userDao = UserDao()
-        return userDao.get(userID)?.salt
-    }
-
 }
