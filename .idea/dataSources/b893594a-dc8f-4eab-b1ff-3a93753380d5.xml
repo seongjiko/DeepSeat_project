@@ -991,187 +991,309 @@ sys|schema||mysql.sys|localhost|TRIGGER|G</Grants>
       <Engine>InnoDB</Engine>
       <CollationName>utf8_bin</CollationName>
     </table>
-    <table id="287" parent="274" name="user">
+    <table id="287" parent="274" name="observation">
       <Engine>InnoDB</Engine>
       <CollationName>utf8_bin</CollationName>
     </table>
-    <column id="288" parent="284" name="commentID">
+    <table id="288" parent="274" name="room">
+      <Engine>InnoDB</Engine>
+      <CollationName>utf8_bin</CollationName>
+    </table>
+    <table id="289" parent="274" name="seat">
+      <Engine>InnoDB</Engine>
+      <CollationName>utf8_bin</CollationName>
+    </table>
+    <table id="290" parent="274" name="user">
+      <Engine>InnoDB</Engine>
+      <CollationName>utf8_bin</CollationName>
+    </table>
+    <column id="291" parent="284" name="commentID">
       <DataType>int|0s</DataType>
       <NotNull>1</NotNull>
       <Position>1</Position>
       <SequenceIdentity>null</SequenceIdentity>
     </column>
-    <column id="289" parent="284" name="userID">
+    <column id="292" parent="284" name="userID">
       <DataType>varchar(10)|0s</DataType>
       <NotNull>1</NotNull>
       <Position>2</Position>
     </column>
-    <column id="290" parent="284" name="docID">
+    <column id="293" parent="284" name="docID">
       <DataType>int|0s</DataType>
       <Position>3</Position>
     </column>
-    <column id="291" parent="284" name="content">
+    <column id="294" parent="284" name="content">
       <DataType>varchar(100)|0s</DataType>
       <NotNull>1</NotNull>
       <Position>4</Position>
     </column>
-    <column id="292" parent="284" name="wrote">
+    <column id="295" parent="284" name="wrote">
       <DataType>datetime|0s</DataType>
       <DefaultExpression>CURRENT_TIMESTAMP</DefaultExpression>
       <NotNull>1</NotNull>
       <Position>5</Position>
     </column>
-    <column id="293" parent="284" name="edited">
+    <column id="296" parent="284" name="edited">
       <DataType>tinyint(1)|0s</DataType>
       <DefaultExpression>0</DefaultExpression>
       <Position>6</Position>
     </column>
-    <foreign-key id="294" parent="284" name="comment_ibfk_1">
+    <foreign-key id="297" parent="284" name="comment_ibfk_1">
       <ColNames>userID</ColNames>
       <RefColNames>userID</RefColNames>
       <RefTableName>user</RefTableName>
     </foreign-key>
-    <foreign-key id="295" parent="284" name="comment_ibfk_2">
+    <foreign-key id="298" parent="284" name="comment_ibfk_2">
       <ColNames>docID</ColNames>
       <RefColNames>docID</RefColNames>
       <RefTableName>document</RefTableName>
     </foreign-key>
-    <index id="296" parent="284" name="userID">
+    <index id="299" parent="284" name="userID">
       <ColNames>userID</ColNames>
       <Type>btree</Type>
     </index>
-    <index id="297" parent="284" name="docID">
+    <index id="300" parent="284" name="docID">
       <ColNames>docID</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="298" parent="284" name="PRIMARY">
+    <key id="301" parent="284" name="PRIMARY">
       <ColNames>commentID</ColNames>
       <NameSurrogate>1</NameSurrogate>
       <Primary>1</Primary>
     </key>
-    <column id="299" parent="285" name="docID">
+    <column id="302" parent="285" name="docID">
       <DataType>int|0s</DataType>
       <NotNull>1</NotNull>
       <Position>1</Position>
       <SequenceIdentity>null</SequenceIdentity>
     </column>
-    <column id="300" parent="285" name="userID">
+    <column id="303" parent="285" name="userID">
       <DataType>varchar(10)|0s</DataType>
       <NotNull>1</NotNull>
       <Position>2</Position>
     </column>
-    <column id="301" parent="285" name="roomID">
+    <column id="304" parent="285" name="roomID">
       <DataType>int|0s</DataType>
       <NotNull>1</NotNull>
       <Position>3</Position>
     </column>
-    <column id="302" parent="285" name="seatID">
+    <column id="305" parent="285" name="seatID">
       <DataType>int|0s</DataType>
       <NotNull>1</NotNull>
       <Position>4</Position>
     </column>
-    <column id="303" parent="285" name="content">
+    <column id="306" parent="285" name="content">
       <DataType>varchar(100)|0s</DataType>
       <NotNull>1</NotNull>
       <Position>5</Position>
     </column>
-    <column id="304" parent="285" name="wrote">
+    <column id="307" parent="285" name="wrote">
       <DataType>datetime|0s</DataType>
       <DefaultExpression>CURRENT_TIMESTAMP</DefaultExpression>
       <NotNull>1</NotNull>
       <Position>6</Position>
     </column>
-    <column id="305" parent="285" name="edited">
+    <column id="308" parent="285" name="edited">
       <DataType>tinyint(1)|0s</DataType>
       <DefaultExpression>0</DefaultExpression>
       <Position>7</Position>
     </column>
-    <foreign-key id="306" parent="285" name="document_ibfk_1">
+    <foreign-key id="309" parent="285" name="document_ibfk_1">
       <ColNames>userID</ColNames>
       <RefColNames>userID</RefColNames>
       <RefTableName>user</RefTableName>
     </foreign-key>
-    <index id="307" parent="285" name="userID">
+    <index id="310" parent="285" name="userID">
       <ColNames>userID</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="308" parent="285" name="PRIMARY">
+    <key id="311" parent="285" name="PRIMARY">
       <ColNames>docID</ColNames>
       <NameSurrogate>1</NameSurrogate>
       <Primary>1</Primary>
     </key>
-    <column id="309" parent="286" name="likedID">
+    <column id="312" parent="286" name="likedID">
       <DataType>int|0s</DataType>
       <NotNull>1</NotNull>
       <Position>1</Position>
       <SequenceIdentity>null</SequenceIdentity>
     </column>
-    <column id="310" parent="286" name="userID">
+    <column id="313" parent="286" name="userID">
       <DataType>varchar(10)|0s</DataType>
       <NotNull>1</NotNull>
       <Position>2</Position>
     </column>
-    <column id="311" parent="286" name="docID">
+    <column id="314" parent="286" name="docID">
       <DataType>int|0s</DataType>
       <Position>3</Position>
     </column>
-    <column id="312" parent="286" name="commentID">
+    <column id="315" parent="286" name="commentID">
       <DataType>int|0s</DataType>
       <Position>4</Position>
     </column>
-    <foreign-key id="313" parent="286" name="liked_ibfk_1">
+    <foreign-key id="316" parent="286" name="liked_ibfk_1">
       <ColNames>userID</ColNames>
       <RefColNames>userID</RefColNames>
       <RefTableName>user</RefTableName>
     </foreign-key>
-    <foreign-key id="314" parent="286" name="liked_ibfk_2">
+    <foreign-key id="317" parent="286" name="liked_ibfk_2">
       <ColNames>docID</ColNames>
       <RefColNames>docID</RefColNames>
       <RefTableName>document</RefTableName>
     </foreign-key>
-    <foreign-key id="315" parent="286" name="liked_ibfk_3">
+    <foreign-key id="318" parent="286" name="liked_ibfk_3">
       <ColNames>commentID</ColNames>
       <RefColNames>commentID</RefColNames>
       <RefTableName>comment</RefTableName>
     </foreign-key>
-    <index id="316" parent="286" name="userID">
+    <index id="319" parent="286" name="userID">
       <ColNames>userID</ColNames>
       <Type>btree</Type>
     </index>
-    <index id="317" parent="286" name="docID">
+    <index id="320" parent="286" name="docID">
       <ColNames>docID</ColNames>
       <Type>btree</Type>
     </index>
-    <index id="318" parent="286" name="commentID">
+    <index id="321" parent="286" name="commentID">
       <ColNames>commentID</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="319" parent="286" name="PRIMARY">
+    <key id="322" parent="286" name="PRIMARY">
       <ColNames>likedID</ColNames>
       <NameSurrogate>1</NameSurrogate>
       <Primary>1</Primary>
     </key>
-    <column id="320" parent="287" name="userID">
+    <column id="323" parent="287" name="observerID">
+      <DataType>bigint|0s</DataType>
+      <NotNull>1</NotNull>
+      <Position>1</Position>
+      <SequenceIdentity>null</SequenceIdentity>
+    </column>
+    <column id="324" parent="287" name="roomID">
+      <DataType>int|0s</DataType>
+      <NotNull>1</NotNull>
+      <Position>2</Position>
+    </column>
+    <column id="325" parent="287" name="seatID">
+      <DataType>int|0s</DataType>
+      <NotNull>1</NotNull>
+      <Position>3</Position>
+    </column>
+    <column id="326" parent="287" name="date">
+      <DataType>varchar(50)|0s</DataType>
+      <NotNull>1</NotNull>
+      <Position>4</Position>
+    </column>
+    <column id="327" parent="287" name="state">
+      <DataType>int|0s</DataType>
+      <NotNull>1</NotNull>
+      <Position>5</Position>
+    </column>
+    <foreign-key id="328" parent="287" name="observation_ibfk_1">
+      <ColNames>roomID</ColNames>
+      <RefColNames>roomID</RefColNames>
+      <RefTableName>room</RefTableName>
+    </foreign-key>
+    <foreign-key id="329" parent="287" name="observation_ibfk_2">
+      <ColNames>seatID</ColNames>
+      <RefColNames>seatID</RefColNames>
+      <RefTableName>seat</RefTableName>
+    </foreign-key>
+    <index id="330" parent="287" name="roomID">
+      <ColNames>roomID</ColNames>
+      <Type>btree</Type>
+    </index>
+    <index id="331" parent="287" name="seatID">
+      <ColNames>seatID</ColNames>
+      <Type>btree</Type>
+    </index>
+    <key id="332" parent="287" name="PRIMARY">
+      <ColNames>observerID</ColNames>
+      <NameSurrogate>1</NameSurrogate>
+      <Primary>1</Primary>
+    </key>
+    <column id="333" parent="288" name="roomID">
+      <DataType>int|0s</DataType>
+      <NotNull>1</NotNull>
+      <Position>1</Position>
+      <SequenceIdentity>null</SequenceIdentity>
+    </column>
+    <column id="334" parent="288" name="roomName">
+      <DataType>varchar(30)|0s</DataType>
+      <NotNull>1</NotNull>
+      <Position>2</Position>
+    </column>
+    <key id="335" parent="288" name="PRIMARY">
+      <ColNames>roomID</ColNames>
+      <NameSurrogate>1</NameSurrogate>
+      <Primary>1</Primary>
+    </key>
+    <column id="336" parent="289" name="seatID">
+      <DataType>int|0s</DataType>
+      <NotNull>1</NotNull>
+      <Position>1</Position>
+      <SequenceIdentity>null</SequenceIdentity>
+    </column>
+    <column id="337" parent="289" name="roomID">
+      <DataType>int|0s</DataType>
+      <NotNull>1</NotNull>
+      <Position>2</Position>
+    </column>
+    <column id="338" parent="289" name="x">
+      <DataType>int|0s</DataType>
+      <NotNull>1</NotNull>
+      <Position>3</Position>
+    </column>
+    <column id="339" parent="289" name="y">
+      <DataType>int|0s</DataType>
+      <NotNull>1</NotNull>
+      <Position>4</Position>
+    </column>
+    <column id="340" parent="289" name="width">
+      <DataType>int|0s</DataType>
+      <NotNull>1</NotNull>
+      <Position>5</Position>
+    </column>
+    <column id="341" parent="289" name="height">
+      <DataType>int|0s</DataType>
+      <NotNull>1</NotNull>
+      <Position>6</Position>
+    </column>
+    <foreign-key id="342" parent="289" name="seat_ibfk_1">
+      <ColNames>roomID</ColNames>
+      <RefColNames>roomID</RefColNames>
+      <RefTableName>room</RefTableName>
+    </foreign-key>
+    <index id="343" parent="289" name="roomID">
+      <ColNames>roomID</ColNames>
+      <Type>btree</Type>
+    </index>
+    <key id="344" parent="289" name="PRIMARY">
+      <ColNames>seatID</ColNames>
+      <NameSurrogate>1</NameSurrogate>
+      <Primary>1</Primary>
+    </key>
+    <column id="345" parent="290" name="userID">
       <DataType>varchar(10)|0s</DataType>
       <NotNull>1</NotNull>
       <Position>1</Position>
     </column>
-    <column id="321" parent="287" name="userPW">
+    <column id="346" parent="290" name="userPW">
       <DataType>varchar(20)|0s</DataType>
       <NotNull>1</NotNull>
       <Position>2</Position>
     </column>
-    <column id="322" parent="287" name="salt">
+    <column id="347" parent="290" name="salt">
       <DataType>varchar(10)|0s</DataType>
       <NotNull>1</NotNull>
       <Position>3</Position>
     </column>
-    <column id="323" parent="287" name="nickname">
+    <column id="348" parent="290" name="nickname">
       <DataType>varchar(10)|0s</DataType>
       <NotNull>1</NotNull>
       <Position>4</Position>
     </column>
-    <key id="324" parent="287" name="PRIMARY">
+    <key id="349" parent="290" name="PRIMARY">
       <ColNames>userID</ColNames>
       <NameSurrogate>1</NameSurrogate>
       <Primary>1</Primary>

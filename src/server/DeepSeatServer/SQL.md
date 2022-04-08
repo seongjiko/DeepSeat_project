@@ -97,6 +97,6 @@ create table observation(
     date varchar (50) not null,
     state integer not null,
     foreign key (roomID) references room (roomID),
-    foreign key (seatID) references seat (seatsID)
+    foreign key (seatID) references seat (seatID)
 )
 ```

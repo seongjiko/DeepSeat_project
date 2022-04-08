@@ -4,10 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="765bfd40-a8f6-4922-8315-d987ccc78e6f" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/server/DeepSeatServer/src/main/kotlin/com/deepseat/server/DeepSeatServer/model/Observation.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/server/DeepSeatServer/src/main/kotlin/com/deepseat/server/DeepSeatServer/model/Room.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/server/DeepSeatServer/src/main/kotlin/com/deepseat/server/DeepSeatServer/model/Seats.kt" afterDir="false" />
+    <list default="true" id="765bfd40-a8f6-4922-8315-d987ccc78e6f" name="Changes" comment="seat sql &amp; class 작성">
+      <change afterPath="$PROJECT_DIR$/src/server/DeepSeatServer/src/main/kotlin/com/deepseat/server/DeepSeatServer/dao/ObservationDao.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/server/DeepSeatServer/src/main/kotlin/com/deepseat/server/DeepSeatServer/dao/RoomDao.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/server/DeepSeatServer/src/main/kotlin/com/deepseat/server/DeepSeatServer/dao/SeatDao.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/b893594a-dc8f-4eab-b1ff-3a93753380d5.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/b893594a-dc8f-4eab-b1ff-3a93753380d5.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/server/DeepSeatServer/SQL.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/server/DeepSeatServer/SQL.md" afterDir="false" />
     </list>
     <list id="67dba895-4037-4cbb-b530-ce4c3b14cc49" name="Changes by soc06212" comment="" />
@@ -55,6 +57,7 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="UPDATE_TYPE" value="REBASE" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -103,7 +106,17 @@
       <workItem from="1648887699432" duration="3003000" />
       <workItem from="1649179840004" duration="694000" />
       <workItem from="1649313630374" duration="4762000" />
+      <workItem from="1649423737945" duration="1577000" />
+      <workItem from="1649425529460" duration="2890000" />
     </task>
+    <task id="LOCAL-00001" summary="seat sql &amp; class 작성">
+      <created>1649321377959</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1649321377959</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -119,5 +132,9 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="seat sql &amp; class 작성" />
+    <option name="LAST_COMMIT_MESSAGE" value="seat sql &amp; class 작성" />
   </component>
 </project>
