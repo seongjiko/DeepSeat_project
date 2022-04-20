@@ -1,44 +1,85 @@
 package com.deepseat.server.DeepSeatServer.controller
 
 import com.deepseat.server.DeepSeatServer.dao.CommentDao
-import com.deepseat.server.DeepSeatServer.model.Comment
-import org.springframework.stereotype.Controller
-import org.springframework.web.bind.annotation.DeleteMapping
-import org.springframework.web.bind.annotation.GetMapping
-import org.springframework.web.bind.annotation.PathVariable
-import org.springframework.web.bind.annotation.PostMapping
-import org.springframework.web.bind.annotation.PutMapping
-import org.springframework.web.bind.annotation.RequestParam
-import org.springframework.web.bind.annotation.ResponseBody
+import com.deepseat.server.DeepSeatServer.error.Errors
+import com.deepseat.server.DeepSeatServer.session.SessionConstants
+import com.deepseat.server.DeepSeatServer.vo.Comment
+import com.deepseat.server.DeepSeatServer.vo.User
+import com.google.gson.Gson
+import org.springframework.beans.factory.annotation.Autowired
+import org.springframework.web.bind.annotation.*
+import javax.servlet.http.HttpServletRequest
 
-@Controller
+@RestController
 class CommentController {
 
-    @PostMapping("/{roomID}/{seatID}/{docID}")
-    fun addComment(@PathVariable("roomID") roomID: Int, @PathVariable("seatID") seatID: Int, @PathVariable("docID") docID: Int, @RequestParam content: String) {
-        val commentDao = CommentDao()
-        val comment = Comment(0, "", docID, content, "", false)
-        commentDao.add(comment)
+    @Autowired
+    private lateinit var commentDao: CommentDao
+
+    @PostMapping("/{docID}")
+    fun addComment(
+        request: HttpServletRequest,
+        @PathVariable("docID") docID: Int,
+        @RequestParam content: String
+    ): String {
+        val user: User
+        try {
+            user = request.getAttribute(SessionConstants.KEY_USER) as User
+        } catch (e: Exception) {
+            e.printStackTrace()
+            return Gson().toJson(Errors.Companion.UserError.notSignedIn)
+        }
+
+        val comment = Comment(0, user.userID, docID, content, "", false)
+        return if (commentDao.add(comment)) Gson().toJson(Errors.success)
+        else Gson().toJson(Errors.Companion.DatabaseError.dbInsertFailure)
     }
 
-    @ResponseBody
-    @GetMapping("/{roomID}/{seatID}/{docID}")
-    fun getCommentList(@PathVariable("roomID") roomID: Int, @PathVariable("seatID") seatID: Int, @PathVariable("docID") docID: Int): Array<Comment> {
-        val commentDao = CommentDao()
-        return commentDao.getList(roomID, seatID, docID)
+    @GetMapping("/{docID}")
+    fun getCommentList(@PathVariable("docID") docID: Int): String {
+        return Gson().toJson(commentDao.getList(docID))
     }
 
-    @DeleteMapping("/{roomID}/{seatID}/{docID}/{commentID}")
-    fun deleteComment(@PathVariable("roomID") roomID: Int, @PathVariable("seatID") seatID: Int, @PathVariable("docID") docID: Int, @PathVariable("commentID") commentID: Int) {
-        val commentDao = CommentDao()
-        commentDao.delete(roomID, seatID, docID, commentID)
+    @DeleteMapping("/{commentID}")
+    fun deleteComment(request: HttpServletRequest, @PathVariable("commentID") commentID: Int): String {
+        val user: User
+        try {
+            user = request.getAttribute(SessionConstants.KEY_USER) as User
+        } catch (e: Exception) {
+            e.printStackTrace()
+            return Gson().toJson(Errors.Companion.UserError.notSignedIn)
+        }
+
+        val comment = commentDao.get(commentID) ?: return Gson().toJson(Errors.Companion.DatabaseError.notExists)
+
+        if (user.userID != comment.userID) return Gson().toJson(Errors.Companion.UserError.notAuthorized)
+
+        return if (commentDao.delete(commentID)) Gson().toJson(Errors.success)
+        else Gson().toJson(Errors.Companion.DatabaseError.dbDeleteFailure)
     }
 
-    @PutMapping("/{roomID}/{seatID}/{docID}/{commentID}")
-    fun editComment(@PathVariable("roomID") roomID: Int, @PathVariable("seatID") seatID: Int, @PathVariable("docID") docID: Int, @PathVariable("commentID") commentID: Int, @RequestParam content: String) {
-        val commentDao = CommentDao()
-        val comment = Comment(commentID, "", docID, content, "", true)
-        commentDao.update(comment)
+    @PutMapping("/{docID}/{commentID}")
+    fun editComment(
+        request: HttpServletRequest,
+        @PathVariable("commentID") commentID: Int,
+        @RequestParam content: String
+    ): String {
+        val user: User
+        try {
+            user = request.getAttribute(SessionConstants.KEY_USER) as User
+        } catch (e: Exception) {
+            e.printStackTrace()
+            return Gson().toJson(Errors.Companion.UserError.notSignedIn)
+        }
+
+        val comment = commentDao.get(commentID) ?: return Gson().toJson(Errors.Companion.DatabaseError.notExists)
+
+        if (user.userID != comment.userID) return Gson().toJson(Errors.Companion.UserError.notAuthorized)
+
+        comment.content = content
+
+        return if (commentDao.update(comment)) Gson().toJson(Errors.success)
+        else Gson().toJson(Errors.Companion.DatabaseError.dbUpdateFailure)
     }
 
 }

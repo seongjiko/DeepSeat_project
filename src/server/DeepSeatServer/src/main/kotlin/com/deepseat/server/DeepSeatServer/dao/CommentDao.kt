@@ -1,12 +1,16 @@
 package com.deepseat.server.DeepSeatServer.dao
 
 import com.deepseat.server.DeepSeatServer.config.DBConfig
-import com.deepseat.server.DeepSeatServer.model.Comment
+import com.deepseat.server.DeepSeatServer.vo.Comment
+import org.springframework.beans.factory.annotation.Autowired
+import org.springframework.stereotype.Repository
 import java.sql.DriverManager
 import java.sql.SQLException
 
+@Repository
 class CommentDao {
 
+    @Autowired
     private val dbConfig = DBConfig.getInstance()
 
     @Throws(ClassNotFoundException::class, SQLException::class)
@@ -59,15 +63,13 @@ class CommentDao {
     }
 
     @Throws(ClassNotFoundException::class, SQLException::class)
-    fun getList(roomID: Int, seatID: Int, docID: Int): Array<Comment> {
+    fun getList(docID: Int): Array<Comment> {
         Class.forName(dbConfig.driverClassName)
 
         val connection = DriverManager.getConnection(dbConfig.url, dbConfig.username, dbConfig.password)
-        val ps = connection.prepareStatement("SELECT * FROM comment WHERE roomID = ?, seatID = ?, docID = ?")
+        val ps = connection.prepareStatement("SELECT * FROM comment WHERE docID = ?")
 
-        ps.setInt(1, roomID)
-        ps.setInt(2, seatID)
-        ps.setInt(3, docID)
+        ps.setInt(1, docID)
 
         val rs = ps.executeQuery()
 
@@ -91,16 +93,13 @@ class CommentDao {
     }
 
     @Throws(ClassNotFoundException::class, SQLException::class)
-    fun delete(roomID: Int, seatID: Int, docID: Int, commentID: Int): Boolean {
+    fun delete(commentID: Int): Boolean {
         Class.forName(dbConfig.driverClassName)
 
         val connection = DriverManager.getConnection(dbConfig.url, dbConfig.username, dbConfig.password)
-        val ps = connection.prepareStatement("DELETE FROM comment WHERE roomID = ?, seatID = ?, docID = ?, commentID = ?")
+        val ps = connection.prepareStatement("DELETE FROM comment WHERE commentID = ?")
 
-        ps.setInt(1, roomID)
-        ps.setInt(2, seatID)
-        ps.setInt(3, docID)
-        ps.setInt(4, commentID)
+        ps.setInt(1, commentID)
 
         val result = ps.executeUpdate()
 
