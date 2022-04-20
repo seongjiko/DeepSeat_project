@@ -11,7 +11,7 @@ import java.sql.SQLException
 class CommentDao {
 
     @Autowired
-    private val dbConfig = DBConfig.getInstance()
+    private lateinit var dbConfig: DBConfig
 
     @Throws(ClassNotFoundException::class, SQLException::class)
     fun add(comment: Comment): Boolean {
