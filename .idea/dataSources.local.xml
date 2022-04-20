@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="dataSourceStorageLocal" created-in="IU-213.6777.52">
-    <data-source name="MariaDB - @localhost" uuid="b893594a-dc8f-4eab-b1ff-3a93753380d5">
-      <database-info product="MySQL" version="8.0.28" jdbc-version="4.2" driver-name="MariaDB Connector/J" driver-version="2.7.3" dbms="MYSQL" exact-version="8.0.28" exact-driver-version="2.7">
+  <component name="dataSourceStorageLocal" created-in="IU-221.5080.210">
+    <data-source name="@localhost" uuid="de09092e-d1bc-4126-8e81-ac2d88eb8651">
+      <database-info product="MariaDB" version="10.7.3-MariaDB" jdbc-version="4.2" driver-name="MariaDB Connector/J" driver-version="2.7.3" dbms="MARIADB" exact-version="10.7.3" exact-driver-version="2.7">
         <extra-name-characters>#@</extra-name-characters>
         <identifier-quote-string>`</identifier-quote-string>
       </database-info>
@@ -11,7 +11,10 @@
       <user-name>root</user-name>
       <schema-mapping>
         <introspection-scope>
-          <node kind="schema" qname="DeepSeat" />
+          <node kind="schema">
+            <name qname="@" />
+            <name qname="DeepSeat" />
+          </node>
         </introspection-scope>
       </schema-mapping>
     </data-source>
