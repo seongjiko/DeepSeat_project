@@ -1,14 +1,18 @@
 package com.deepseat.server.DeepSeatServer.dao
 
 import com.deepseat.server.DeepSeatServer.config.DBConfig
-import com.deepseat.server.DeepSeatServer.model.User
 import com.deepseat.server.DeepSeatServer.tool.SaltGenerator
+import com.deepseat.server.DeepSeatServer.vo.User
+import org.springframework.beans.factory.annotation.Autowired
+import org.springframework.stereotype.Repository
 import java.sql.DriverManager
 import java.sql.SQLException
 
+@Repository
 class UserDao {
 
-    private val dbConfig = DBConfig.getInstance()
+    @Autowired
+    private lateinit var dbConfig: DBConfig
 
     @Throws(ClassNotFoundException::class, SQLException::class)
     fun add(user: User): Boolean {
