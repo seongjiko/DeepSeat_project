@@ -1,4 +1,4 @@
-package com.deepseat.server.DeepSeatServer.model
+package com.deepseat.server.DeepSeatServer.vo
 
 class User(userID: String, userPW: String, salt: String, nickname: String) {
     var userID: String

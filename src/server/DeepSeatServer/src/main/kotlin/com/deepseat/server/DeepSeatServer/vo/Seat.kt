@@ -1,4 +1,4 @@
-package com.deepseat.server.DeepSeatServer.model
+package com.deepseat.server.DeepSeatServer.vo
 
 class Seat(seatID: Int, roomID: Int, x: Int, y: Int, width: Int, height: Int) {
     var seatID: Int

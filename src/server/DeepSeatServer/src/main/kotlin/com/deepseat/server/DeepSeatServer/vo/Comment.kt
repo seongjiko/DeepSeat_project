@@ -1,4 +1,4 @@
-package com.deepseat.server.DeepSeatServer.model
+package com.deepseat.server.DeepSeatServer.vo
 
 class Comment(commentID: Int, userID: String, docID: Int, content: String, wrote: String, edited: Boolean) {
     var commentID: Int

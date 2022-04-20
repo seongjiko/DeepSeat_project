@@ -1,4 +1,4 @@
-package com.deepseat.server.DeepSeatServer.model
+package com.deepseat.server.DeepSeatServer.vo
 
 class Document(docID: Int, userID: String, roomID: Int, seatID: Int,content: String, wrote: String, edited: Boolean) {
     var docID: Int

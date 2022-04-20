@@ -1,4 +1,4 @@
-package com.deepseat.server.DeepSeatServer.model
+package com.deepseat.server.DeepSeatServer.vo
 
 class Observation(observationID: Int, roomID: Int, seatID: Int, date: String, state: Int) {
     var observationID: Int
