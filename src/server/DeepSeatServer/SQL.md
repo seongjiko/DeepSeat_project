@@ -65,7 +65,7 @@ create table liked(
     foreign key (userID) references user (userID),
     foreign key (docID) references document(docID),
     foreign key (commentID) references comment (commentID)
-)
+);
 ```
 
 ### Seat
@@ -78,7 +78,7 @@ create table seat(
     width integer not null,
     height integer not null,
     foreign key (roomID) references room (roomID)
-)
+);
 ```
 
 ### Room
@@ -86,7 +86,7 @@ create table seat(
 create table room(
     roomID integer not null primary key auto_increment,
     roomName varchar (30) not null
-)
+);
 ```
 ### Observation
 ```sql
@@ -98,5 +98,5 @@ create table observation(
     state integer not null,
     foreign key (roomID) references room (roomID),
     foreign key (seatID) references seat (seatID)
-)
+);
 ```
