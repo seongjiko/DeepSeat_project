@@ -4,26 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="765bfd40-a8f6-4922-8315-d987ccc78e6f" name="Changes" comment="Fix: Bean에 등록되도록 annotation 추가, DBConfig를 싱글톤 생성에서 자동으로 인젝트 되도록 변경">
+    <list default="true" id="765bfd40-a8f6-4922-8315-d987ccc78e6f" name="Changes" comment="Feat: Session에서 Key로 사용할 상수 정리">
       <change afterPath="$PROJECT_DIR$/src/server/DeepSeatServer/src/main/kotlin/com/deepseat/server/DeepSeatServer/controller/UserController.kt" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/server/DeepSeatServer/src/main/kotlin/com/deepseat/server/DeepSeatServer/error/Error.kt" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/server/DeepSeatServer/src/main/kotlin/com/deepseat/server/DeepSeatServer/error/Errors.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/server/DeepSeatServer/src/main/kotlin/com/deepseat/server/DeepSeatServer/session/SessionConstants.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/b893594a-dc8f-4eab-b1ff-3a93753380d5.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/b893594a-dc8f-4eab-b1ff-3a93753380d5/storage_v2/_src_/schema/information_schema.FNRwLQ.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/b893594a-dc8f-4eab-b1ff-3a93753380d5/storage_v2/_src_/schema/mysql.osA4Bg.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/b893594a-dc8f-4eab-b1ff-3a93753380d5/storage_v2/_src_/schema/performance_schema.kIw0nw.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/b893594a-dc8f-4eab-b1ff-3a93753380d5/storage_v2/_src_/schema/sys.zb4BAA.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sqldialects.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/server/DeepSeatServer/.gradle/7.4.1/checksums/checksums.lock" beforeDir="false" afterPath="$PROJECT_DIR$/src/server/DeepSeatServer/.gradle/7.4.1/checksums/checksums.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/server/DeepSeatServer/.gradle/7.4.1/checksums/md5-checksums.bin" beforeDir="false" afterPath="$PROJECT_DIR$/src/server/DeepSeatServer/.gradle/7.4.1/checksums/md5-checksums.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/server/DeepSeatServer/.gradle/7.4.1/checksums/sha1-checksums.bin" beforeDir="false" afterPath="$PROJECT_DIR$/src/server/DeepSeatServer/.gradle/7.4.1/checksums/sha1-checksums.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/server/DeepSeatServer/.gradle/7.4.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/src/server/DeepSeatServer/.gradle/7.4.1/executionHistory/executionHistory.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/server/DeepSeatServer/.gradle/7.4.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/src/server/DeepSeatServer/.gradle/7.4.1/fileHashes/fileHashes.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/server/DeepSeatServer/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/src/server/DeepSeatServer/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/server/DeepSeatServer/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/src/server/DeepSeatServer/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/server/DeepSeatServer/src/main/kotlin/com/deepseat/server/DeepSeatServer/config/DBConfig.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/server/DeepSeatServer/src/main/kotlin/com/deepseat/server/DeepSeatServer/config/DBConfig.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/server/DeepSeatServer/src/main/kotlin/com/deepseat/server/DeepSeatServer/controller/CommentController.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/server/DeepSeatServer/src/main/kotlin/com/deepseat/server/DeepSeatServer/controller/CommentController.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/server/DeepSeatServer/src/main/kotlin/com/deepseat/server/DeepSeatServer/controller/DocumentController.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/server/DeepSeatServer/src/main/kotlin/com/deepseat/server/DeepSeatServer/controller/DocumentController.kt" afterDir="false" />
@@ -158,7 +142,7 @@
       <workItem from="1649106468989" duration="1616000" />
       <workItem from="1649198148511" duration="1351000" />
       <workItem from="1649288859877" duration="4993000" />
-      <workItem from="1650452111164" duration="13012000" />
+      <workItem from="1650452111164" duration="13474000" />
     </task>
     <task id="LOCAL-00001" summary="Refactor: package 수정">
       <created>1650468855000</created>
@@ -181,7 +165,21 @@
       <option name="project" value="LOCAL" />
       <updated>1650469087142</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Chore: 프로젝트 환경 업데이트">
+      <created>1650469375691</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1650469375691</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Feat: Session에서 Key로 사용할 상수 정리">
+      <created>1650469436971</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1650469436971</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -202,6 +200,8 @@
     <MESSAGE value="Refactor: package 수정" />
     <MESSAGE value="Feat: DB 설정을 빠르게 할 수 있도록 sql 파일 추가, 일부 SQL 문법 수정" />
     <MESSAGE value="Fix: Bean에 등록되도록 annotation 추가, DBConfig를 싱글톤 생성에서 자동으로 인젝트 되도록 변경" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fix: Bean에 등록되도록 annotation 추가, DBConfig를 싱글톤 생성에서 자동으로 인젝트 되도록 변경" />
+    <MESSAGE value="Chore: 프로젝트 환경 업데이트" />
+    <MESSAGE value="Feat: Session에서 Key로 사용할 상수 정리" />
+    <option name="LAST_COMMIT_MESSAGE" value="Feat: Session에서 Key로 사용할 상수 정리" />
   </component>
 </project>
