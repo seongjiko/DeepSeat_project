@@ -104,9 +104,7 @@ gradle-app.setting
 
 # Eclipse Gradle plugin generated files
 # Eclipse Core
-.project
 # JDT-specific (Eclipse Java Development Tools)
-.classpath
 
 ### Intellij ###
 # Covers JetBrains IDEs: IntelliJ, RubyMine, PhpStorm, AppCode, PyCharm, CLion, Android Studio, WebStorm and Rider
@@ -220,5 +218,4 @@ src/server/DeepSeatServer/.idea/codestream.xml
 /.idea/gradle.xml
 /.idea/jarRepositories.xml
 /.idea/DeepSeat_project.iml
-/src/server/DeepSeatServer/.gradle/buildOutputCleanup/
 /src/server/DeepSeatServer/.gradle/
