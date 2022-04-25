@@ -220,3 +220,5 @@ src/server/DeepSeatServer/.idea/codestream.xml
 /.idea/gradle.xml
 /.idea/jarRepositories.xml
 /.idea/DeepSeat_project.iml
+/src/server/DeepSeatServer/.gradle/buildOutputCleanup/
+/src/server/DeepSeatServer/.gradle/
