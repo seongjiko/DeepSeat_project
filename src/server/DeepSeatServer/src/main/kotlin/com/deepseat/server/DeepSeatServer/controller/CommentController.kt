@@ -16,7 +16,7 @@ class CommentController {
     @Autowired
     private lateinit var commentDao: CommentDao
 
-    @PostMapping("/{docID}")
+    @PostMapping("/comment/{docID}")
     fun addComment(
         request: HttpServletRequest,
         @PathVariable("docID") docID: Int,
@@ -35,12 +35,12 @@ class CommentController {
         else Gson().toJson(Errors.Companion.DatabaseError.dbInsertFailure)
     }
 
-    @GetMapping("/{docID}")
+    @GetMapping("/comment/{docID}")
     fun getCommentList(@PathVariable("docID") docID: Int): String {
         return Gson().toJson(commentDao.getList(docID))
     }
 
-    @DeleteMapping("/{commentID}")
+    @DeleteMapping("/comment/{commentID}")
     fun deleteComment(request: HttpServletRequest, @PathVariable("commentID") commentID: Int): String {
         val user: User
         try {
@@ -58,7 +58,7 @@ class CommentController {
         else Gson().toJson(Errors.Companion.DatabaseError.dbDeleteFailure)
     }
 
-    @PutMapping("/{docID}/{commentID}")
+    @PutMapping("/comment/{docID}/{commentID}")
     fun editComment(
         request: HttpServletRequest,
         @PathVariable("commentID") commentID: Int,

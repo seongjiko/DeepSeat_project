@@ -1,14 +1,17 @@
 package com.deepseat.server.DeepSeatServer.dao
 
 import com.deepseat.server.DeepSeatServer.config.DBConfig
-import com.deepseat.server.DeepSeatServer.model.Observation
-import com.deepseat.server.DeepSeatServer.model.Room
-import com.deepseat.server.DeepSeatServer.model.Seat
+import com.deepseat.server.DeepSeatServer.vo.Observation
+import org.springframework.beans.factory.annotation.Autowired
+import org.springframework.stereotype.Repository
 import java.sql.DriverManager
 import java.sql.SQLException
 
+@Repository
 class ObservationDao {
-    private val dbConfig = DBConfig.getInstance()
+
+    @Autowired
+    private lateinit var dbConfig: DBConfig
 
     @Throws(ClassNotFoundException::class, SQLException::class)
     fun add(observation: Observation): Boolean{
@@ -34,7 +37,7 @@ class ObservationDao {
         Class.forName(dbConfig.driverClassName)
 
         val connection = DriverManager.getConnection(dbConfig.url, dbConfig.username, dbConfig.password)
-        val ps = connection.prepareStatement("SELECT * FROM seat WHERE seatID = ? AND roomID = ? AND date = ?")
+        val ps = connection.prepareStatement("SELECT * FROM observation WHERE seatID = ? AND roomID = ? AND date = ?")
 
         ps.setInt(1, seatID)
         ps.setInt(2,roomID)

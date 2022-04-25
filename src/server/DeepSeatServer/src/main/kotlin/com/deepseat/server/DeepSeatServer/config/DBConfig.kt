@@ -1,34 +1,21 @@
 package com.deepseat.server.DeepSeatServer.config
 
-import lombok.Getter
 import org.springframework.beans.factory.annotation.Value
 import org.springframework.stereotype.Component
 
-@Getter
 @Component
 class DBConfig {
 
-    companion object {
-        private var instance: DBConfig? = null
-
-        fun getInstance(): DBConfig {
-            if (instance == null) {
-                instance = DBConfig()
-            }
-            return instance as DBConfig
-        }
-    }
-
     @Value("\${spring.datasource.url}")
-    lateinit var url: String
+    val url: String? = null
 
     @Value("\${spring.datasource.driver-class-name}")
-    lateinit var driverClassName: String
+    val driverClassName: String? = null
 
     @Value("\${spring.datasource.username}")
-    lateinit var username: String
+    val username: String? = null
 
     @Value("\${spring.datasource.password}")
-    lateinit var password: String
+    val password: String? = null
 
 }

@@ -1,12 +1,17 @@
 package com.deepseat.server.DeepSeatServer.dao
 
 import com.deepseat.server.DeepSeatServer.config.DBConfig
-import com.deepseat.server.DeepSeatServer.model.Seat
+import com.deepseat.server.DeepSeatServer.vo.Seat
+import org.springframework.beans.factory.annotation.Autowired
+import org.springframework.stereotype.Repository
 import java.sql.DriverManager
 import java.sql.SQLException
 
+@Repository
 class SeatDao {
-    private val dbConfig = DBConfig.getInstance()
+
+    @Autowired
+    private lateinit var dbConfig: DBConfig
 
     @Throws(ClassNotFoundException::class, SQLException::class)
     fun add(seat: Seat): Boolean{

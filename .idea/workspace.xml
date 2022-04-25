@@ -4,8 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="765bfd40-a8f6-4922-8315-d987ccc78e6f" name="Changes" comment="Feat: Comment 작업에서 Session을 사용하도록 수정">
+    <list default="true" id="765bfd40-a8f6-4922-8315-d987ccc78e6f" name="Changes" comment="Doc: gitignore 업데이트">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/server/DeepSeatServer/.gradle/7.4.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/src/server/DeepSeatServer/.gradle/7.4.1/executionHistory/executionHistory.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/server/DeepSeatServer/.gradle/7.4.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/src/server/DeepSeatServer/.gradle/7.4.1/fileHashes/fileHashes.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/server/DeepSeatServer/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/src/server/DeepSeatServer/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/server/DeepSeatServer/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/src/server/DeepSeatServer/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/server/DeepSeatServer/src/main/kotlin/com/deepseat/server/DeepSeatServer/config/DBConfig.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/server/DeepSeatServer/src/main/kotlin/com/deepseat/server/DeepSeatServer/config/DBConfig.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/server/DeepSeatServer/src/main/kotlin/com/deepseat/server/DeepSeatServer/controller/CommentController.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/server/DeepSeatServer/src/main/kotlin/com/deepseat/server/DeepSeatServer/controller/CommentController.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/server/DeepSeatServer/src/main/kotlin/com/deepseat/server/DeepSeatServer/controller/DocumentController.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/server/DeepSeatServer/src/main/kotlin/com/deepseat/server/DeepSeatServer/controller/DocumentController.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/server/DeepSeatServer/src/main/kotlin/com/deepseat/server/DeepSeatServer/controller/LikedController.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/server/DeepSeatServer/src/main/kotlin/com/deepseat/server/DeepSeatServer/controller/LikedController.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/server/DeepSeatServer/src/main/kotlin/com/deepseat/server/DeepSeatServer/dao/DocumentDao.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/server/DeepSeatServer/src/main/kotlin/com/deepseat/server/DeepSeatServer/dao/DocumentDao.kt" afterDir="false" />
@@ -83,25 +90,25 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RequestMappingsPanelOrder0": "0",
-    "RequestMappingsPanelOrder1": "1",
-    "RequestMappingsPanelWidth0": "75",
-    "RequestMappingsPanelWidth1": "75",
-    "WebServerToolWindowFactoryState": "false",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Facets",
-    "project.structure.proportion": "0.15429688",
-    "project.structure.side.proportion": "0.24624278",
-    "spring.configuration.checksum": "25b258366465851620887937e86d94ae"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
+    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
+    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
+    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Facets&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15429688&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.24624278&quot;,
+    &quot;spring.configuration.checksum&quot;: &quot;25b258366465851620887937e86d94ae&quot;
   },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "mariadb"
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;mariadb&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RunManager">
     <configuration name="DeepSeatServerApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true">
       <module name="DeepSeatServer.main" />
@@ -136,7 +143,8 @@
       <workItem from="1649106468989" duration="1616000" />
       <workItem from="1649198148511" duration="1351000" />
       <workItem from="1649288859877" duration="4993000" />
-      <workItem from="1650452111164" duration="15330000" />
+      <workItem from="1650452111164" duration="16983000" />
+      <workItem from="1650858076725" duration="381000" />
     </task>
     <task id="LOCAL-00001" summary="Refactor: package 수정">
       <created>1650468855000</created>
@@ -194,7 +202,21 @@
       <option name="project" value="LOCAL" />
       <updated>1650471077044</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Feat: Comment 작업에서 Session을 사용하도록 수정">
+      <created>1650471965620</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1650471965620</updated>
+    </task>
+    <task id="LOCAL-00010" summary="Doc: gitignore 업데이트">
+      <created>1650858406838</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1650858406838</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -220,6 +242,7 @@
     <MESSAGE value="Feat: 서버 Error을 표시할 class 및 Error들을 모아놓은 Errors class 추가" />
     <MESSAGE value="Feat: 로그인 기능 구현" />
     <MESSAGE value="Feat: Comment 작업에서 Session을 사용하도록 수정" />
-    <option name="LAST_COMMIT_MESSAGE" value="Feat: Comment 작업에서 Session을 사용하도록 수정" />
+    <MESSAGE value="Doc: gitignore 업데이트" />
+    <option name="LAST_COMMIT_MESSAGE" value="Doc: gitignore 업데이트" />
   </component>
 </project>

@@ -1,16 +1,20 @@
 package com.deepseat.server.DeepSeatServer.dao
 
 import com.deepseat.server.DeepSeatServer.config.DBConfig
-import com.deepseat.server.DeepSeatServer.model.Document
+import com.deepseat.server.DeepSeatServer.vo.Document
+import org.springframework.beans.factory.annotation.Autowired
+import org.springframework.stereotype.Repository
 import java.sql.DriverManager
 import java.sql.SQLException
 
+@Repository
 class DocumentDao {
 
-    private val dbConfig = DBConfig.getInstance()
+    @Autowired
+    private lateinit var dbConfig: DBConfig
 
     @Throws(ClassNotFoundException::class, SQLException::class)
-    fun add(document: Document): Int? {
+    fun add(document: Document): Boolean {
         Class.forName(dbConfig.driverClassName)
 
         val connection = DriverManager.getConnection(dbConfig.url, dbConfig.username, dbConfig.password)
@@ -26,19 +30,7 @@ class DocumentDao {
         ps.close()
         connection.close()
 
-        val getPs = connection.prepareStatement("SELECT docID FROM document WHERE userID = ?, roomID = ?, seatID = ? DESC;")
-
-        ps.setString(1, document.userID)
-        ps.setInt(2, document.roomID)
-        ps.setInt(3, document.seatID)
-
-        val getResult = getPs.executeQuery()
-
-        return if (getResult.next()) {
-            getResult.getInt("docID")
-        } else {
-            null
-        }
+        return result > 0
     }
 
     @Throws(ClassNotFoundException::class, SQLException::class)
