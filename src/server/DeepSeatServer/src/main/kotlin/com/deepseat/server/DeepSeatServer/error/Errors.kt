@@ -11,10 +11,10 @@ abstract class Errors {
             companion object {
                 // DB Insert Failed
                 val dbInsertFailure = Error(2001, "Database Insertion Failed")
-                val dbDeleteFailure = Error(2001, "Database Deletion Failed")
-                val dbSelectFailure = Error(2001, "Database Selection Failed")
-                val dbUpdateFailure = Error(2001, "Database Update Failed")
-                val notExists = Error(2001, "Not Exists")
+                val dbDeleteFailure = Error(2002, "Database Deletion Failed")
+                val dbSelectFailure = Error(2003, "Database Selection Failed")
+                val dbUpdateFailure = Error(2004, "Database Update Failed")
+                val notExists = Error(2005, "Not Exists")
             }
         }
 

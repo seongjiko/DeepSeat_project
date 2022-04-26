@@ -24,7 +24,7 @@ class CommentController {
     ): String {
         val user: User
         try {
-            user = request.getAttribute(SessionConstants.KEY_USER) as User
+            user = request.session.getAttribute(SessionConstants.KEY_USER) as User
         } catch (e: Exception) {
             e.printStackTrace()
             return Gson().toJson(Errors.Companion.UserError.notSignedIn)
@@ -44,7 +44,7 @@ class CommentController {
     fun deleteComment(request: HttpServletRequest, @PathVariable("commentID") commentID: Int): String {
         val user: User
         try {
-            user = request.getAttribute(SessionConstants.KEY_USER) as User
+            user = request.session.getAttribute(SessionConstants.KEY_USER) as User
         } catch (e: Exception) {
             e.printStackTrace()
             return Gson().toJson(Errors.Companion.UserError.notSignedIn)
@@ -66,7 +66,7 @@ class CommentController {
     ): String {
         val user: User
         try {
-            user = request.getAttribute(SessionConstants.KEY_USER) as User
+            user = request.session.getAttribute(SessionConstants.KEY_USER) as User
         } catch (e: Exception) {
             e.printStackTrace()
             return Gson().toJson(Errors.Companion.UserError.notSignedIn)

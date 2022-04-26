@@ -33,6 +33,8 @@ class UserController {
         }
 
         val salt = SaltGenerator.generate()
+
+        println("userPW: " + salt)
         val user = User(userID, PasswordTool.encryptPassword(userPW, salt), salt, nickname)
 
         val success = userDao.add(user)
@@ -50,7 +52,8 @@ class UserController {
     fun login(request: HttpServletRequest, @RequestParam userID: String, @RequestParam userPW: String): String {
         val user = userDao.get(userID) ?: return Gson().toJson(Errors.Companion.UserError.notRegistered)
 
-        if (user.userPW != userPW) return Gson().toJson(Errors.Companion.UserError.wrongPassword)
+        if (user.userPW != PasswordTool.encryptPassword(userPW, user.salt))
+            return Gson().toJson(Errors.Companion.UserError.wrongPassword)
 
         val session = request.session
         session.setAttribute(SessionConstants.KEY_USER, user)

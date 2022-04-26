@@ -1,7 +1,6 @@
 package com.deepseat.server.DeepSeatServer.dao
 
 import com.deepseat.server.DeepSeatServer.config.DBConfig
-import com.deepseat.server.DeepSeatServer.tool.SaltGenerator
 import com.deepseat.server.DeepSeatServer.vo.User
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Repository
@@ -23,7 +22,7 @@ class UserDao {
 
         ps.setString(1, user.userID)
         ps.setString(2, user.userPW)
-        ps.setString(3, SaltGenerator.generate())
+        ps.setString(3, user.salt)
         ps.setString(4, user.nickname)
 
         val result = ps.executeUpdate() > 0

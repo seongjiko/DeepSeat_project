@@ -24,7 +24,7 @@ class DocumentController {
         @RequestParam content: String
     ): String {
 
-        val user = (request.getAttribute(SessionConstants.KEY_USER) as? User)
+        val user = (request.session.getAttribute(SessionConstants.KEY_USER) as? User)
             ?: return Gson().toJson(Errors.Companion.UserError.notSignedIn)
 
         val document = Document(0, user.userID, roomID, seatID, content, "", false)
@@ -58,7 +58,7 @@ class DocumentController {
         @RequestParam content: String
     ): String {
 
-        val user = (request.getAttribute(SessionConstants.KEY_USER) as? User)
+        val user = (request.session.getAttribute(SessionConstants.KEY_USER) as? User)
             ?: return Gson().toJson(Errors.Companion.UserError.notSignedIn)
 
         val doc = documentDao.get(docID) ?: return Gson().toJson(Errors.Companion.DatabaseError.notExists)
@@ -79,7 +79,7 @@ class DocumentController {
         @PathVariable("docID") docID: Int
     ): String {
 
-        val user = (request.getAttribute(SessionConstants.KEY_USER) as? User)
+        val user = (request.session.getAttribute(SessionConstants.KEY_USER) as? User)
             ?: return Gson().toJson(Errors.Companion.UserError.notSignedIn)
 
         val doc = documentDao.get(docID) ?: return Gson().toJson(Errors.Companion.DatabaseError.notExists)
