@@ -33,8 +33,6 @@ class UserController {
         }
 
         val salt = SaltGenerator.generate()
-
-        println("userPW: " + salt)
         val user = User(userID, PasswordTool.encryptPassword(userPW, salt), salt, nickname)
 
         val success = userDao.add(user)
