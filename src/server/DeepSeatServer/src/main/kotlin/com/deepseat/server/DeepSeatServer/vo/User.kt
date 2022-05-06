@@ -1,15 +1,15 @@
 package com.deepseat.server.DeepSeatServer.vo
 
-class User(userID: String, userPW: String, salt: String, nickname: String) {
-    var userID: String
-    var userPW: String
-    var salt: String
-    var nickname: String
+import lombok.Getter
+import lombok.Setter
 
-    init{
-        this.userID = userID
-        this.userPW = userPW
-        this.salt = salt
-        this.nickname = nickname
-    }
-}
+@Getter
+@Setter
+class User(
+    var userID: String,
+    var userPW: String,
+    var salt: String,
+    var nickname: String,
+    var email: String,
+    var verified: Boolean = false
+)

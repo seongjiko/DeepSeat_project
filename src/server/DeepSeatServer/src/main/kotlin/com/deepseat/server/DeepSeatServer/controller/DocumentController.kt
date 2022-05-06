@@ -1,8 +1,9 @@
 package com.deepseat.server.DeepSeatServer.controller
 
-import com.deepseat.server.DeepSeatServer.dao.DocumentDao
 import com.deepseat.server.DeepSeatServer.error.Errors
+import com.deepseat.server.DeepSeatServer.service.DocumentService
 import com.deepseat.server.DeepSeatServer.session.SessionConstants
+import com.deepseat.server.DeepSeatServer.tool.ResponseBodyBuilder
 import com.deepseat.server.DeepSeatServer.vo.Document
 import com.deepseat.server.DeepSeatServer.vo.User
 import com.google.gson.Gson
@@ -14,7 +15,7 @@ import javax.servlet.http.HttpServletRequest
 class DocumentController {
 
     @Autowired
-    private lateinit var documentDao: DocumentDao
+    private lateinit var documentService: DocumentService
 
     @PostMapping("/doc/{roomID}/{seatID}")
     fun writeDoc(
@@ -25,12 +26,12 @@ class DocumentController {
     ): String {
 
         val user = (request.session.getAttribute(SessionConstants.KEY_USER) as? User)
-            ?: return Gson().toJson(Errors.Companion.UserError.notSignedIn)
+            ?: return ResponseBodyBuilder<Void>(Errors.Companion.UserError.notSignedIn).toString()
 
         val document = Document(0, user.userID, roomID, seatID, content, "", false)
+        documentService.inertDocument(document)
 
-        return if (documentDao.add(document)) Gson().toJson(Errors.success)
-        else Gson().toJson(Errors.Companion.DatabaseError.dbInsertFailure)
+        return ResponseBodyBuilder<Void>().toString()
     }
 
     @GetMapping("/doc/{roomID}/{seatID}/{docID}")
@@ -39,14 +40,17 @@ class DocumentController {
         @PathVariable("seatID") seatID: Int,
         @PathVariable("docID") docID: Int
     ): String {
-        val document = documentDao.get(docID)
-        return Gson().toJson(document)
+        val document = documentService.getDocumentById(docID)
+            ?: return ResponseBodyBuilder<Void>(Errors.Companion.DatabaseError.notExists).toString()
+
+        return ResponseBodyBuilder<Document>().data(document).toString()
     }
 
     @GetMapping("/doc/{roomID}/{seatID}")
     fun getDocList(@PathVariable("roomID") roomID: Int, @PathVariable("seatID") seatID: Int): String {
-        val documentList = documentDao.getList()
-        return Gson().toJson(documentList)
+        val documentList = documentService.getDocumentsBySeatId(seatID)
+
+        return ResponseBodyBuilder<List<Document>>().data(documentList).toString()
     }
 
     @PutMapping("/doc/{roomID}/{seatID}/{docID}")
@@ -61,14 +65,16 @@ class DocumentController {
         val user = (request.session.getAttribute(SessionConstants.KEY_USER) as? User)
             ?: return Gson().toJson(Errors.Companion.UserError.notSignedIn)
 
-        val doc = documentDao.get(docID) ?: return Gson().toJson(Errors.Companion.DatabaseError.notExists)
+        val doc = documentService.getDocumentById(docID)
+            ?: return ResponseBodyBuilder<Void>(Errors.Companion.DatabaseError.notExists).toString()
 
-        if (user.userID != doc.userID) return Gson().toJson(Errors.Companion.UserError.notAuthorized)
+        if (user.userID != doc.userID)
+            return ResponseBodyBuilder<Void>(Errors.Companion.UserError.notAuthorized).toString()
 
         doc.content = content
+        documentService.updateDocument(doc)
 
-        return if (documentDao.update(doc)) Gson().toJson(Errors.success)
-        else Gson().toJson(Errors.Companion.DatabaseError.dbUpdateFailure)
+        return ResponseBodyBuilder<Void>().toString()
     }
 
     @DeleteMapping("/doc/{roomID}/{seatID}/{docID}")
@@ -82,12 +88,15 @@ class DocumentController {
         val user = (request.session.getAttribute(SessionConstants.KEY_USER) as? User)
             ?: return Gson().toJson(Errors.Companion.UserError.notSignedIn)
 
-        val doc = documentDao.get(docID) ?: return Gson().toJson(Errors.Companion.DatabaseError.notExists)
+        val doc = documentService.getDocumentById(docID)
+            ?: return ResponseBodyBuilder<Void>(Errors.Companion.DatabaseError.notExists).toString()
 
-        if (user.userID != doc.userID) return Gson().toJson(Errors.Companion.DatabaseError.notExists)
+        if (user.userID != doc.userID)
+            return ResponseBodyBuilder<Void>(Errors.Companion.UserError.notAuthorized).toString()
 
-        return if (documentDao.delete(docID)) Gson().toJson(Errors.success)
-        else Gson().toJson(Errors.Companion.DatabaseError.dbDeleteFailure)
+        documentService.deleteDocument(docID)
+
+        return ResponseBodyBuilder<Void>().toString()
     }
 
 }

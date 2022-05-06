@@ -1,8 +1,9 @@
 package com.deepseat.server.DeepSeatServer.controller
 
-import com.deepseat.server.DeepSeatServer.dao.LikedDao
 import com.deepseat.server.DeepSeatServer.error.Errors
+import com.deepseat.server.DeepSeatServer.service.LikedService
 import com.deepseat.server.DeepSeatServer.session.SessionConstants
+import com.deepseat.server.DeepSeatServer.tool.ResponseBodyBuilder
 import com.deepseat.server.DeepSeatServer.vo.Liked
 import com.deepseat.server.DeepSeatServer.vo.User
 import com.google.gson.Gson
@@ -14,15 +15,18 @@ import javax.servlet.http.HttpServletRequest
 class LikedController {
 
     @Autowired
-    private lateinit var likedDao: LikedDao
+    private lateinit var service: LikedService
 
     @PostMapping("/liked/{docID}")
-    fun liked(request: HttpServletRequest, @PathVariable("docID") docID: Int) {
+    fun liked(request: HttpServletRequest, @PathVariable("docID") docID: Int): String {
 
-        val userID = (request.session.getAttribute(SessionConstants.KEY_USER) as? String) ?: return
+        val userID = (request.session.getAttribute(SessionConstants.KEY_USER) as? String)
+            ?: return ResponseBodyBuilder<Void>(Errors.Companion.UserError.notSignedIn).toString()
 
         val liked = Liked(userID = userID, docID = docID)
-        likedDao.add(liked)
+        service.insertLike(liked)
+
+        return ResponseBodyBuilder<Void>().toString()
     }
 
     @PostMapping("/liked/{roomID}/{seatID}/{docID}/{commentID}")
@@ -36,14 +40,12 @@ class LikedController {
 
         val session = request.session
         val user = (session.getAttribute(SessionConstants.KEY_USER) as? User)
-            ?: return Gson().toJson(Errors.Companion.UserError.notRegistered)
+            ?: return ResponseBodyBuilder<Void>(Errors.Companion.UserError.notSignedIn).toString()
 
         val liked = Liked(0, user.userID, docID, commentID)
-        if (likedDao.add(liked)) {
-            return Gson().toJson(Errors.success)
-        } else {
-            return Gson().toJson(Errors.Companion.DatabaseError.dbInsertFailure)
-        }
+        service.insertLike(liked)
+
+        return ResponseBodyBuilder<Void>().toString()
     }
 
     @GetMapping("/liked/{roomID}/{seatID}/{docID}")
@@ -51,8 +53,8 @@ class LikedController {
         @PathVariable("roomID") roomID: Int,
         @PathVariable("seatID") seatID: Int,
         @PathVariable("docID") docID: Int
-    ) {
-        likedDao.getList(docID, -1)
+    ): String {
+        return ResponseBodyBuilder<Int>().data(service.getLikedCountOfDocument(docID)).toString()
     }
 
     @GetMapping("/liked/{roomID}/{seatID}/{docID}/{commentID}")
@@ -61,56 +63,54 @@ class LikedController {
         @PathVariable("seatID") seatID: Int,
         @PathVariable("docID") docID: Int,
         @PathVariable("commentID") commentID: Int
-    ) {
-        likedDao.getList(-1, commentID)
+    ): String {
+        return ResponseBodyBuilder<Int>().data(service.getLikedCountOfComment(commentID)).toString()
     }
 
-    @DeleteMapping("/liked/{roomID}/{seatID}/{docID}/{likedID}")
+    @DeleteMapping("/liked/{roomID}/{seatID}/{docID}")
+    fun unliked(
+        request: HttpServletRequest,
+        @PathVariable("roomID") roomID: Int,
+        @PathVariable("seatID") seatID: Int,
+        @PathVariable("docID") docID: Int
+    ): String {
+
+        val session = request.session
+        val user = (session.getAttribute(SessionConstants.KEY_USER) as? User)
+            ?: return ResponseBodyBuilder<Void>(Errors.Companion.UserError.notSignedIn).toString()
+
+        val like = service.getLikedOfDocument(docID, user.userID)
+            ?: return ResponseBodyBuilder<Void>(Errors.Companion.DatabaseError.notExists).toString()
+
+        if (user.userID != like.userID)
+            return ResponseBodyBuilder<Void>(Errors.Companion.UserError.notAuthorized).toString()
+
+        service.deleteLike(like.likedID)
+
+        return ResponseBodyBuilder<Void>().toString()
+    }
+
+    @DeleteMapping("/liked/{roomID}/{seatID}/{docID}/{commentID}/")
     fun unliked(
         request: HttpServletRequest,
         @PathVariable("roomID") roomID: Int,
         @PathVariable("seatID") seatID: Int,
         @PathVariable("docID") docID: Int,
-        @PathVariable("likedID") likedID: Int
-    ): String {
-
-        val session = request.session
-        val user = (session.getAttribute(SessionConstants.KEY_USER) as? User)
-            ?: return Gson().toJson(Errors.Companion.UserError.notRegistered)
-
-        val like = likedDao.get(likedID) ?: return Gson().toJson(Errors.Companion.DatabaseError.notExists)
-
-        if (user.userID != like.userID) return Gson().toJson(Errors.Companion.UserError.notAuthorized)
-
-        return if ( likedDao.delete(likedID)) {
-            Gson().toJson(Errors.success)
-        } else {
-            Gson().toJson(Errors.Companion.DatabaseError.dbInsertFailure)
-        }
-    }
-
-    @DeleteMapping("/liked/{roomID}/{seatID}/{docID}/{commentID}/{likedID}")
-    fun unliked(
-        request: HttpServletRequest,
-        @PathVariable("roomID") roomID: Int,
-        @PathVariable("seatID") seatID: Int,
-        @PathVariable("docID") docID: Int,
-        @PathVariable("commentID") commentID: Int,
-        @PathVariable("likedID") likedID: Int
+        @PathVariable("commentID") commentID: Int
     ): String {
         val session = request.session
         val user = (session.getAttribute(SessionConstants.KEY_USER) as? User)
-            ?: return Gson().toJson(Errors.Companion.UserError.notRegistered)
+            ?: return ResponseBodyBuilder<Void>(Errors.Companion.UserError.notSignedIn).toString()
 
-        val like = likedDao.get(likedID) ?: return Gson().toJson(Errors.Companion.DatabaseError.notExists)
+        val like = service.getLikedOfComment(commentID, user.userID)
+            ?: return ResponseBodyBuilder<Void>(Errors.Companion.DatabaseError.notExists).toString()
 
-        if (user.userID != like.userID) return Gson().toJson(Errors.Companion.UserError.notAuthorized)
+        if (user.userID != like.userID)
+            return ResponseBodyBuilder<Void>(Errors.Companion.UserError.notAuthorized).toString()
 
-        return if ( likedDao.delete(likedID)) {
-            Gson().toJson(Errors.success)
-        } else {
-            Gson().toJson(Errors.Companion.DatabaseError.dbInsertFailure)
-        }
+        service.deleteLike(like.likedID)
+
+        return ResponseBodyBuilder<Void>().toString()
     }
 
 }
