@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.deepseat.server.DeepSeatServer.dao.UserMapper">
+
+    <insert id="insertUser" parameterType="User">
+        INSERT INTO user(userID, userPW, salt, nickname, email)
+        VALUES (#{userID}, #{userPW}, #{salt}, #{nickname}, #{email});
+    </insert>
+
+    <select id="getUser" parameterType="string" resultType="User">
+        SELECT *
+        FROM user
+        WHERE userID = #{userID};
+    </select>
+
+    <delete id="deleteUser" parameterType="string">
+        DELETE
+        FROM user
+        WHERE userID = #{userID};
+    </delete>
+
+    <update id="updateUser" parameterType="User">
+        UPDATE user
+        SET userPW   = #{userPW},
+            salt     = #{salt},
+            nickname = #{nickname},
+            email    = #{email}
+        WHERE userID = #{userID};
+    </update>
+
+    <update id="verifyUser" parameterType="string">
+        UPDATE user
+        SET verified = true
+        WHERE userID = #{userID};
+    </update>
+
+</mapper>
