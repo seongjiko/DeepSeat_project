@@ -219,3 +219,6 @@ src/server/DeepSeatServer/.idea/codestream.xml
 /.idea/jarRepositories.xml
 /.idea/DeepSeat_project.iml
 /src/server/DeepSeatServer/.gradle/
+/src/server/DeepSeatServer/.idea/
+/src/server/DeepSeatServer/.gradle/
+/src/server/DeepSeatServer/.gradle/
