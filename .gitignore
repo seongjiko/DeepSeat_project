@@ -220,3 +220,4 @@ src/server/DeepSeatServer/.idea/codestream.xml
 /.idea/DeepSeat_project.iml
 */.gradle/
 */.idea/
+/src/app/android/.idea/

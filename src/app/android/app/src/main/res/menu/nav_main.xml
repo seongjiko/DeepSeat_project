@@ -5,16 +5,16 @@
     <item
         android:id="@+id/nav_seats"
         android:icon="@drawable/ic_action_deepseat"
-        android:title="@string/seats"/>
+        android:title="@string/seats" />
 
     <item
         android:id="@+id/nav_community"
         android:icon="@drawable/ic_action_community"
-        android:title="@string/community"/>
+        android:title="@string/community" />
 
     <item
         android:id="@+id/nav_more"
         android:icon="@drawable/ic_action_more"
-        android:title="@string/more"/>
+        android:title="@string/more" />
 
 </menu>

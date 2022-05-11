@@ -1,4 +1,3 @@
 package com.deepseat.ds.model
 
-class User {
-}
+data class User(var userId: String, var nickname: String)

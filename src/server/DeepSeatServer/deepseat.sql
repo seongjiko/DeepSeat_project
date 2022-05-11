@@ -2,13 +2,13 @@ CREATE DATABASE DeepSeat DEFAULT CHARACTER SET utf8mb4 collate utf8mb4_unicode_c
 
 use DeepSeat;
 
-create table apikey
+create table DeepSeat.apikey
 (
     apiKey  varchar(64) primary key not null,
     created timestamp               not null default now()
 );
 
-create table user
+create table DeepSeat.user
 (
     userID   varchar(50) not null primary key,
     userPW   varchar(64) not null,
@@ -18,7 +18,7 @@ create table user
     verified boolean     not null default false
 );
 
-create table document
+create table DeepSeat.document
 (
     docID   integer      not null primary key auto_increment,
     userID  varchar(50)  not null,
@@ -30,7 +30,7 @@ create table document
     foreign key (userID) references user (userID)
 );
 
-create table comment
+create table DeepSeat.comment
 (
     commentID integer      not null primary key auto_increment,
     userID    varchar(50)  not null,
@@ -42,7 +42,7 @@ create table comment
     foreign key (docID) references document (docID)
 );
 
-create table liked
+create table DeepSeat.liked
 (
     likedID   integer     not null primary key auto_increment,
     userID    varchar(50) not null,
@@ -53,13 +53,13 @@ create table liked
     foreign key (commentID) references comment (commentID)
 );
 
-create table room
+create table DeepSeat.room
 (
     roomID   integer     not null primary key auto_increment,
     roomName varchar(30) not null
 );
 
-create table seat
+create table DeepSeat.seat
 (
     seatID integer not null primary key auto_increment,
     roomID integer not null,
@@ -70,7 +70,7 @@ create table seat
     foreign key (roomID) references room (roomID)
 );
 
-create table observation
+create table DeepSeat.observation
 (
     observerID bigint  not null primary key auto_increment,
     roomID     integer not null,
