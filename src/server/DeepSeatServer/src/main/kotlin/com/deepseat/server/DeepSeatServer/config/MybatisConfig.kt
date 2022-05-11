@@ -15,7 +15,7 @@ import javax.sql.DataSource
 @MapperScan(basePackages = ["com.deepseat.server.DeepSeatServer.dao"])
 class MybatisConfig {
     @Value("\${spring.datasource.mapper-locations}")
-    var path: String? = null
+    private lateinit var path: String
 
     @Bean
     @Throws(Exception::class)
@@ -23,7 +23,7 @@ class MybatisConfig {
         val sqlSessionFactory = SqlSessionFactoryBean()
         sqlSessionFactory.setDataSource(dataSource)
         sqlSessionFactory.setTypeAliasesPackage("com.deepseat.server.DeepSeatServer.vo")
-        sqlSessionFactory.setMapperLocations(*context.getResources(path!!))
+        sqlSessionFactory.setMapperLocations(*context.getResources(path))
         return sqlSessionFactory.getObject()
     }
 

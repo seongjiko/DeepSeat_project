@@ -10,7 +10,7 @@ create table apikey
 
 create table user
 (
-    userID   varchar(10) not null primary key,
+    userID   varchar(50) not null primary key,
     userPW   varchar(64) not null,
     salt     varchar(10) not null,
     nickname varchar(10) not null,
@@ -21,7 +21,7 @@ create table user
 create table document
 (
     docID   integer      not null primary key auto_increment,
-    userID  varchar(10)  not null,
+    userID  varchar(50)  not null,
     roomID  integer      not null,
     seatID  integer      not null,
     content varchar(100) not null,
@@ -33,7 +33,7 @@ create table document
 create table comment
 (
     commentID integer      not null primary key auto_increment,
-    userID    varchar(10)  not null,
+    userID    varchar(50)  not null,
     docID     integer               default null,
     content   varchar(100) not null,
     wrote     datetime     not null default now(),
@@ -45,7 +45,7 @@ create table comment
 create table liked
 (
     likedID   integer     not null primary key auto_increment,
-    userID    varchar(10) not null,
+    userID    varchar(50) not null,
     docID     integer default null,
     commentID integer default null,
     foreign key (userID) references user (userID),

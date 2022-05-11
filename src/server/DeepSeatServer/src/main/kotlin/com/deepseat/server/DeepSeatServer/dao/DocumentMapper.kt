@@ -12,4 +12,5 @@ interface DocumentMapper {
     fun getDocumentById(docID: Int): Document?
     fun deleteDocument(docID: Int)
     fun updateDocument(document: Document)
+
 }
