@@ -1,9 +1,10 @@
 package com.deepseat.server.DeepSeatServer.controller
 
-import com.deepseat.server.DeepSeatServer.dao.UserDao
 import com.deepseat.server.DeepSeatServer.error.Errors
+import com.deepseat.server.DeepSeatServer.service.UserService
 import com.deepseat.server.DeepSeatServer.session.SessionConstants
 import com.deepseat.server.DeepSeatServer.tool.PasswordTool
+import com.deepseat.server.DeepSeatServer.tool.ResponseBodyBuilder
 import com.deepseat.server.DeepSeatServer.tool.SaltGenerator
 import com.deepseat.server.DeepSeatServer.vo.User
 import com.google.gson.Gson
@@ -17,7 +18,7 @@ import javax.servlet.http.HttpServletRequest
 class UserController {
 
     @Autowired
-    private lateinit var userDao: UserDao
+    private lateinit var service: UserService
 
     @PostMapping("/register")
     fun register(
@@ -25,7 +26,8 @@ class UserController {
         @RequestParam userID: String,
         @RequestParam userPW: String,
         @RequestParam userPWCheck: String,
-        @RequestParam nickname: String
+        @RequestParam nickname: String,
+        @RequestParam email: String
     ): String {
 
         if (userPW != userPWCheck) {
@@ -33,37 +35,40 @@ class UserController {
         }
 
         val salt = SaltGenerator.generate()
+        val user = User(userID, PasswordTool.encryptPassword(userPW, salt), salt, nickname, email)
 
-        println("userPW: " + salt)
-        val user = User(userID, PasswordTool.encryptPassword(userPW, salt), salt, nickname)
+        service.insertUser(user)
 
-        val success = userDao.add(user)
-
-        return if (success) {
-            val session = request.session
-            session.setAttribute(SessionConstants.KEY_USER, user)
-            session.id
-        } else {
-            Gson().toJson(Errors.Companion.DatabaseError.dbInsertFailure)
-        }
+        return ResponseBodyBuilder<Void>().toString()
     }
 
     @PostMapping("/login")
     fun login(request: HttpServletRequest, @RequestParam userID: String, @RequestParam userPW: String): String {
-        val user = userDao.get(userID) ?: return Gson().toJson(Errors.Companion.UserError.notRegistered)
+        val user = service.getUser(userID) ?: return Gson().toJson(Errors.Companion.UserError.notRegistered)
 
         if (user.userPW != PasswordTool.encryptPassword(userPW, user.salt))
-            return Gson().toJson(Errors.Companion.UserError.wrongPassword)
+            return ResponseBodyBuilder<Void>(Errors.Companion.UserError.notRegistered).toString()
 
         val session = request.session
         session.setAttribute(SessionConstants.KEY_USER, user)
 
-        return session.id
+        return ResponseBodyBuilder<String>().data(session.id).toString()
+    }
+
+    @PostMapping("/logout")
+    fun logout(request: HttpServletRequest): String {
+        request.session.invalidate()
+        return ResponseBodyBuilder<Void>().toString()
     }
 
     @PostMapping("/user")
     fun getUser(request: HttpServletRequest): String {
-        return Gson().toJson(request.session.getAttribute(SessionConstants.KEY_USER))
+        val user = request.session.getAttribute(SessionConstants.KEY_USER) as? User
+        user?.let {
+            return ResponseBodyBuilder<User>().data(it).toString()
+        }
+
+        return ResponseBodyBuilder<Void>(Errors.Companion.UserError.notSignedIn).toString()
     }
 
 }

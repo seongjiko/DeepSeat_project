@@ -1,19 +1,27 @@
-CREATE DATABASE DeepSeat DEFAULT CHARACTER SET utf8 collate utf8_bin;
+CREATE DATABASE DeepSeat DEFAULT CHARACTER SET utf8mb4 collate utf8mb4_unicode_ci;
 
 use DeepSeat;
 
-create table user
+create table DeepSeat.apikey
 (
-    userID   varchar(10) not null primary key,
-    userPW   varchar(64) not null,
-    salt     varchar(10) not null,
-    nickname varchar(10) not null
+    apiKey  varchar(64) primary key not null,
+    created timestamp               not null default now()
 );
 
-create table document
+create table DeepSeat.user
+(
+    userID   varchar(50) not null primary key,
+    userPW   varchar(64) not null,
+    salt     varchar(10) not null,
+    nickname varchar(10) not null,
+    email    varchar(50) not null,
+    verified boolean     not null default false
+);
+
+create table DeepSeat.document
 (
     docID   integer      not null primary key auto_increment,
-    userID  varchar(10)  not null,
+    userID  varchar(50)  not null,
     roomID  integer      not null,
     seatID  integer      not null,
     content varchar(100) not null,
@@ -22,10 +30,10 @@ create table document
     foreign key (userID) references user (userID)
 );
 
-create table comment
+create table DeepSeat.comment
 (
     commentID integer      not null primary key auto_increment,
-    userID    varchar(10)  not null,
+    userID    varchar(50)  not null,
     docID     integer               default null,
     content   varchar(100) not null,
     wrote     datetime     not null default now(),
@@ -34,10 +42,10 @@ create table comment
     foreign key (docID) references document (docID)
 );
 
-create table liked
+create table DeepSeat.liked
 (
     likedID   integer     not null primary key auto_increment,
-    userID    varchar(10) not null,
+    userID    varchar(50) not null,
     docID     integer default null,
     commentID integer default null,
     foreign key (userID) references user (userID),
@@ -45,13 +53,13 @@ create table liked
     foreign key (commentID) references comment (commentID)
 );
 
-create table room
+create table DeepSeat.room
 (
     roomID   integer     not null primary key auto_increment,
     roomName varchar(30) not null
 );
 
-create table seat
+create table DeepSeat.seat
 (
     seatID integer not null primary key auto_increment,
     roomID integer not null,
@@ -62,13 +70,14 @@ create table seat
     foreign key (roomID) references room (roomID)
 );
 
-create table observation
+create table DeepSeat.observation
 (
-    observerID bigint      not null primary key auto_increment,
-    roomID     integer     not null,
-    seatID     integer     not null,
-    date       varchar(50) not null,
-    state      integer     not null,
+    observerID bigint  not null primary key auto_increment,
+    roomID     integer not null,
+    seatID     integer not null,
+    `date`     date    not null default now(),
+    `time`     time    not null default now(),
+    state      integer not null,
     foreign key (roomID) references room (roomID),
     foreign key (seatID) references seat (seatID)
 );

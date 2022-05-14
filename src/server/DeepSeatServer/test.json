@@ -1,0 +1,5 @@
+{
+  "responseCode": 200,
+  "message": "Success",
+  "data": "{\"userID\":\"soc06212\",\"userPW\":\"bf510edea730a729a31ea8478dc0624847d596e659effdf4a436632f05879116\",\"salt\":\"cgs@ZBer9z\",\"nickname\":\"codog\",\"email\":\"soc06212@gmail.com\",\"verified\":false}"
+}

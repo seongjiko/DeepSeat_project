@@ -1,8 +1,9 @@
 package com.deepseat.server.DeepSeatServer.controller
 
-import com.deepseat.server.DeepSeatServer.dao.CommentDao
 import com.deepseat.server.DeepSeatServer.error.Errors
+import com.deepseat.server.DeepSeatServer.service.CommentService
 import com.deepseat.server.DeepSeatServer.session.SessionConstants
+import com.deepseat.server.DeepSeatServer.tool.ResponseBodyBuilder
 import com.deepseat.server.DeepSeatServer.vo.Comment
 import com.deepseat.server.DeepSeatServer.vo.User
 import com.google.gson.Gson
@@ -14,7 +15,7 @@ import javax.servlet.http.HttpServletRequest
 class CommentController {
 
     @Autowired
-    private lateinit var commentDao: CommentDao
+    private lateinit var service: CommentService
 
     @PostMapping("/comment/{docID}")
     fun addComment(
@@ -27,17 +28,18 @@ class CommentController {
             user = request.session.getAttribute(SessionConstants.KEY_USER) as User
         } catch (e: Exception) {
             e.printStackTrace()
-            return Gson().toJson(Errors.Companion.UserError.notSignedIn)
+            return ResponseBodyBuilder<Void>(Errors.Companion.UserError.notSignedIn).toString()
         }
 
         val comment = Comment(0, user.userID, docID, content, "", false)
-        return if (commentDao.add(comment)) Gson().toJson(Errors.success)
-        else Gson().toJson(Errors.Companion.DatabaseError.dbInsertFailure)
+        service.insertComment(comment)
+
+        return ResponseBodyBuilder<Void>().toString()
     }
 
     @GetMapping("/comment/{docID}")
-    fun getCommentList(@PathVariable("docID") docID: Int): String {
-        return Gson().toJson(commentDao.getList(docID))
+    fun getCommentList(@PathVariable("docID") docID: Int): List<Comment> {
+        return service.getComments(docID)
     }
 
     @DeleteMapping("/comment/{commentID}")
@@ -47,15 +49,16 @@ class CommentController {
             user = request.session.getAttribute(SessionConstants.KEY_USER) as User
         } catch (e: Exception) {
             e.printStackTrace()
-            return Gson().toJson(Errors.Companion.UserError.notSignedIn)
+            return ResponseBodyBuilder<Void>(Errors.Companion.UserError.notSignedIn).toString()
         }
 
-        val comment = commentDao.get(commentID) ?: return Gson().toJson(Errors.Companion.DatabaseError.notExists)
+        val comment = service.getCommentById(commentID)
 
-        if (user.userID != comment.userID) return Gson().toJson(Errors.Companion.UserError.notAuthorized)
+        if (user.userID != comment?.userID) return ResponseBodyBuilder<Void>(Errors.Companion.UserError.notAuthorized).toString()
 
-        return if (commentDao.delete(commentID)) Gson().toJson(Errors.success)
-        else Gson().toJson(Errors.Companion.DatabaseError.dbDeleteFailure)
+        service.deleteCommentById(commentID)
+
+        return ResponseBodyBuilder<Void>().toString()
     }
 
     @PutMapping("/comment/{docID}/{commentID}")
@@ -69,17 +72,17 @@ class CommentController {
             user = request.session.getAttribute(SessionConstants.KEY_USER) as User
         } catch (e: Exception) {
             e.printStackTrace()
-            return Gson().toJson(Errors.Companion.UserError.notSignedIn)
+            return ResponseBodyBuilder<Void>(Errors.Companion.UserError.notSignedIn).toString()
         }
 
-        val comment = commentDao.get(commentID) ?: return Gson().toJson(Errors.Companion.DatabaseError.notExists)
+        val comment = service.getCommentById(commentID)
 
-        if (user.userID != comment.userID) return Gson().toJson(Errors.Companion.UserError.notAuthorized)
+        if (user.userID != comment?.userID) return ResponseBodyBuilder<Void>(Errors.Companion.UserError.notAuthorized).toString()
 
         comment.content = content
+        service.updateCommentById(comment)
 
-        return if (commentDao.update(comment)) Gson().toJson(Errors.success)
-        else Gson().toJson(Errors.Companion.DatabaseError.dbUpdateFailure)
+        return ResponseBodyBuilder<Void>().toString()
     }
 
 }

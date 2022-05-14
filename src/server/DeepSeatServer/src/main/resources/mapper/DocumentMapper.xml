@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.deepseat.server.DeepSeatServer.dao.DocumentMapper">
+
+    <insert id="insertDocument" parameterType="Document">
+        INSERT INTO document(userID, roomID, seatID, content) VALUES(#{userID}, #{roomID}, #{seatID}, #{content});
+    </insert>
+
+    <select id="getDocuments" resultType="Document">
+        SELECT * FROM document;
+    </select>
+
+    <select id="getDocumentsBySeatId" parameterType="integer" resultType="Document">
+        SELECT * FROM document WHERE seatID = #{seatID};
+    </select>
+
+    <select id="getDocumentById" parameterType="integer" resultType="Document">
+        SELECT * FROM document WHERE docID = #{docID};
+    </select>
+
+    <delete id="deleteDocument" parameterType="integer">
+        DELETE FROM document WHERE docID = #{docID};
+    </delete>
+
+    <update id="updateDocument" parameterType="Document">
+        UPDATE document SET content = #{content}, edited = true WHERE docID = #{docID};
+    </update>
+
+</mapper>

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">DeepSeat</string>
+
+    <!--  General  -->
+    <string name="confirm">Confirm</string>
+    <string name="cancel">Cancel</string>
+    <string name="yes">Yes</string>
+    <string name="no">no</string>
+    <string name="dismiss">Dismiss</string>
+    <string name="agree">Agree</string>
+    <string name="disagree">Disagree</string>
+    <string name="grant">Grant</string>
+    <string name="deny">Deny</string>
+
+    <!--  MainActivity  -->
+    <string name="seats">Seats</string>
+    <string name="community">Community</string>
+    <string name="more">More</string>
+
+    <!--  MenuFragment  -->
+    <string name="menu_account_title">Account</string>
+    <string name="menu_application">Application</string>
+    <string name="menu_logout">Logout</string>
+    <string name="menu_app_build">Build #</string>
+    <string name="menu_licenses">Licenses</string>
+    <string name="menu_policy">Privacy Policy</string>
+    <string name="menu_edit_title">Change Nickname</string>
+    <string name="menu_edit_message">Please enter a new nickname.</string>
+
+    <!--  LoginActivity  -->
+    <string name="login_id">ID</string>
+    <string name="login_email">Email</string>
+    <string name="login_password">Password</string>
+    <string name="login_pw">PW</string>
+    <string name="login_register">Sign Up</string>
+    <string name="login">Sign In</string>
+
+    <!--  RegisterActivity  -->
+    <string name="register_title">Sign Up</string>
+    <string name="register_id">ID</string>
+    <string name="register_id_duplicated">Check</string>
+    <string name="register_hint_email">email</string>
+    <string name="register_hint_password">password</string>
+    <string name="register_pw">PW</string>
+    <string name="register_pw_check">PW Check</string>
+    <string name="register_pw_warning">Please check your password again.</string>
+    <string name="register_nickname">NICKNAME</string>
+    <string name="register_hint_nickname">nickname</string>
+    <string name="register_submit">Sign Up</string>
+
+</resources>
