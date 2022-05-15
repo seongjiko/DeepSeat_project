@@ -49,4 +49,12 @@
     <string name="register_hint_nickname">nickname</string>
     <string name="register_submit">Sign Up</string>
 
+    <!--  Community  -->
+    <string name="community_title">Community</string>
+    <string name="community_list">Community List</string>
+    <string name="cmlst_like">Like</string>
+    <string name="cmlst_comment">Comment</string>
+    <string name="cmlst_more">More</string>
+    <string name="cmlst_sep">•</string>
+
 </resources>

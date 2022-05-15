@@ -16,4 +16,6 @@
     <color name="text_primary">#000</color>
     <color name="text_secondary">#99000000</color>
     <color name="text_error">#FF5722</color>
+    <color name="text_on_primary">#fff</color>
+    <color name="tint_heart">#E41E3C</color>
 </resources>

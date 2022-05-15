@@ -5,14 +5,22 @@
       <map>
         <entry key="app/src/main/res/drawable-anydpi/ic_action_community.xml" value="0.2985" />
         <entry key="app/src/main/res/drawable-anydpi/ic_disclosure.xml" value="0.2985" />
+        <entry key="app/src/main/res/drawable/shadow_innser_.xml" value="0.2985" />
+        <entry key="app/src/main/res/drawable/shape_draggable_bar.xml" value="0.2985" />
         <entry key="app/src/main/res/layout/activity_login.xml" value="0.3591485507246377" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.4036458333333333" />
         <entry key="app/src/main/res/layout/activity_register.xml" value="0.3591485507246377" />
-        <entry key="app/src/main/res/layout/fragment_community.xml" value="0.3591485507246377" />
+        <entry key="app/src/main/res/layout/bottom_sheet_community.xml" value="0.33034188034188033" />
+        <entry key="app/src/main/res/layout/fragment_community.xml" value="0.2504528985507246" />
         <entry key="app/src/main/res/layout/fragment_menu.xml" value="0.3591485507246377" />
         <entry key="app/src/main/res/layout/fragment_more.xml" value="0.3591485507246377" />
         <entry key="app/src/main/res/layout/fragment_s.xml" value="0.3591485507246377" />
         <entry key="app/src/main/res/layout/fragment_seats.xml" value="0.3591485507246377" />
+        <entry key="app/src/main/res/layout/row_bs_commuity_sub.xml" value="0.33034188034188033" />
+        <entry key="app/src/main/res/layout/row_bs_community_header.xml" value="0.33034188034188033" />
+        <entry key="app/src/main/res/layout/row_bs_community_item.xml" value="0.33034188034188033" />
+        <entry key="app/src/main/res/layout/row_bs_community_sub.xml" value="0.33034188034188033" />
+        <entry key="app/src/main/res/layout/row_community_list.xml" value="0.2504528985507246" />
         <entry key="app/src/main/res/layout/row_menu.xml" value="0.3591485507246377" />
         <entry key="app/src/main/res/menu/nav_main.xml" value="0.3890625" />
         <entry key="app/src/main/res/menu/navigation_main.xml" value="0.4036458333333333" />

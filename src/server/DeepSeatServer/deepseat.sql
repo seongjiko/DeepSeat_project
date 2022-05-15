@@ -61,12 +61,13 @@ create table DeepSeat.room
 
 create table DeepSeat.seat
 (
-    seatID integer not null primary key auto_increment,
-    roomID integer not null,
-    x      integer not null,
-    y      integer not null,
-    width  integer not null,
-    height integer not null,
+    seatID   integer not null primary key auto_increment,
+    roomID   integer not null,
+    x        integer not null,
+    y        integer not null,
+    width    integer not null,
+    height   integer not null,
+    seatName int     not null,
     foreign key (roomID) references room (roomID)
 );
 
