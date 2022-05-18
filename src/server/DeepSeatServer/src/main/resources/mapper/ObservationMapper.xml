@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.deepseat.server.DeepSeatServer.dao.ObservationMapper">
+
+    <insert id="insertObservation" parameterType="Observation">
+        insert into observation(roomID, seatID, date, time, state)
+        VALUES (#{roomID}, #{seatID}, #{date}, #{time}, #{state});
+    </insert>
+
+    <select id="getObservationsByDay" resultType="Observation">
+        select *
+        from observation
+        where roomID = #{roomID}
+          and seatID = #{seatID}
+          and date = #{date};
+    </select>
+
+</mapper>

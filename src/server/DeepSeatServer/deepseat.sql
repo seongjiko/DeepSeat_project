@@ -56,19 +56,21 @@ create table DeepSeat.liked
 create table DeepSeat.room
 (
     roomID   integer     not null primary key auto_increment,
-    roomName varchar(30) not null
+    roomName varchar(30) not null,
+    apiKey   varchar(64) not null,
+    foreign key (apiKey) references DeepSeat.apikey (apiKey)
 );
 
 create table DeepSeat.seat
 (
-    seatID   integer not null primary key auto_increment,
+    seatID   integer not null,
     roomID   integer not null,
     x        integer not null,
     y        integer not null,
     width    integer not null,
     height   integer not null,
-    seatName int     not null,
-    foreign key (roomID) references room (roomID)
+    foreign key (roomID) references room (roomID),
+    primary key (roomID, seatID)
 );
 
 create table DeepSeat.observation
@@ -79,6 +81,5 @@ create table DeepSeat.observation
     `date`     date    not null default now(),
     `time`     time    not null default now(),
     state      integer not null,
-    foreign key (roomID) references room (roomID),
-    foreign key (seatID) references seat (seatID)
+    foreign key (roomID, seatID) references seat (roomID, seatID)
 );

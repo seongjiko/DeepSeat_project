@@ -7,7 +7,6 @@ import com.deepseat.server.DeepSeatServer.tool.PasswordTool
 import com.deepseat.server.DeepSeatServer.tool.ResponseBodyBuilder
 import com.deepseat.server.DeepSeatServer.tool.SaltGenerator
 import com.deepseat.server.DeepSeatServer.vo.User
-import com.google.gson.Gson
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.web.bind.annotation.PostMapping
 import org.springframework.web.bind.annotation.RequestParam
@@ -31,7 +30,7 @@ class UserController {
     ): String {
 
         if (userPW != userPWCheck) {
-            return Gson().toJson(Errors.Companion.RegistrationError.registerPWCheckNotMatch)
+            return ResponseBodyBuilder<Void>(Errors.Companion.RegistrationError.registerPWCheckNotMatch).toString()
         }
 
         val salt = SaltGenerator.generate()
@@ -44,7 +43,7 @@ class UserController {
 
     @PostMapping("/login")
     fun login(request: HttpServletRequest, @RequestParam userID: String, @RequestParam userPW: String): String {
-        val user = service.getUser(userID) ?: return Gson().toJson(Errors.Companion.UserError.notRegistered)
+        val user = service.getUser(userID) ?: return ResponseBodyBuilder<Void>(Errors.Companion.UserError.notRegistered).toString()
 
         if (user.userPW != PasswordTool.encryptPassword(userPW, user.salt))
             return ResponseBodyBuilder<Void>(Errors.Companion.UserError.notRegistered).toString()

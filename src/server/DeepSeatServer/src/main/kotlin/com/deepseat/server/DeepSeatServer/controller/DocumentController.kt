@@ -6,7 +6,6 @@ import com.deepseat.server.DeepSeatServer.session.SessionConstants
 import com.deepseat.server.DeepSeatServer.tool.ResponseBodyBuilder
 import com.deepseat.server.DeepSeatServer.vo.Document
 import com.deepseat.server.DeepSeatServer.vo.User
-import com.google.gson.Gson
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.web.bind.annotation.*
 import javax.servlet.http.HttpServletRequest
@@ -63,7 +62,7 @@ class DocumentController {
     ): String {
 
         val user = (request.session.getAttribute(SessionConstants.KEY_USER) as? User)
-            ?: return Gson().toJson(Errors.Companion.UserError.notSignedIn)
+            ?: return ResponseBodyBuilder<Void>(Errors.Companion.UserError.notSignedIn).toString()
 
         val doc = documentService.getDocumentById(docID)
             ?: return ResponseBodyBuilder<Void>(Errors.Companion.DatabaseError.notExists).toString()
@@ -86,7 +85,7 @@ class DocumentController {
     ): String {
 
         val user = (request.session.getAttribute(SessionConstants.KEY_USER) as? User)
-            ?: return Gson().toJson(Errors.Companion.UserError.notSignedIn)
+            ?: return ResponseBodyBuilder<Void>(Errors.Companion.UserError.notSignedIn).toString()
 
         val doc = documentService.getDocumentById(docID)
             ?: return ResponseBodyBuilder<Void>(Errors.Companion.DatabaseError.notExists).toString()

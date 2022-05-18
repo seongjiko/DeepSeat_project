@@ -6,7 +6,6 @@ import com.deepseat.server.DeepSeatServer.session.SessionConstants
 import com.deepseat.server.DeepSeatServer.tool.ResponseBodyBuilder
 import com.deepseat.server.DeepSeatServer.vo.Liked
 import com.deepseat.server.DeepSeatServer.vo.User
-import com.google.gson.Gson
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.web.bind.annotation.*
 import javax.servlet.http.HttpServletRequest
