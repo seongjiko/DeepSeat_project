@@ -18,4 +18,11 @@
           and date = #{date};
     </select>
 
+    <select id="getRecentObservationsByRoom" parameterType="integer" resultType="Observation">
+        select *
+        from observation
+        where roomID = #{roomID}
+        order by date, time desc;
+    </select>
+
 </mapper>

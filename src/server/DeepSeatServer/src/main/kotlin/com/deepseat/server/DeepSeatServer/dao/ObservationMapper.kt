@@ -13,5 +13,6 @@ interface ObservationMapper {
         @Param("seatID") seatID: Int,
         @Param("date") date: String
     ): List<Observation>
+    public fun getRecentObservationsByRoom(roomID: Int): List<Observation>
 
 }

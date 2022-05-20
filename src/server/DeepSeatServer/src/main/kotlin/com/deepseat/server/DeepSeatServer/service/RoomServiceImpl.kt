@@ -27,6 +27,10 @@ class RoomServiceImpl : RoomService {
         return mapper.getRoomByApiKey(apiKey)[0]
     }
 
+    override fun getRooms(): List<Room> {
+        return mapper.getRooms()
+    }
+
     override fun updateRoom(room: Room) {
         mapper.updateRoom(room)
     }

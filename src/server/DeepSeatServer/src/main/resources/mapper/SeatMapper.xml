@@ -6,9 +6,15 @@
 <mapper namespace="com.deepseat.server.DeepSeatServer.dao.SeatMapper">
 
     <insert id="insertSeat" parameterType="Seat">
-        insert into seat (roomID, x, y, width, height, seatName)
-        VALUES (#{roomID}, #{x}, #{y}, #{width}, #{height}, #{seatName});
+        insert into seat (seatID, roomID, x, y, width, height)
+        VALUES (#{seatID}, #{roomID}, #{x}, #{y}, #{width}, #{height});
     </insert>
+
+    <select id="getSeats" parameterType="integer" resultType="Seat">
+        select *
+        from seat
+        where roomID = #{roomID};
+    </select>
 
     <select id="getSeatByID" parameterType="integer" resultType="Seat">
         select *

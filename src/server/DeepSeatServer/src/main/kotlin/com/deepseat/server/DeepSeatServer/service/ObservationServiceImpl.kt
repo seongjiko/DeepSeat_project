@@ -18,4 +18,8 @@ class ObservationServiceImpl : ObservationService {
     override fun getObservationsByDay(roomID: Int, seatID: Int, date: String): List<Observation> {
         return mapper.getObservationsByDay(roomID, seatID, date)
     }
+
+    override fun getRecentObservationsByRoom(roomID: Int): List<Observation> {
+        return mapper.getRecentObservationsByRoom(roomID)
+    }
 }

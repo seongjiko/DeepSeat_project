@@ -7,6 +7,7 @@ import org.springframework.stereotype.Repository
 interface SeatMapper {
 
     public fun insertSeat(seat: Seat)
+    public fun getSeats(roomID: Int): List<Seat>
     public fun getSeatByID(seatID: Int): Seat?
     public fun deleteSeat(seatID: Int)
 

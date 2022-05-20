@@ -29,6 +29,10 @@
         where roomID = #{roomID};
     </select>
 
+    <select id="getRooms" resultType="Room">
+        select * from room;
+    </select>
+
     <update id="updateRoom" parameterType="Room">
         update room
         set roomName = #{roomName},

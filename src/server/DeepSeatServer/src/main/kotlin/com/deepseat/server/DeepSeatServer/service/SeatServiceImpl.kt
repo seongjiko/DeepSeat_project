@@ -15,6 +15,10 @@ class SeatServiceImpl : SeatService {
         mapper.insertSeat(seat)
     }
 
+    override fun getSeats(roomID: Int): List<Seat> {
+        return mapper.getSeats(roomID)
+    }
+
     override fun getSeatByID(seatID: Int): Seat? {
         return mapper.getSeatByID(seatID)
     }

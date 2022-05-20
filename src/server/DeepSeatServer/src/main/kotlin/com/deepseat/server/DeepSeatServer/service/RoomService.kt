@@ -8,6 +8,7 @@ interface RoomService {
     public fun isRoomIDExists(roomID: Int): Boolean
     public fun getRoomByID(roomID: Int): Room?
     public fun getRecentCreatedRoomByApiKey(apiKey: String): Room
+    public fun getRooms(): List<Room>
     public fun updateRoom(room: Room)
 
 }
