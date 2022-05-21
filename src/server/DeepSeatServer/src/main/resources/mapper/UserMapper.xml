@@ -16,6 +16,12 @@
         WHERE userID = #{userID};
     </select>
 
+    <select id="getUserByNickname" parameterType="string" resultType="User">
+        select *
+        from user
+        where nickname = #{nicname};
+    </select>
+
     <delete id="deleteUser" parameterType="string">
         DELETE
         FROM user
