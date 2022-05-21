@@ -29,4 +29,9 @@
         UPDATE document SET content = #{content}, edited = true WHERE docID = #{docID};
     </update>
 
+<!--    <select id="getCommunityDocumentList" resultType="CommunityList">-->
+<!--        select docID, userID, nickname, roomName, seatName, content, wrote, edited, liked, liked as iLiked-->
+<!--        from document join-->
+<!--    </select>-->
+
 </mapper>

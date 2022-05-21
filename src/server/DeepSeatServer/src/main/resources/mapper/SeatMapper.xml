@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.deepseat.server.DeepSeatServer.dao.SeatMapper">
+
+    <insert id="insertSeat" parameterType="Seat">
+        insert into seat (seatID, roomID, x, y, width, height)
+        VALUES (#{seatID}, #{roomID}, #{x}, #{y}, #{width}, #{height});
+    </insert>
+
+    <select id="getSeats" parameterType="integer" resultType="Seat">
+        select *
+        from seat
+        where roomID = #{roomID};
+    </select>
+
+    <select id="getSeatByID" parameterType="integer" resultType="Seat">
+        select *
+        from seat
+        where seatID = #{seatID};
+    </select>
+
+    <delete id="deleteSeat" parameterType="integer">
+        delete
+        from seat
+        where seatID = #{seatID};
+    </delete>
+
+</mapper>

@@ -37,3 +37,4 @@ out/
 .vscode/
 /.idea/
 /.gradle/
+/ODROID.md

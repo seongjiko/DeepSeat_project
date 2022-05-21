@@ -4,17 +4,40 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7ae7fabb-aa65-4cdc-a144-b42785bda46f" name="변경" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/com/deepseat/server/DeepSeatServer/dao/CommentDao.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/../../../.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/7.4.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.4.1/executionHistory/executionHistory.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/7.4.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.4.1/fileHashes/fileHashes.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
+    <list default="true" id="7ae7fabb-aa65-4cdc-a144-b42785bda46f" name="변경" comment="Feat: ObserverAPIController 완성">
+      <change afterPath="$PROJECT_DIR$/../../app/android/app/src/main/java/com/deepseat/ds/activity/CommunityDetailActivity.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../app/android/app/src/main/java/com/deepseat/ds/viewholder/CommentViewHolder.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../app/android/app/src/main/java/com/deepseat/ds/vo/CommentVO.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../app/android/app/src/main/res/drawable-anydpi/ic_action_delete.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../app/android/app/src/main/res/drawable-anydpi/ic_action_edit.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../app/android/app/src/main/res/drawable-hdpi/ic_action_delete.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../app/android/app/src/main/res/drawable-hdpi/ic_action_edit.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../app/android/app/src/main/res/drawable-mdpi/ic_action_delete.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../app/android/app/src/main/res/drawable-mdpi/ic_action_edit.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../app/android/app/src/main/res/drawable-night/hole_punch.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../app/android/app/src/main/res/drawable-xhdpi/ic_action_delete.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../app/android/app/src/main/res/drawable-xhdpi/ic_action_edit.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../app/android/app/src/main/res/drawable-xxhdpi/ic_action_delete.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../app/android/app/src/main/res/drawable-xxhdpi/ic_action_edit.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../app/android/app/src/main/res/drawable/hole_punch.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../app/android/app/src/main/res/drawable/shape_edit_text.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../app/android/app/src/main/res/layout/activity_community_detail.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../app/android/app/src/main/res/layout/row_cm_detail_comment.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../app/android/app/src/main/res/menu/menu_context_comment.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../app/android/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../app/android/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../app/android/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/../../app/android/app/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../app/android/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../app/android/app/src/main/AndroidManifest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../app/android/app/src/main/java/com/deepseat/ds/fragment/CommunityFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../../app/android/app/src/main/java/com/deepseat/ds/fragment/CommunityFragment.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../app/android/app/src/main/res/layout/fragment_community.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../app/android/app/src/main/res/layout/fragment_community.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../app/android/app/src/main/res/values-ko/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../app/android/app/src/main/res/values-ko/strings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../app/android/app/src/main/res/values/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../app/android/app/src/main/res/values/strings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/7.4.1/checksums/checksums.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.4.1/checksums/checksums.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/7.4.1/checksums/md5-checksums.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.4.1/checksums/md5-checksums.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/7.4.1/checksums/sha1-checksums.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.4.1/checksums/sha1-checksums.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SQL.md" beforeDir="false" afterPath="$PROJECT_DIR$/SQL.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/deepseat/server/DeepSeatServer/model/Liked.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/com/deepseat/server/DeepSeatServer/model/Liked.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/deepseat/server/DeepSeatServer/model/User.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/com/deepseat/server/DeepSeatServer/model/User.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test.json" beforeDir="false" afterPath="$PROJECT_DIR$/test.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -29,12 +52,26 @@
   <component name="ExternalProjectsManager">
     <system id="GRADLE">
       <state>
+        <task path="$PROJECT_DIR$">
+          <activation />
+        </task>
         <projects_view>
           <tree_state>
             <expand>
               <path>
                 <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
                 <item name="DeepSeatServer" type="f1a62948:ProjectNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="DeepSeatServer" type="f1a62948:ProjectNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="DeepSeatServer" type="f1a62948:ProjectNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+                <item name="build" type="c8890929:TasksNode$1" />
               </path>
             </expand>
             <select />
@@ -47,6 +84,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="spring-beans.schema" />
+        <option value="Kotlin Interface" />
         <option value="Kotlin Class" />
       </list>
     </option>
@@ -73,23 +111,66 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">
-    <property name="DatabaseDriversLRU" value="mariadb" />
-    <property name="RequestMappingsPanelOrder0" value="0" />
-    <property name="RequestMappingsPanelOrder1" value="1" />
-    <property name="RequestMappingsPanelWidth0" value="75" />
-    <property name="RequestMappingsPanelWidth1" value="75" />
-    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
-    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="add_unversioned_files" value="$PROJECT_DIR$/src/main/resources/application-db.properties" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="project.structure.last.edited" value="아티팩트" />
-    <property name="project.structure.proportion" value="0.15" />
-    <property name="project.structure.side.proportion" value="0.40229884" />
-    <property name="settings.editor.selected.configurable" value="preferences.general" />
-  </component>
-  <component name="RunManager">
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "/Users/soc06212/Desktop/hallym/DeepSeat/DeepSeat_project/src/server/DeepSeatServer",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.24624278",
+    "settings.editor.selected.configurable": "database.query.execution",
+    "spring.configuration.checksum": "25b258366465851620887937e86d94ae"
+  }
+}]]></component>
+  <component name="RunManager" selected="Gradle.DeepSeatServer [bootWar]">
+    <configuration name="DeepSeatServer [bootJar]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="bootJar" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <method v="2" />
+    </configuration>
+    <configuration name="DeepSeatServer [bootWar]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="bootWar" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <method v="2" />
+    </configuration>
     <configuration name="DeepSeatServerApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
       <module name="DeepSeatServer.main" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.deepseat.server.DeepSeatServer.DeepSeatServerApplication" />
@@ -97,6 +178,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Gradle.DeepSeatServer [bootWar]" />
+        <item itemvalue="Gradle.DeepSeatServer [bootJar]" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="애플리케이션 수준" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -109,7 +196,18 @@
       <workItem from="1647994290821" duration="3771000" />
       <workItem from="1648018207622" duration="7199000" />
       <workItem from="1648301048842" duration="9497000" />
+      <workItem from="1652779764740" duration="10020000" />
+      <workItem from="1652899341703" duration="6808000" />
+      <workItem from="1652977458101" duration="14162000" />
     </task>
+    <task id="LOCAL-00001" summary="Feat: ObserverAPIController 완성">
+      <created>1653048465289</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1653048465289</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -125,5 +223,9 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Feat: ObserverAPIController 완성" />
+    <option name="LAST_COMMIT_MESSAGE" value="Feat: ObserverAPIController 완성" />
   </component>
 </project>

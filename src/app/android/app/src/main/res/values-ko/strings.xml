@@ -49,4 +49,18 @@
     <string name="register_hint_nickname">nickname</string>
     <string name="register_submit">Register</string>
 
+    <!--  Community  -->
+    <string name="community_title">커뮤니티</string>
+    <string name="community_list">커뮤니티 리스트</string>
+    <string name="cmlst_like">좋아요</string>
+    <string name="cmlst_comment">댓글</string>
+    <string name="cmlst_more">더보기</string>
+    <string name="cmlst_sep">•</string>
+    <string name="cm_detail_comment">댓글</string>
+    <string name="cm_detail_comment_confirm">등록</string>
+    <string name="cm_detail_like">좋아요</string>
+    <string name="cm_detail_write_comment_hint">댓글을 입력하세요</string>
+    <string name="comment_edit">댓글 수정</string>
+    <string name="comment_delete">댓글 삭제</string>
+
 </resources>
