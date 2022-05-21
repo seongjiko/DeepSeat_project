@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.web.bind.annotation.PostMapping
 import org.springframework.web.bind.annotation.RequestParam
 import org.springframework.web.bind.annotation.RestController
+import java.util.*
 import javax.servlet.http.HttpServletRequest
 
 @RestController
@@ -64,10 +65,27 @@ class UserController {
     fun getUser(request: HttpServletRequest): String {
         val user = request.session.getAttribute(SessionConstants.KEY_USER) as? User
         user?.let {
+            it.userPW = ""
+            it.salt = ""
             return ResponseBodyBuilder<User>().data(it).toString()
         }
 
         return ResponseBodyBuilder<Void>(Errors.Companion.UserError.notSignedIn).toString()
+    }
+
+    @PostMapping("/id-check")
+    fun checkID(
+        locale: Locale,
+        @RequestParam userID: String
+    ): String {
+        val user = service.getUser(userID)
+
+        return ResponseBodyBuilder<Boolean>().data(user == null).toString()
+    }
+
+    @PostMapping("/nickname-check")
+    fun checkNickname(locale: Locale, @RequestParam nickname: String): String {
+        return ResponseBodyBuilder<Boolean>().data(service.getUserByNickname(nickname) == null).toString()
     }
 
 }

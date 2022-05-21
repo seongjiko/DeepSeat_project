@@ -10,39 +10,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="765bfd40-a8f6-4922-8315-d987ccc78e6f" name="Changes" comment="Feat: API Controller 완성">
-      <change afterPath="$PROJECT_DIR$/src/app/android/app/src/main/java/com/deepseat/ds/activity/CommunityDetailActivity.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/android/app/src/main/java/com/deepseat/ds/viewholder/CommentViewHolder.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/android/app/src/main/java/com/deepseat/ds/vo/CommentVO.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/android/app/src/main/res/drawable-anydpi/ic_action_delete.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/android/app/src/main/res/drawable-anydpi/ic_action_edit.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/android/app/src/main/res/drawable-hdpi/ic_action_delete.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/android/app/src/main/res/drawable-hdpi/ic_action_edit.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/android/app/src/main/res/drawable-mdpi/ic_action_delete.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/android/app/src/main/res/drawable-mdpi/ic_action_edit.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/android/app/src/main/res/drawable-night/hole_punch.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/android/app/src/main/res/drawable-xhdpi/ic_action_delete.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/android/app/src/main/res/drawable-xhdpi/ic_action_edit.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/android/app/src/main/res/drawable-xxhdpi/ic_action_delete.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/android/app/src/main/res/drawable-xxhdpi/ic_action_edit.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/android/app/src/main/res/drawable/hole_punch.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/android/app/src/main/res/drawable/shape_edit_text.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/android/app/src/main/res/layout/activity_community_detail.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/android/app/src/main/res/layout/row_cm_detail_comment.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/android/app/src/main/res/menu/menu_context_comment.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/android/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/android/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/android/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/android/app/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/android/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/android/app/src/main/AndroidManifest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/android/app/src/main/java/com/deepseat/ds/fragment/CommunityFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/android/app/src/main/java/com/deepseat/ds/fragment/CommunityFragment.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/android/app/src/main/res/layout/fragment_community.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/android/app/src/main/res/layout/fragment_community.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/android/app/src/main/res/values-ko/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/android/app/src/main/res/values-ko/strings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/android/app/src/main/res/values/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/android/app/src/main/res/values/strings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/server/DeepSeatServer/.gradle/7.4.1/checksums/checksums.lock" beforeDir="false" afterPath="$PROJECT_DIR$/src/server/DeepSeatServer/.gradle/7.4.1/checksums/checksums.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/server/DeepSeatServer/.gradle/7.4.1/checksums/md5-checksums.bin" beforeDir="false" afterPath="$PROJECT_DIR$/src/server/DeepSeatServer/.gradle/7.4.1/checksums/md5-checksums.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/server/DeepSeatServer/.gradle/7.4.1/checksums/sha1-checksums.bin" beforeDir="false" afterPath="$PROJECT_DIR$/src/server/DeepSeatServer/.gradle/7.4.1/checksums/sha1-checksums.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/server/DeepSeatServer/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/server/DeepSeatServer/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/server/DeepSeatServer/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/server/DeepSeatServer/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/server/DeepSeatServer/test.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/server/DeepSeatServer/test.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/server/DeepSeatServer/src/main/kotlin/com/deepseat/server/DeepSeatServer/controller/UserController.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/server/DeepSeatServer/src/main/kotlin/com/deepseat/server/DeepSeatServer/controller/UserController.kt" afterDir="false" />
     </list>
     <list id="67dba895-4037-4cbb-b530-ce4c3b14cc49" name="Changes by soc06212" comment="" />
     <option name="SHOW_DIALOG" value="false" />
@@ -94,7 +64,15 @@
       </list>
     </option>
   </component>
+  <component name="Git.Rebase.Settings">
+    <option name="NEW_BASE" value="origin/master" />
+  </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="android" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="UPDATE_TYPE" value="REBASE" />
   </component>

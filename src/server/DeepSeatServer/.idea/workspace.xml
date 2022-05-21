@@ -5,39 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7ae7fabb-aa65-4cdc-a144-b42785bda46f" name="변경" comment="Feat: ObserverAPIController 완성">
-      <change afterPath="$PROJECT_DIR$/../../app/android/app/src/main/java/com/deepseat/ds/activity/CommunityDetailActivity.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../app/android/app/src/main/java/com/deepseat/ds/viewholder/CommentViewHolder.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../app/android/app/src/main/java/com/deepseat/ds/vo/CommentVO.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../app/android/app/src/main/res/drawable-anydpi/ic_action_delete.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../app/android/app/src/main/res/drawable-anydpi/ic_action_edit.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../app/android/app/src/main/res/drawable-hdpi/ic_action_delete.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../app/android/app/src/main/res/drawable-hdpi/ic_action_edit.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../app/android/app/src/main/res/drawable-mdpi/ic_action_delete.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../app/android/app/src/main/res/drawable-mdpi/ic_action_edit.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../app/android/app/src/main/res/drawable-night/hole_punch.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../app/android/app/src/main/res/drawable-xhdpi/ic_action_delete.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../app/android/app/src/main/res/drawable-xhdpi/ic_action_edit.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../app/android/app/src/main/res/drawable-xxhdpi/ic_action_delete.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../app/android/app/src/main/res/drawable-xxhdpi/ic_action_edit.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../app/android/app/src/main/res/drawable/hole_punch.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../app/android/app/src/main/res/drawable/shape_edit_text.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../app/android/app/src/main/res/layout/activity_community_detail.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../app/android/app/src/main/res/layout/row_cm_detail_comment.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../app/android/app/src/main/res/menu/menu_context_comment.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../../.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../app/android/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../app/android/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../app/android/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/../../app/android/app/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../app/android/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../app/android/app/src/main/AndroidManifest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../app/android/app/src/main/java/com/deepseat/ds/fragment/CommunityFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../../app/android/app/src/main/java/com/deepseat/ds/fragment/CommunityFragment.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../app/android/app/src/main/res/layout/fragment_community.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../app/android/app/src/main/res/layout/fragment_community.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../app/android/app/src/main/res/values-ko/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../app/android/app/src/main/res/values-ko/strings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../app/android/app/src/main/res/values/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../app/android/app/src/main/res/values/strings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/7.4.1/checksums/checksums.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.4.1/checksums/checksums.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/7.4.1/checksums/md5-checksums.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.4.1/checksums/md5-checksums.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/7.4.1/checksums/sha1-checksums.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.4.1/checksums/sha1-checksums.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test.json" beforeDir="false" afterPath="$PROJECT_DIR$/test.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/deepseat/server/DeepSeatServer/controller/UserController.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/com/deepseat/server/DeepSeatServer/controller/UserController.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -89,6 +59,9 @@
       </list>
     </option>
   </component>
+  <component name="Git.Rebase.Settings">
+    <option name="NEW_BASE" value="origin/master" />
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../.." />
   </component>
@@ -99,6 +72,13 @@
       <filtered-out-file-type name="TAG" />
       <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
     </file-type-list>
+  </component>
+  <component name="JpbToolWindowState">
+    <option name="myId2Visible">
+      <map>
+        <entry key="com.haulmont.jpb.jpaStructure" value="false" />
+      </map>
+    </option>
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -111,23 +91,23 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RequestMappingsPanelOrder0": "0",
-    "RequestMappingsPanelOrder1": "1",
-    "RequestMappingsPanelWidth0": "75",
-    "RequestMappingsPanelWidth1": "75",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "/Users/soc06212/Desktop/hallym/DeepSeat/DeepSeat_project/src/server/DeepSeatServer",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.24624278",
-    "settings.editor.selected.configurable": "database.query.execution",
-    "spring.configuration.checksum": "25b258366465851620887937e86d94ae"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
+    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
+    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
+    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/soc06212/Desktop/hallym/DeepSeat/DeepSeat_project/src/server/DeepSeatServer&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.24624278&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;database.query.execution&quot;,
+    &quot;spring.configuration.checksum&quot;: &quot;25b258366465851620887937e86d94ae&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager" selected="Gradle.DeepSeatServer [bootWar]">
     <configuration name="DeepSeatServer [bootJar]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
