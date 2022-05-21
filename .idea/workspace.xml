@@ -9,70 +9,40 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="765bfd40-a8f6-4922-8315-d987ccc78e6f" name="Changes" comment="Feat: 변경된 dao, vo, service에 맞게 Controller 일괄 수정">
-      <change afterPath="$PROJECT_DIR$/src/app/android/app/src/main/java/com/deepseat/ds/adapter/CommunityAdapter.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/android/app/src/main/java/com/deepseat/ds/adapter/CommunityListAdapter.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/android/app/src/main/java/com/deepseat/ds/model/Document.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/android/app/src/main/java/com/deepseat/ds/model/Room.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/android/app/src/main/java/com/deepseat/ds/model/Seat.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/android/app/src/main/java/com/deepseat/ds/viewholder/CommunityHeaderViewHolder.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/android/app/src/main/java/com/deepseat/ds/viewholder/CommunityItemViewHolder.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/android/app/src/main/java/com/deepseat/ds/viewholder/CommunityListViewHolder.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/android/app/src/main/java/com/deepseat/ds/viewholder/CommunitySubViewHolder.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/android/app/src/main/java/com/deepseat/ds/vo/CommunityListVO.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/android/app/src/main/java/com/deepseat/ds/vo/CommunityVO.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/android/app/src/main/java/com/deepseat/ds/vo/DocumentVO.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/android/app/src/main/res/drawable-anydpi/ic_comment.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/android/app/src/main/res/drawable-anydpi/ic_dropdown_down.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/android/app/src/main/res/drawable-anydpi/ic_dropdown_up.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/android/app/src/main/res/drawable-anydpi/ic_horiz_more.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/android/app/src/main/res/drawable-anydpi/ic_like_filled.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/android/app/src/main/res/drawable-anydpi/ic_like_outlined.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/android/app/src/main/res/drawable-hdpi/ic_comment.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/android/app/src/main/res/drawable-hdpi/ic_dropdown_down.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/android/app/src/main/res/drawable-hdpi/ic_dropdown_up.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/android/app/src/main/res/drawable-hdpi/ic_horiz_more.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/android/app/src/main/res/drawable-hdpi/ic_like_filled.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/android/app/src/main/res/drawable-hdpi/ic_like_outlined.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/android/app/src/main/res/drawable-mdpi/ic_comment.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/android/app/src/main/res/drawable-mdpi/ic_dropdown_down.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/android/app/src/main/res/drawable-mdpi/ic_dropdown_up.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/android/app/src/main/res/drawable-mdpi/ic_horiz_more.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/android/app/src/main/res/drawable-mdpi/ic_like_filled.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/android/app/src/main/res/drawable-mdpi/ic_like_outlined.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/android/app/src/main/res/drawable-xhdpi/ic_comment.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/android/app/src/main/res/drawable-xhdpi/ic_dropdown_down.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/android/app/src/main/res/drawable-xhdpi/ic_dropdown_up.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/android/app/src/main/res/drawable-xhdpi/ic_horiz_more.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/android/app/src/main/res/drawable-xhdpi/ic_like_filled.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/android/app/src/main/res/drawable-xhdpi/ic_like_outlined.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/android/app/src/main/res/drawable-xxhdpi/ic_comment.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/android/app/src/main/res/drawable-xxhdpi/ic_dropdown_down.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/android/app/src/main/res/drawable-xxhdpi/ic_dropdown_up.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/android/app/src/main/res/drawable-xxhdpi/ic_horiz_more.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/android/app/src/main/res/drawable-xxhdpi/ic_like_filled.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/android/app/src/main/res/drawable-xxhdpi/ic_like_outlined.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/android/app/src/main/res/drawable/shape_draggable_bar.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/android/app/src/main/res/layout/bottom_sheet_community.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/android/app/src/main/res/layout/row_bs_community_header.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/android/app/src/main/res/layout/row_bs_community_item.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/android/app/src/main/res/layout/row_bs_community_sub.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/android/app/src/main/res/layout/row_community_list.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+    <list default="true" id="765bfd40-a8f6-4922-8315-d987ccc78e6f" name="Changes" comment="Feat: API Controller 완성">
+      <change afterPath="$PROJECT_DIR$/src/app/android/app/src/main/java/com/deepseat/ds/activity/CommunityDetailActivity.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/android/app/src/main/java/com/deepseat/ds/viewholder/CommentViewHolder.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/android/app/src/main/java/com/deepseat/ds/vo/CommentVO.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/android/app/src/main/res/drawable-anydpi/ic_action_delete.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/android/app/src/main/res/drawable-anydpi/ic_action_edit.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/android/app/src/main/res/drawable-hdpi/ic_action_delete.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/android/app/src/main/res/drawable-hdpi/ic_action_edit.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/android/app/src/main/res/drawable-mdpi/ic_action_delete.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/android/app/src/main/res/drawable-mdpi/ic_action_edit.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/android/app/src/main/res/drawable-night/hole_punch.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/android/app/src/main/res/drawable-xhdpi/ic_action_delete.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/android/app/src/main/res/drawable-xhdpi/ic_action_edit.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/android/app/src/main/res/drawable-xxhdpi/ic_action_delete.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/android/app/src/main/res/drawable-xxhdpi/ic_action_edit.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/android/app/src/main/res/drawable/hole_punch.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/android/app/src/main/res/drawable/shape_edit_text.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/android/app/src/main/res/layout/activity_community_detail.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/android/app/src/main/res/layout/row_cm_detail_comment.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/android/app/src/main/res/menu/menu_context_comment.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/android/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/android/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/android/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/android/app/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/android/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/android/app/src/main/AndroidManifest.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/android/app/src/main/java/com/deepseat/ds/fragment/CommunityFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/android/app/src/main/java/com/deepseat/ds/fragment/CommunityFragment.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/android/app/src/main/res/layout/fragment_community.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/android/app/src/main/res/layout/fragment_community.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/android/app/src/main/res/values-ko/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/android/app/src/main/res/values-ko/strings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/android/app/src/main/res/values-night/colors.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/android/app/src/main/res/values-night/colors.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/android/app/src/main/res/values/colors.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/android/app/src/main/res/values/colors.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/android/app/src/main/res/values/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/android/app/src/main/res/values/strings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/android/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/android/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/android/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/android/gradle/wrapper/gradle-wrapper.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/server/DeepSeatServer/SQL.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/server/DeepSeatServer/SQL.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/server/DeepSeatServer/deepseat.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/server/DeepSeatServer/deepseat.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/server/DeepSeatServer/src/main/resources/mapper/DocumentMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/server/DeepSeatServer/src/main/resources/mapper/DocumentMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/server/DeepSeatServer/.gradle/7.4.1/checksums/checksums.lock" beforeDir="false" afterPath="$PROJECT_DIR$/src/server/DeepSeatServer/.gradle/7.4.1/checksums/checksums.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/server/DeepSeatServer/.gradle/7.4.1/checksums/md5-checksums.bin" beforeDir="false" afterPath="$PROJECT_DIR$/src/server/DeepSeatServer/.gradle/7.4.1/checksums/md5-checksums.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/server/DeepSeatServer/.gradle/7.4.1/checksums/sha1-checksums.bin" beforeDir="false" afterPath="$PROJECT_DIR$/src/server/DeepSeatServer/.gradle/7.4.1/checksums/sha1-checksums.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/server/DeepSeatServer/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/server/DeepSeatServer/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/server/DeepSeatServer/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/server/DeepSeatServer/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/server/DeepSeatServer/test.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/server/DeepSeatServer/test.json" afterDir="false" />
     </list>
     <list id="67dba895-4037-4cbb-b530-ce4c3b14cc49" name="Changes by soc06212" comment="" />
     <option name="SHOW_DIALOG" value="false" />
@@ -158,7 +128,7 @@
     &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Artifacts&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.15429688&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.24624278&quot;,
     &quot;spring.configuration.checksum&quot;: &quot;25b258366465851620887937e86d94ae&quot;
@@ -169,29 +139,9 @@
     ]
   }
 }</component>
-  <component name="RunManager" selected="Gradle.DeepSeatServer [bootJar]">
-    <configuration name="DeepSeatServer [bootJar]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$/src/server/DeepSeatServer" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value="bootJar" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
-      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
-      <DebugAllEnabled>false</DebugAllEnabled>
-      <method v="2" />
-    </configuration>
+  <component name="RunManager">
     <configuration name="DeepSeatServerApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true">
+      <option name="ACTIVE_PROFILES" />
       <module name="DeepSeatServer.main" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.deepseat.server.DeepSeatServer.DeepSeatServerApplication" />
       <method v="2">
@@ -200,7 +150,6 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Gradle.DeepSeatServer [bootJar]" />
         <item itemvalue="Spring Boot.DeepSeatServerApplication" />
       </list>
     </recent_temporary>
@@ -235,6 +184,9 @@
       <workItem from="1652169843402" duration="8174000" />
       <workItem from="1652436103417" duration="2766000" />
       <workItem from="1652557947844" duration="821000" />
+      <workItem from="1652775026389" duration="2763000" />
+      <workItem from="1652778354638" duration="1548000" />
+      <workItem from="1652906984985" duration="309000" />
     </task>
     <task id="LOCAL-00001" summary="Refactor: package 수정">
       <created>1650468855000</created>
@@ -355,7 +307,14 @@
       <option name="project" value="LOCAL" />
       <updated>1651837418444</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="Feat: API Controller 완성">
+      <created>1652907253101</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1652907253101</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -404,6 +363,7 @@
     <MESSAGE value="Feat: Controller에서 Service 분리" />
     <MESSAGE value="Feat: 일관된 ReponseBody를 반환할 수 있도록 Builder 클래스 생성" />
     <MESSAGE value="Feat: 변경된 dao, vo, service에 맞게 Controller 일괄 수정" />
-    <option name="LAST_COMMIT_MESSAGE" value="Feat: 변경된 dao, vo, service에 맞게 Controller 일괄 수정" />
+    <MESSAGE value="Feat: API Controller 완성" />
+    <option name="LAST_COMMIT_MESSAGE" value="Feat: API Controller 완성" />
   </component>
 </project>
