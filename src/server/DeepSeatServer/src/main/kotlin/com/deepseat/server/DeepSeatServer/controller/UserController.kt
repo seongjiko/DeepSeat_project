@@ -71,7 +71,7 @@ class UserController {
         request: HttpServletRequest,
         @RequestParam nickname: String
     ): String {
-        val user = request.session.getAttribute("user") as? User
+        val user = request.session.getAttribute(SessionConstants.KEY_USER) as? User
             ?: return ResponseBodyBuilder<Boolean>(Errors.Companion.UserError.notSignedIn).data(false).toString()
 
         if (service.getUserByNickname(nickname) != null) {
