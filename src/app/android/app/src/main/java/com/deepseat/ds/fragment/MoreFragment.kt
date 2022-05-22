@@ -2,6 +2,7 @@ package com.deepseat.ds.fragment
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -14,8 +15,16 @@ import com.deepseat.ds.MainActivity
 import com.deepseat.ds.R
 import com.deepseat.ds.activity.LoginActivity
 import com.deepseat.ds.adapter.MenuAdapter
+import com.deepseat.ds.api.UserServiceImpl
 import com.deepseat.ds.databinding.FragmentMoreBinding
 import com.deepseat.ds.datasource.MenuDataSource
+import com.deepseat.ds.vo.ResponseBody
+import com.deepseat.ds.vo.UserVO
+import com.google.android.material.snackbar.Snackbar
+import com.google.gson.Gson
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 class MoreFragment : Fragment(), View.OnClickListener {
 
@@ -27,6 +36,8 @@ class MoreFragment : Fragment(), View.OnClickListener {
     private lateinit var binding: FragmentMoreBinding
     private lateinit var adapter: MenuAdapter
 
+    private var user: UserVO? = null
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -36,18 +47,22 @@ class MoreFragment : Fragment(), View.OnClickListener {
 
         (requireActivity() as MainActivity).setSupportActionBar(binding.toolbarMenu)
 
-        initView()
-
         return binding.root
+    }
+
+    override fun onResume() {
+        super.onResume()
+        initView()
+        initData()
     }
 
     private fun initView() {
         initRecyclerView()
 
-        if (GlobalData.user != null) {
+        if (user != null) {
             // Account View
-            binding.txtMenuNickname.text = GlobalData.user.nickname
-            binding.txtMenuUserId.text = GlobalData.user.userId
+            binding.txtMenuNickname.text = this.user!!.nickname
+            binding.txtMenuUserId.text = this.user!!.userID
             binding.cardMenuEdit.visibility = View.VISIBLE
 
             // Log in/ out Button
@@ -64,6 +79,37 @@ class MoreFragment : Fragment(), View.OnClickListener {
 
         binding.cardMenuEdit.setOnClickListener(this)
         binding.btnMenuLogout.setOnClickListener(this)
+    }
+
+    private fun initData() {
+        if (GlobalData.sessionId == null) return
+
+        val call: Call<String> =
+            UserServiceImpl.service.getUser()
+
+        call.enqueue(object : Callback<String> {
+            override fun onResponse(call: Call<String>, response: Response<String>) {
+                val responseBody = Gson().fromJson(response.body(), ResponseBody::class.java)
+
+                if (responseBody == null || responseBody.responseCode != 200) {
+                    Log.e("=== Fail ===", response.body() ?: "empty content")
+
+                    Snackbar.make(binding.root, "error", Snackbar.LENGTH_LONG).show()
+                } else {
+                    val data = Gson().toJson(responseBody.data)
+                    user = Gson().fromJson(data, UserVO::class.java)
+                    Log.e("=== Success ===", response.body() ?: "empty content")
+
+                    initView()
+                }
+            }
+
+            override fun onFailure(call: Call<String>, t: Throwable) {
+                Log.e("=== Fail ===", t.toString())
+                Snackbar.make(binding.root, "error", Snackbar.LENGTH_LONG).show()
+            }
+
+        })
     }
 
     private fun initRecyclerView() {
@@ -101,9 +147,27 @@ class MoreFragment : Fragment(), View.OnClickListener {
             .setMessage(R.string.menu_edit_message)
             .setView(editText)
             .setPositiveButton(R.string.confirm) { dialog, _ ->
-                // TODO: Editing user nickname
-                GlobalData.user?.nickname = editText.text.toString()
-                this.binding.txtMenuNickname.text = GlobalData.user?.nickname
+                val call: Call<String> = UserServiceImpl.service.editUser(
+                    editText.text.toString()
+                )
+                call.enqueue(object : Callback<String> {
+                    override fun onResponse(call: Call<String>, response: Response<String>) {
+                        Log.e("=== Success ===", response.body() ?: "empty content")
+
+                        val responseBody =
+                            Gson().fromJson(response.body(), ResponseBody::class.java)
+                        if (responseBody == null || responseBody.responseCode != 200) {
+                            binding.txtMenuNickname.text = GlobalData.user?.nickname
+                        }
+                    }
+
+                    override fun onFailure(call: Call<String>, t: Throwable) {
+                        Log.e("=== Fail ===", t.toString())
+                        Snackbar.make(binding.root, "error", Snackbar.LENGTH_LONG).show()
+                    }
+
+                })
+
                 dialog.dismiss()
             }
             .setNegativeButton(R.string.cancel) { dialog, _ -> dialog.dismiss() }
@@ -111,11 +175,29 @@ class MoreFragment : Fragment(), View.OnClickListener {
     }
 
     private fun handleLogoutButton(v: View) {
-        if (GlobalData.user != null) {
-            // TODO: Logout
+        if (GlobalData.sessionId != null) {
+            val call: Call<String> = UserServiceImpl.service.logoutUser()
+            call.enqueue(object : Callback<String> {
+                override fun onResponse(call: Call<String>, response: Response<String>) {
+                    Log.e("=== Success ===", response.body() ?: "empty content")
+                    Snackbar.make(binding.root, R.string.menu_logout, Snackbar.LENGTH_LONG).show()
+                    GlobalData.sessionId = null
+                    initData()
+                    initView()
+                }
+
+                override fun onFailure(call: Call<String>, t: Throwable) {
+                    Log.e("=== Fail ===", t.toString())
+                    Snackbar.make(binding.root, "error", Snackbar.LENGTH_LONG).show()
+                    GlobalData.sessionId = null
+                    initData()
+                    initView()
+                }
+            })
         } else {
             startActivity(Intent(requireContext(), LoginActivity::class.java))
         }
     }
+
 }
 

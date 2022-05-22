@@ -42,7 +42,28 @@ class LoginActivity : AppCompatActivity() {
                     val responseBody = Gson().fromJson(response.body(), ResponseBody::class.java)
 
                     if (responseBody == null || responseBody.responseCode != 200 || responseBody.data as? String == null) {
-                        Snackbar.make(binding.root, R.string.login_id, Snackbar.LENGTH_LONG).show()
+                        when (responseBody.responseCode) {
+                            4001 -> Snackbar.make(
+                                binding.root,
+                                R.string.login_error_account,
+                                Snackbar.LENGTH_LONG
+                            ).show()
+                            4002 -> Snackbar.make(
+                                binding.root,
+                                R.string.login_error_account,
+                                Snackbar.LENGTH_LONG
+                            ).show()
+                            4005 -> Snackbar.make(
+                                binding.root,
+                                R.string.login_error_not_exist,
+                                Snackbar.LENGTH_LONG
+                            ).show()
+                            else -> Snackbar.make(
+                                binding.root,
+                                R.string.login_error,
+                                Snackbar.LENGTH_LONG
+                            ).show()
+                        }
                     } else {
                         GlobalData.sessionId = responseBody.data as? String
                         finish()

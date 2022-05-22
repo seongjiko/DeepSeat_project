@@ -3,18 +3,15 @@ package com.deepseat.ds.api
 import com.deepseat.ds.vo.ResponseBody
 import com.deepseat.ds.vo.UserVO
 import retrofit2.Call
-import retrofit2.http.Body
-import retrofit2.http.GET
-import retrofit2.http.POST
-import retrofit2.http.Query
+import retrofit2.http.*
 
 interface UserService {
 
     @POST("/id-check")
-    fun checkIDDuplicate(@Query("userID") userID: String): Call<ResponseBody<Boolean>>
+    fun checkIDDuplicate(@Query("userID") userID: String): Call<String>
 
     @POST("/nickname-check")
-    fun checkNicknameDuplicate(@Query("nickname") nickname: String): Call<ResponseBody<Boolean>>
+    fun checkNicknameDuplicate(@Query("nickname") nickname: String): Call<String>
 
     @POST("/register")
     fun registerUser(
@@ -23,7 +20,7 @@ interface UserService {
         @Query("userPWCheck") userPWCheck: String,
         @Query("nickname") nickname: String,
         @Query("email") email: String
-    ): Call<ResponseBody<String>>
+    ): Call<String>
 
     @POST("/login")
     fun loginUser(
@@ -31,10 +28,13 @@ interface UserService {
         @Query("userPW") userPW: String
     ): Call<String>
 
+    @POST("/logout")
+    fun logoutUser(): Call<String>
+
     @POST("/user")
-    fun getUser(): Call<ResponseBody<UserVO>>
+    fun getUser(): Call<String>
 
     @POST("/edit-user")
-    fun editUser(@Query("nickname") nickname: String): Call<ResponseBody<Boolean>>
+    fun editUser(@Query("nickname") nickname: String): Call<String>
 
 }
