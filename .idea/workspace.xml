@@ -10,7 +10,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="765bfd40-a8f6-4922-8315-d987ccc78e6f" name="Changes" comment="Feat: API Controller 완성">
-      <change beforePath="$PROJECT_DIR$/src/server/DeepSeatServer/src/main/kotlin/com/deepseat/server/DeepSeatServer/controller/UserController.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/server/DeepSeatServer/src/main/kotlin/com/deepseat/server/DeepSeatServer/controller/UserController.kt" afterDir="false" />
     </list>
     <list id="67dba895-4037-4cbb-b530-ce4c3b14cc49" name="Changes by soc06212" comment="" />
     <option name="SHOW_DIALOG" value="false" />
@@ -127,6 +126,7 @@
     <recent_temporary>
       <list>
         <item itemvalue="Spring Boot.DeepSeatServerApplication" />
+        <item itemvalue="Spring Boot.DeepSeatServerApplication" />
       </list>
     </recent_temporary>
   </component>
@@ -163,6 +163,7 @@
       <workItem from="1652775026389" duration="2763000" />
       <workItem from="1652778354638" duration="1548000" />
       <workItem from="1652906984985" duration="309000" />
+      <workItem from="1653175966659" duration="2050000" />
     </task>
     <task id="LOCAL-00001" summary="Refactor: package 수정">
       <created>1650468855000</created>

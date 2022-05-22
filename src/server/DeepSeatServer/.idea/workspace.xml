@@ -4,10 +4,6 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7ae7fabb-aa65-4cdc-a144-b42785bda46f" name="변경" comment="Feat: ObserverAPIController 완성">
-      <change beforePath="$PROJECT_DIR$/../../../.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/deepseat/server/DeepSeatServer/controller/UserController.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/com/deepseat/server/DeepSeatServer/controller/UserController.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -179,6 +175,7 @@
       <workItem from="1652779764740" duration="10020000" />
       <workItem from="1652899341703" duration="6808000" />
       <workItem from="1652977458101" duration="14162000" />
+      <workItem from="1653175977006" duration="809000" />
     </task>
     <task id="LOCAL-00001" summary="Feat: ObserverAPIController 완성">
       <created>1653048465289</created>
@@ -187,7 +184,14 @@
       <option name="project" value="LOCAL" />
       <updated>1653048465289</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Feat: ID 중복확인 및 닉네임 중복 확인 추가">
+      <created>1653176177314</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1653176177314</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -206,6 +210,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Feat: ObserverAPIController 완성" />
-    <option name="LAST_COMMIT_MESSAGE" value="Feat: ObserverAPIController 완성" />
+    <MESSAGE value="Feat: ID 중복확인 및 닉네임 중복 확인 추가" />
+    <option name="LAST_COMMIT_MESSAGE" value="Feat: ID 중복확인 및 닉네임 중복 확인 추가" />
   </component>
 </project>

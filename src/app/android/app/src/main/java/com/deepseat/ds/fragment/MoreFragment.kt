@@ -42,10 +42,12 @@ class MoreFragment : Fragment(), View.OnClickListener {
     private fun initView() {
         initRecyclerView()
 
-        // Account View
-        binding.txtMenuNickname.text = GlobalData.user.nickname
-        binding.txtMenuUserId.text = GlobalData.user.userId
-        binding.cardMenuEdit.setOnClickListener(this)
+        if (GlobalData.user != null) {
+            // Account View
+            binding.txtMenuNickname.text = GlobalData.user.nickname
+            binding.txtMenuUserId.text = GlobalData.user.userId
+            binding.cardMenuEdit.setOnClickListener(this)
+        }
     }
 
     private fun initRecyclerView() {
@@ -84,8 +86,8 @@ class MoreFragment : Fragment(), View.OnClickListener {
             .setView(editText)
             .setPositiveButton(R.string.confirm) { dialog, _ ->
                 // TODO: Editing user nickname
-                GlobalData.user.nickname = editText.text.toString()
-                this.binding.txtMenuNickname.text = GlobalData.user.nickname
+                GlobalData.user?.nickname = editText.text.toString()
+                this.binding.txtMenuNickname.text = GlobalData.user?.nickname
                 dialog.dismiss()
             }
             .setNegativeButton(R.string.cancel) { dialog, _ -> dialog.dismiss() }

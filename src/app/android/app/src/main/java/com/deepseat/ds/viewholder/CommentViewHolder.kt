@@ -43,7 +43,7 @@ class CommentViewHolder(private val binding: RowCmDetailCommentBinding) :
         val activity = (p1?.context as CommunityDetailActivity)
         activity.menuInflater.inflate(R.menu.menu_context_comment, p0)
 
-        if (data.userID != GlobalData.user.userId) {
+        if (data.userID != GlobalData.user?.userId) {
             p0?.removeItem(R.id.action_comment_edit)
             p0?.removeItem(R.id.action_comment_delete)
         }
