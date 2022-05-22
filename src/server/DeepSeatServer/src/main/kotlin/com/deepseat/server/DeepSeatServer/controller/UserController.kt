@@ -68,12 +68,16 @@ class UserController {
         @RequestParam nickname: String
     ): String {
         val user = request.session.getAttribute("user") as? User
-            ?: return ResponseBodyBuilder<Void>(Errors.Companion.UserError.notSignedIn).toString()
+            ?: return ResponseBodyBuilder<Boolean>(Errors.Companion.UserError.notSignedIn).data(false).toString()
+
+        if (service.getUserByNickname(nickname) != null) {
+            return ResponseBodyBuilder<Boolean>().data(false).toString()
+        }
 
         user.nickname = nickname
         service.updateUser(user)
 
-        return ResponseBodyBuilder<Void>().toString()
+        return ResponseBodyBuilder<Boolean>().data(true).toString()
     }
 
     @PostMapping("/user")
