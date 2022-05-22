@@ -34,6 +34,10 @@ class UserController {
             return ResponseBodyBuilder<Void>(Errors.Companion.RegistrationError.registerPWCheckNotMatch).toString()
         }
 
+        if (service.getUser(userID) != null) {
+            return ResponseBodyBuilder<Void>(Errors.Companion.UserError.userExists).toString()
+        }
+
         val salt = SaltGenerator.generate()
         val user = User(userID, PasswordTool.encryptPassword(userPW, salt), salt, nickname, email)
 

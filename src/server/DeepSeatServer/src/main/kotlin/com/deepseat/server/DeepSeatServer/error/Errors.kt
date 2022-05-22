@@ -24,7 +24,8 @@ abstract class Errors {
                 val notRegistered = Error(4001, "User ID Not Registered")
                 val wrongPassword = Error(4002, "Wrong Password")
                 val notSignedIn = Error(4003, "Not Logged In")
-                val notAuthorized = Error(4003, "Not Authorized")
+                val notAuthorized = Error(4004, "Not Authorized")
+                val userExists = Error(4005, "User Already Exists")
             }
         }
 
