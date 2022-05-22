@@ -10,39 +10,48 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="765bfd40-a8f6-4922-8315-d987ccc78e6f" name="Changes" comment="Feat: API Controller 완성">
-      <change afterPath="$PROJECT_DIR$/src/app/android/app/src/main/java/com/deepseat/ds/activity/CommunityDetailActivity.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/android/app/src/main/java/com/deepseat/ds/viewholder/CommentViewHolder.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/android/app/src/main/java/com/deepseat/ds/vo/CommentVO.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/android/app/src/main/res/drawable-anydpi/ic_action_delete.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/android/app/src/main/res/drawable-anydpi/ic_action_edit.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/android/app/src/main/res/drawable-hdpi/ic_action_delete.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/android/app/src/main/res/drawable-hdpi/ic_action_edit.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/android/app/src/main/res/drawable-mdpi/ic_action_delete.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/android/app/src/main/res/drawable-mdpi/ic_action_edit.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/android/app/src/main/res/drawable-night/hole_punch.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/android/app/src/main/res/drawable-xhdpi/ic_action_delete.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/android/app/src/main/res/drawable-xhdpi/ic_action_edit.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/android/app/src/main/res/drawable-xxhdpi/ic_action_delete.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/android/app/src/main/res/drawable-xxhdpi/ic_action_edit.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/android/app/src/main/res/drawable/hole_punch.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/android/app/src/main/res/drawable/shape_edit_text.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/android/app/src/main/res/layout/activity_community_detail.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/android/app/src/main/res/layout/row_cm_detail_comment.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/android/app/src/main/res/menu/menu_context_comment.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/android/app/src/main/ic_launcher-playstore.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/android/app/src/main/java/com/deepseat/ds/api/APIUrls.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/android/app/src/main/res/drawable/avd_anim_deepseat.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/android/app/src/main/res/drawable/ic_deepseat.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/android/app/src/main/res/drawable/ic_launcher_foreground.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/android/app/src/main/res/mipmap-hdpi/ic_launcher.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/android/app/src/main/res/mipmap-hdpi/ic_launcher_round.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/android/app/src/main/res/mipmap-mdpi/ic_launcher.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/android/app/src/main/res/mipmap-mdpi/ic_launcher_round.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/android/app/src/main/res/mipmap-xhdpi/ic_launcher.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/android/app/src/main/res/mipmap-xhdpi/ic_launcher_round.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/android/app/src/main/res/mipmap-xxhdpi/ic_launcher.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/android/app/src/main/res/mipmap-xxhdpi/ic_launcher_round.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/android/app/src/main/res/mipmap-xxxhdpi/ic_launcher.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/android/app/src/main/res/mipmap-xxxhdpi/ic_launcher_round.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/android/app/src/main/res/values/ic_launcher_background.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/android/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/android/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/android/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/android/app/build.gradle" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/android/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/android/app/src/main/AndroidManifest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/android/app/src/main/java/com/deepseat/ds/fragment/CommunityFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/android/app/src/main/java/com/deepseat/ds/fragment/CommunityFragment.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/android/app/src/main/res/layout/fragment_community.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/android/app/src/main/res/layout/fragment_community.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/android/app/src/main/res/values-ko/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/android/app/src/main/res/values-ko/strings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/android/app/src/main/res/values/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/android/app/src/main/res/values/strings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/server/DeepSeatServer/.gradle/7.4.1/checksums/checksums.lock" beforeDir="false" afterPath="$PROJECT_DIR$/src/server/DeepSeatServer/.gradle/7.4.1/checksums/checksums.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/server/DeepSeatServer/.gradle/7.4.1/checksums/md5-checksums.bin" beforeDir="false" afterPath="$PROJECT_DIR$/src/server/DeepSeatServer/.gradle/7.4.1/checksums/md5-checksums.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/server/DeepSeatServer/.gradle/7.4.1/checksums/sha1-checksums.bin" beforeDir="false" afterPath="$PROJECT_DIR$/src/server/DeepSeatServer/.gradle/7.4.1/checksums/sha1-checksums.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/server/DeepSeatServer/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/server/DeepSeatServer/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/android/app/src/main/java/com/deepseat/ds/GlobalData.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/android/app/src/main/java/com/deepseat/ds/GlobalData.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/android/app/src/main/java/com/deepseat/ds/MainActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/android/app/src/main/java/com/deepseat/ds/MainActivity.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/android/app/src/main/java/com/deepseat/ds/fragment/MoreFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/android/app/src/main/java/com/deepseat/ds/fragment/MoreFragment.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/android/app/src/main/java/com/deepseat/ds/viewholder/CommentViewHolder.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/android/app/src/main/java/com/deepseat/ds/viewholder/CommentViewHolder.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/android/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/android/app/src/main/res/drawable/ic_launcher_background.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/android/app/src/main/res/layout/activity_main.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/android/app/src/main/res/layout/activity_main.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/android/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/android/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/android/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/android/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/android/app/src/main/res/mipmap-hdpi/ic_launcher.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/android/app/src/main/res/mipmap-hdpi/ic_launcher_round.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/android/app/src/main/res/mipmap-mdpi/ic_launcher.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/android/app/src/main/res/mipmap-mdpi/ic_launcher_round.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/android/app/src/main/res/mipmap-xhdpi/ic_launcher.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/android/app/src/main/res/mipmap-xhdpi/ic_launcher_round.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/android/app/src/main/res/mipmap-xxhdpi/ic_launcher.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/android/app/src/main/res/mipmap-xxhdpi/ic_launcher_round.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/android/app/src/main/res/mipmap-xxxhdpi/ic_launcher.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/android/app/src/main/res/mipmap-xxxhdpi/ic_launcher_round.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/android/app/src/main/res/values-night/themes.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/android/app/src/main/res/values-night/themes.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/android/app/src/main/res/values/themes.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/android/app/src/main/res/values/themes.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/server/DeepSeatServer/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/server/DeepSeatServer/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/server/DeepSeatServer/test.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/server/DeepSeatServer/test.json" afterDir="false" />
     </list>
     <list id="67dba895-4037-4cbb-b530-ce4c3b14cc49" name="Changes by soc06212" comment="" />
     <option name="SHOW_DIALOG" value="false" />
@@ -151,6 +160,7 @@
     <recent_temporary>
       <list>
         <item itemvalue="Spring Boot.DeepSeatServerApplication" />
+        <item itemvalue="Spring Boot.DeepSeatServerApplication" />
       </list>
     </recent_temporary>
   </component>
@@ -187,6 +197,7 @@
       <workItem from="1652775026389" duration="2763000" />
       <workItem from="1652778354638" duration="1548000" />
       <workItem from="1652906984985" duration="309000" />
+      <workItem from="1653175966659" duration="2050000" />
     </task>
     <task id="LOCAL-00001" summary="Refactor: package 수정">
       <created>1650468855000</created>
