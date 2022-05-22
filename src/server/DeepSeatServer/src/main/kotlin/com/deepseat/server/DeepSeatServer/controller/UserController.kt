@@ -61,6 +61,21 @@ class UserController {
         return ResponseBodyBuilder<Void>().toString()
     }
 
+    @PostMapping("/edit-user")
+    fun editUser(
+        locale: Locale,
+        request: HttpServletRequest,
+        @RequestParam nickname: String
+    ): String {
+        val user = request.session.getAttribute("user") as? User
+            ?: return ResponseBodyBuilder<Void>(Errors.Companion.UserError.notSignedIn).toString()
+
+        user.nickname = nickname
+        service.updateUser(user)
+
+        return ResponseBodyBuilder<Void>().toString()
+    }
+
     @PostMapping("/user")
     fun getUser(request: HttpServletRequest): String {
         val user = request.session.getAttribute(SessionConstants.KEY_USER) as? User
