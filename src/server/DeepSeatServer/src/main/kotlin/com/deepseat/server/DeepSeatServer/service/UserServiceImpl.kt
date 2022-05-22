@@ -19,6 +19,10 @@ class UserServiceImpl: UserService {
         return mapper.getUser(userID)
     }
 
+    override fun getUserByNickname(nickname: String): User? {
+        return mapper.getUserByNickname(nickname)
+    }
+
     override fun deleteUser(userID: String) {
         mapper.deleteUser(userID)
     }
