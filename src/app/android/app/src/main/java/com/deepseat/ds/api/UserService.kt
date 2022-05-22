@@ -29,7 +29,7 @@ interface UserService {
     fun loginUser(
         @Query("userID") userID: String,
         @Query("userPW") userPW: String
-    ): Call<ResponseBody<String>>
+    ): Call<String>
 
     @POST("/user")
     fun getUser(): Call<ResponseBody<UserVO>>
