@@ -21,12 +21,14 @@
     <!--  MenuFragment  -->
     <string name="menu_account_title">사용자 정보</string>
     <string name="menu_application">애플리케이션</string>
+    <string name="menu_login">로그인</string>
     <string name="menu_logout">로그아웃</string>
     <string name="menu_app_build">빌드 버전</string>
     <string name="menu_licenses">오픈소스 라이선스</string>
     <string name="menu_policy">개인정보처리방침</string>
     <string name="menu_edit_title">닉네임 변경</string>
     <string name="menu_edit_message">변경할 새 닉네임을 입력하세요.</string>
+    <string name="menu_login_null">로그인해주세요</string>
 
     <!--  LoginActivity  -->
     <string name="login_id">ID</string>
