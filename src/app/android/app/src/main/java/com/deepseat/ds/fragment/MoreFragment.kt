@@ -1,5 +1,6 @@
 package com.deepseat.ds.fragment
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -11,6 +12,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.deepseat.ds.GlobalData
 import com.deepseat.ds.MainActivity
 import com.deepseat.ds.R
+import com.deepseat.ds.activity.LoginActivity
 import com.deepseat.ds.adapter.MenuAdapter
 import com.deepseat.ds.databinding.FragmentMoreBinding
 import com.deepseat.ds.datasource.MenuDataSource
@@ -46,8 +48,22 @@ class MoreFragment : Fragment(), View.OnClickListener {
             // Account View
             binding.txtMenuNickname.text = GlobalData.user.nickname
             binding.txtMenuUserId.text = GlobalData.user.userId
-            binding.cardMenuEdit.setOnClickListener(this)
+            binding.cardMenuEdit.visibility = View.VISIBLE
+
+            // Log in/ out Button
+            binding.btnMenuLogout.text = getText(R.string.menu_logout)
+        } else {
+            // Account View
+            binding.txtMenuNickname.text = getText(R.string.menu_login_null)
+            binding.txtMenuUserId.text = ""
+            binding.cardMenuEdit.visibility = View.GONE
+
+            // Log in/ out Button
+            binding.btnMenuLogout.text = getText(R.string.menu_login)
         }
+
+        binding.cardMenuEdit.setOnClickListener(this)
+        binding.btnMenuLogout.setOnClickListener(this)
     }
 
     private fun initRecyclerView() {
@@ -95,7 +111,11 @@ class MoreFragment : Fragment(), View.OnClickListener {
     }
 
     private fun handleLogoutButton(v: View) {
-
+        if (GlobalData.user != null) {
+            // TODO: Logout
+        } else {
+            startActivity(Intent(requireContext(), LoginActivity::class.java))
+        }
     }
 }
 
