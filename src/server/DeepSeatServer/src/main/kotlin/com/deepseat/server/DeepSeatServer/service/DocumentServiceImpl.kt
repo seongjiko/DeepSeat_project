@@ -19,8 +19,8 @@ class DocumentServiceImpl : DocumentService{
         return mapper.getDocuments()
     }
 
-    override fun getDocumentsBySeatId(seatID: Int): List<Document> {
-        return mapper.getDocumentsBySeatId(seatID)
+    override fun getDocumentsByRoomAndSeatId(roomID: Int, seatID: Int): List<Document> {
+        return mapper.getDocumentsBySeatId(roomID, seatID)
     }
 
     override fun getDocumentById(docID: Int): Document? {
