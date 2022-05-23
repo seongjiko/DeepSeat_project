@@ -1,5 +1,6 @@
 package com.deepseat.ds.adapter
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.util.Log
 import android.view.LayoutInflater
@@ -24,6 +25,7 @@ class CommunityAdapter(private val context: Context) :
     private var expanded: Int = -1
     private var expandedID: Int = -1
 
+    @SuppressLint("NotifyDataSetChanged")
     fun setData(rooms: ArrayList<Room>, seats: HashMap<Int, ArrayList<Seat>>) {
         this._data.clear()
         this.rooms.clear()
@@ -35,6 +37,37 @@ class CommunityAdapter(private val context: Context) :
         this.rooms.forEach {
             _data.add(it)
         }
+
+        notifyDataSetChanged()
+    }
+
+    @SuppressLint("NotifyDataSetChanged")
+    fun setData(rooms: Array<Room>) {
+        this._data.clear()
+        this.rooms.clear()
+
+        this.rooms.addAll(rooms)
+
+        this.rooms.forEach {
+            _data.add(it)
+        }
+
+        notifyDataSetChanged()
+    }
+
+    fun setData(seats: HashMap<Int, ArrayList<Seat>>) {
+        this.seats.clear()
+        this.seats.putAll(seats)
+    }
+
+    fun clearSeats() {
+        this.seats.clear()
+    }
+
+    @SuppressLint("NotifyDataSetChanged")
+    fun addData(roomID: Int, seats: ArrayList<Seat>) {
+        this.seats[roomID] = seats
+        notifyDataSetChanged()
     }
 
     var onCommunitySelectListener: ((roomID: Int, seatID: Int) -> Unit)? = null

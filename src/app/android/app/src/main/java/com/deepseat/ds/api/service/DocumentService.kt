@@ -8,6 +8,9 @@ interface DocumentService {
     @POST("/doc/{roomID}/{seatID}")
     fun writeDocument(@Path("roomID") roomID: Int, @Path("seatID") seatID: Int): Call<String>
 
+    @GET("/doc")
+    fun getDocuments(): Call<String>
+
     @GET("/doc/{roomID}/{seatID}/{docID}")
     fun getDocument(
         @Path("roomID") roomID: Int,
