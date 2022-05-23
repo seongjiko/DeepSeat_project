@@ -37,6 +37,9 @@
     <string name="login_pw">PW</string>
     <string name="login_register">Sign Up</string>
     <string name="login">Sign In</string>
+    <string name="login_error">Server Error</string>
+    <string name="login_error_account">Wrong User ID or PW</string>
+    <string name="login_error_not_exist">User Not Exists</string>
 
     <!--  RegisterActivity  -->
     <string name="register_title">Sign Up</string>

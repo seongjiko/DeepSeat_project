@@ -6,6 +6,7 @@ class GlobalData {
 
     companion object {
         val user: User? = null
+        var sessionId: String? = null
     }
 
 }

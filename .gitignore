@@ -221,4 +221,5 @@ src/server/DeepSeatServer/.idea/codestream.xml
 */.gradle/
 */.idea/
 /src/app/android/.idea/
+/.idea/workspace.xml
 /*/workspace.xml

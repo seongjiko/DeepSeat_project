@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="color_accent">#FF6200EE</color>
+    <color name="color_accent">#4474BF</color>
 
     <color name="bg_primary">#424448</color>
     <color name="bg_secondary">#0C0E12</color>

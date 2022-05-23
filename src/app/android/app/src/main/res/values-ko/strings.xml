@@ -37,6 +37,9 @@
     <string name="login_pw">PW</string>
     <string name="login_register">Register</string>
     <string name="login">Login</string>
+    <string name="login_error">서버와 통신중 오류가 발생했습니다.</string>
+    <string name="login_error_account">ID 혹은 PW가 정확하지 않습니다.</string>
+    <string name="login_error_not_exist">해당 계정이 존재하지 않습니다.</string>
 
     <!--  RegisterActivity  -->
     <string name="register_title">Registration</string>

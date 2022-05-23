@@ -147,6 +147,7 @@
         </LinearLayout>
 
         <TextView
+            android:id="@+id/txt_register_pw_check_error"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/register_pw_warning"
@@ -198,6 +199,7 @@
         </LinearLayout>
 
         <Button
+            android:id="@+id/btn_register"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="48dp"
