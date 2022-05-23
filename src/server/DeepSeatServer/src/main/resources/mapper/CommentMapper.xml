@@ -9,15 +9,15 @@
         INSERT INTO comment(userID, docID, content) VALUES(#{userID}, #{docID}, #{content});
     </insert>
 
-    <select id="getCommentById" parameterType="integer" resultType="Comment">
+    <select id="getCommentById" parameterType="int" resultType="Comment">
         SELECT * FROM comment WHERE commentID = #{commentID};
     </select>
 
-    <select id="getComments" parameterType="integer" resultType="Comment">
+    <select id="getComments" parameterType="int" resultType="Comment">
         SELECT * FROM comment WHERE docID = #{docID};
     </select>
 
-    <delete id="deleteCommentById" parameterType="integer">
+    <delete id="deleteCommentById" parameterType="int">
         DELETE FROM comment WHERE commentID = #{commentID};
     </delete>
 

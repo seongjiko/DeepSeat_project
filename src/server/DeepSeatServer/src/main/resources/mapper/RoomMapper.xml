@@ -17,13 +17,13 @@
         order by roomID desc;
     </select>
 
-    <select id="isRoomIDExists" parameterType="integer" resultType="integer">
+    <select id="isRoomIDExists" parameterType="int" resultType="int">
         select count(*)
         from room
         where roomID = #{roomID};
     </select>
 
-    <select id="getRoomByID" parameterType="integer" resultType="Room">
+    <select id="getRoomByID" parameterType="int" resultType="Room">
         select *
         from room
         where roomID = #{roomID};
