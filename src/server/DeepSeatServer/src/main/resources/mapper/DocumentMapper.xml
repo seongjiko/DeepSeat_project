@@ -6,32 +6,39 @@
 <mapper namespace="com.deepseat.server.DeepSeatServer.dao.DocumentMapper">
 
     <insert id="insertDocument" parameterType="Document">
-        INSERT INTO document(userID, roomID, seatID, content) VALUES(#{userID}, #{roomID}, #{seatID}, #{content});
+        INSERT INTO document(userID, roomID, seatID, content)
+        VALUES (#{userID}, #{roomID}, #{seatID}, #{content});
     </insert>
 
     <select id="getDocuments" resultType="Document">
-        SELECT * FROM document;
+        SELECT *
+        FROM document;
     </select>
 
-    <select id="getDocumentsBySeatId" parameterType="integer" resultType="Document">
-        SELECT * FROM document WHERE seatID = #{seatID};
+    <select id="getDocumentsBySeatId" resultType="Document">
+        SELECT *
+        FROM document
+        WHERE roomID = #{roomID}
+          and seatID = #{seatID};
     </select>
 
     <select id="getDocumentById" parameterType="integer" resultType="Document">
-        SELECT * FROM document WHERE docID = #{docID};
+        SELECT *
+        FROM document
+        WHERE docID = #{docID};
     </select>
 
     <delete id="deleteDocument" parameterType="integer">
-        DELETE FROM document WHERE docID = #{docID};
+        DELETE
+        FROM document
+        WHERE docID = #{docID};
     </delete>
 
     <update id="updateDocument" parameterType="Document">
-        UPDATE document SET content = #{content}, edited = true WHERE docID = #{docID};
+        UPDATE document
+        SET content = #{content},
+            edited  = true
+        WHERE docID = #{docID};
     </update>
-
-<!--    <select id="getCommunityDocumentList" resultType="CommunityList">-->
-<!--        select docID, userID, nickname, roomName, seatName, content, wrote, edited, liked, liked as iLiked-->
-<!--        from document join-->
-<!--    </select>-->
 
 </mapper>
