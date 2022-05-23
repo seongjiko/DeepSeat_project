@@ -30,10 +30,7 @@
 
     <update id="updateUser" parameterType="User">
         UPDATE user
-        SET userPW   = #{userPW},
-            salt     = #{salt},
-            nickname = #{nickname},
-            email    = #{email}
+        SET nickname = #{nickname}
         WHERE userID = #{userID};
     </update>
 
