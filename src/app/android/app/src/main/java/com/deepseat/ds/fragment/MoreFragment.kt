@@ -85,7 +85,7 @@ class MoreFragment : Fragment(), View.OnClickListener {
         if (GlobalData.sessionId == null) return
 
         val call: Call<String> =
-            ServiceFactory.service.getUser()
+            ServiceFactory.userService.getUser()
 
         call.enqueue(object : Callback<String> {
             override fun onResponse(call: Call<String>, response: Response<String>) {
@@ -147,7 +147,7 @@ class MoreFragment : Fragment(), View.OnClickListener {
             .setMessage(R.string.menu_edit_message)
             .setView(editText)
             .setPositiveButton(R.string.confirm) { dialog, _ ->
-                val call: Call<String> = ServiceFactory.service.editUser(
+                val call: Call<String> = ServiceFactory.userService.editUser(
                     editText.text.toString()
                 )
                 call.enqueue(object : Callback<String> {
@@ -156,8 +156,9 @@ class MoreFragment : Fragment(), View.OnClickListener {
 
                         val responseBody =
                             Gson().fromJson(response.body(), ResponseBody::class.java)
-                        if (responseBody == null || responseBody.responseCode != 200) {
-                            binding.txtMenuNickname.text = GlobalData.user?.nickname
+
+                        if (responseBody != null && responseBody.responseCode == 200) {
+                            binding.txtMenuNickname.text = editText.text.toString()
                         }
                     }
 
@@ -176,12 +177,13 @@ class MoreFragment : Fragment(), View.OnClickListener {
 
     private fun handleLogoutButton(v: View) {
         if (GlobalData.sessionId != null) {
-            val call: Call<String> = ServiceFactory.service.logoutUser()
+            val call: Call<String> = ServiceFactory.userService.logoutUser()
             call.enqueue(object : Callback<String> {
                 override fun onResponse(call: Call<String>, response: Response<String>) {
                     Log.e("=== Success ===", response.body() ?: "empty content")
                     Snackbar.make(binding.root, R.string.menu_logout, Snackbar.LENGTH_LONG).show()
                     GlobalData.sessionId = null
+                    this@MoreFragment.user = null
                     initData()
                     initView()
                 }
@@ -190,6 +192,7 @@ class MoreFragment : Fragment(), View.OnClickListener {
                     Log.e("=== Fail ===", t.toString())
                     Snackbar.make(binding.root, "error", Snackbar.LENGTH_LONG).show()
                     GlobalData.sessionId = null
+                    this@MoreFragment.user = null
                     initData()
                     initView()
                 }

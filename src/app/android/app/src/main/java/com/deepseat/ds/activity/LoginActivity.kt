@@ -1,5 +1,6 @@
 package com.deepseat.ds.activity
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.deepseat.ds.GlobalData
@@ -30,7 +31,7 @@ class LoginActivity : AppCompatActivity() {
             val userID = binding.edtLoginId.text.toString().trim()
             val userPW = binding.edtLoginPw.text.toString().trim()
 
-            val call: Call<String> = ServiceFactory.service.loginUser(userID, userPW)
+            val call: Call<String> = ServiceFactory.userService.loginUser(userID, userPW)
 
             call.enqueue(object : Callback<String> {
                 override fun onResponse(
@@ -73,6 +74,10 @@ class LoginActivity : AppCompatActivity() {
                 }
 
             })
+        }
+
+        binding.btnLoginRegister.setOnClickListener {
+            startActivity(Intent(this, RegisterActivity::class.java))
         }
     }
 
