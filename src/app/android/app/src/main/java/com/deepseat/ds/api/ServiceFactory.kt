@@ -1,5 +1,6 @@
 package com.deepseat.ds.api
 
+import com.deepseat.ds.api.service.UserService
 import okhttp3.JavaNetCookieJar
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
@@ -7,7 +8,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.converter.scalars.ScalarsConverterFactory
 import java.net.CookieManager
 
-object UserServiceImpl {
+object ServiceFactory {
     val BASE_URL = "http://soc06212.iptime.org:8080"
 
     private val okHttpClient: OkHttpClient

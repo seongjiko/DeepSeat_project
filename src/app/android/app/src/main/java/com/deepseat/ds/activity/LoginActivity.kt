@@ -2,13 +2,11 @@ package com.deepseat.ds.activity
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import com.deepseat.ds.GlobalData
 import com.deepseat.ds.R
-import com.deepseat.ds.api.UserServiceImpl
+import com.deepseat.ds.api.ServiceFactory
 import com.deepseat.ds.databinding.ActivityLoginBinding
 import com.deepseat.ds.vo.ResponseBody
-import com.deepseat.ds.vo.UserVO
 import com.google.android.material.snackbar.Snackbar
 import com.google.gson.Gson
 import retrofit2.Call
@@ -32,7 +30,7 @@ class LoginActivity : AppCompatActivity() {
             val userID = binding.edtLoginId.text.toString().trim()
             val userPW = binding.edtLoginPw.text.toString().trim()
 
-            val call: Call<String> = UserServiceImpl.service.loginUser(userID, userPW)
+            val call: Call<String> = ServiceFactory.service.loginUser(userID, userPW)
 
             call.enqueue(object : Callback<String> {
                 override fun onResponse(

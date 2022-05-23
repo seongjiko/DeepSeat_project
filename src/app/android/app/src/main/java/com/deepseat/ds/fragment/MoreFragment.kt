@@ -15,7 +15,7 @@ import com.deepseat.ds.MainActivity
 import com.deepseat.ds.R
 import com.deepseat.ds.activity.LoginActivity
 import com.deepseat.ds.adapter.MenuAdapter
-import com.deepseat.ds.api.UserServiceImpl
+import com.deepseat.ds.api.ServiceFactory
 import com.deepseat.ds.databinding.FragmentMoreBinding
 import com.deepseat.ds.datasource.MenuDataSource
 import com.deepseat.ds.vo.ResponseBody
@@ -85,7 +85,7 @@ class MoreFragment : Fragment(), View.OnClickListener {
         if (GlobalData.sessionId == null) return
 
         val call: Call<String> =
-            UserServiceImpl.service.getUser()
+            ServiceFactory.service.getUser()
 
         call.enqueue(object : Callback<String> {
             override fun onResponse(call: Call<String>, response: Response<String>) {
@@ -147,7 +147,7 @@ class MoreFragment : Fragment(), View.OnClickListener {
             .setMessage(R.string.menu_edit_message)
             .setView(editText)
             .setPositiveButton(R.string.confirm) { dialog, _ ->
-                val call: Call<String> = UserServiceImpl.service.editUser(
+                val call: Call<String> = ServiceFactory.service.editUser(
                     editText.text.toString()
                 )
                 call.enqueue(object : Callback<String> {
@@ -176,7 +176,7 @@ class MoreFragment : Fragment(), View.OnClickListener {
 
     private fun handleLogoutButton(v: View) {
         if (GlobalData.sessionId != null) {
-            val call: Call<String> = UserServiceImpl.service.logoutUser()
+            val call: Call<String> = ServiceFactory.service.logoutUser()
             call.enqueue(object : Callback<String> {
                 override fun onResponse(call: Call<String>, response: Response<String>) {
                     Log.e("=== Success ===", response.body() ?: "empty content")

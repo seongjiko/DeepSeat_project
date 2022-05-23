@@ -1,4 +1,4 @@
-package com.deepseat.ds.api
+package com.deepseat.ds.api.service
 
 import com.deepseat.ds.vo.ResponseBody
 import com.deepseat.ds.vo.UserVO
