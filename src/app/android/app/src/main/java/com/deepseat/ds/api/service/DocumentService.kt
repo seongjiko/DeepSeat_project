@@ -11,12 +11,21 @@ interface DocumentService {
     @GET("/doc")
     fun getDocuments(): Call<String>
 
-    @GET("/doc/{roomID}/{seatID}/{docID}")
+    @GET("/doc/vo")
+    fun getDocumentVOs(): Call<String>
+
+    @GET("/doc/{docID}/vo")
+    fun getDocumentVO(@Path("docID") docID: Int): Call<String>
+
+    @GET("/doc/{docID}")
     fun getDocument(
         @Path("roomID") roomID: Int,
         @Path("seatID") seatID: Int,
         @Path("docID") docID: Int
     ): Call<String>
+
+    @GET("/doc/{roomID}/{seatID}/vo")
+    fun getDocumentVOs(@Path("roomID") roomID: Int, @Path("seatID") seatID: Int): Call<String>
 
     @GET("/doc/{roomID}/{seatID}")
     fun getDocuments(@Path("roomID") roomID: Int, @Path("seatID") seatID: Int): Call<String>
