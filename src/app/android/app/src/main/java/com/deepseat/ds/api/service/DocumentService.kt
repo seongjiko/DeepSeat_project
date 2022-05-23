@@ -6,7 +6,11 @@ import retrofit2.http.*
 interface DocumentService {
 
     @POST("/doc/{roomID}/{seatID}")
-    fun writeDocument(@Path("roomID") roomID: Int, @Path("seatID") seatID: Int): Call<String>
+    fun writeDocument(
+        @Path("roomID") roomID: Int,
+        @Path("seatID") seatID: Int,
+        @Query("content") content: String
+    ): Call<String>
 
     @GET("/doc")
     fun getDocuments(): Call<String>

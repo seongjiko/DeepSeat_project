@@ -66,6 +66,19 @@
 
     </androidx.recyclerview.widget.RecyclerView>
 
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab_community"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_margin="16dp"
+        android:src="@drawable/ic_action_write"
+        app:backgroundTint="@color/color_accent"
+        app:layout_behavior="com.google.android.material.floatingactionbutton.FloatingActionButton$Behavior"
+        app:tint="@color/text_on_primary">
+
+    </com.google.android.material.floatingactionbutton.FloatingActionButton>
+
     <include
         android:id="@+id/layout_community_bottom_sheet"
         layout="@layout/bottom_sheet_community" />

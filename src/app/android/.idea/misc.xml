@@ -14,6 +14,7 @@
         <entry key="app/src/main/res/layout/activity_login.xml" value="0.3591485507246377" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.4036458333333333" />
         <entry key="app/src/main/res/layout/activity_register.xml" value="0.3591485507246377" />
+        <entry key="app/src/main/res/layout/activity_writing.xml" value="0.3311965811965812" />
         <entry key="app/src/main/res/layout/bottom_sheet_community.xml" value="0.33034188034188033" />
         <entry key="app/src/main/res/layout/fragment_community.xml" value="0.2504528985507246" />
         <entry key="app/src/main/res/layout/fragment_menu.xml" value="0.3591485507246377" />
@@ -28,6 +29,7 @@
         <entry key="app/src/main/res/layout/row_community_list.xml" value="0.2504528985507246" />
         <entry key="app/src/main/res/layout/row_menu.xml" value="0.3591485507246377" />
         <entry key="app/src/main/res/menu/menu_context_comment.xml" value="0.33034188034188033" />
+        <entry key="app/src/main/res/menu/menu_writing.xml" value="0.33034188034188033" />
         <entry key="app/src/main/res/menu/nav_main.xml" value="0.3890625" />
         <entry key="app/src/main/res/menu/navigation_main.xml" value="0.4036458333333333" />
         <entry key="app/src/main/res/xml/network_security_config.xml" value="0.1782051282051282" />

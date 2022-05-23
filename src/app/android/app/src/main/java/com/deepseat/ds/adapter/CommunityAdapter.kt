@@ -19,8 +19,8 @@ import com.deepseat.ds.viewholder.CommunitySubViewHolder
 class CommunityAdapter(private val context: Context) :
     RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
-    private var rooms: ArrayList<Room> = ArrayList()
-    private var seats: HashMap<Int, ArrayList<Seat>> = HashMap()
+    var rooms: ArrayList<Room> = ArrayList()
+    var seats: HashMap<Int, ArrayList<Seat>> = HashMap()
     private var _data: ArrayList<Any> = ArrayList()
     private var expanded: Int = -1
     private var expandedID: Int = -1

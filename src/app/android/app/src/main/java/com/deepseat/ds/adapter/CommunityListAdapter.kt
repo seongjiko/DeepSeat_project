@@ -13,7 +13,7 @@ class CommunityListAdapter(private val context: Context) : RecyclerView.Adapter<
 
     var data: ArrayList<CommunityListVO> = ArrayList()
 
-    var onItemClickListener: ((clickedItem: ClickedItem, docID: Int) -> Unit)? = null
+    var onItemClickListener: ((clickedItem: ClickedItem, communityListVO: CommunityListVO) -> Unit)? = null
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         return CommunityListViewHolder(
@@ -29,7 +29,7 @@ class CommunityListAdapter(private val context: Context) : RecyclerView.Adapter<
         holder.bind(data[position])
 
         holder.onClickListener = { clickedItem ->
-            this.onItemClickListener?.let { it(clickedItem, data[position].docId) }
+            this.onItemClickListener?.let { it(clickedItem, data[position]) }
         }
     }
 
