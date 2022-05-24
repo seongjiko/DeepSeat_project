@@ -60,7 +60,7 @@ class DocumentController {
             val docVO = DocumentVO(
                 d.docID,
                 d.userID,
-                userService.getUser(d.userID)?.userID ?: "탈퇴한 사용자",
+                userService.getUser(d.userID)?.nickname ?: "탈퇴한 사용자",
                 roomService.getRoomByID(d.roomID)?.roomName ?: "알 수 없음",
                 seatService.getSeatByID(d.seatID)?.seatID.toString() ?: "알 수 없음",
                 d.content,
@@ -87,7 +87,7 @@ class DocumentController {
         val docVO = DocumentVO(
             d.docID,
             d.userID,
-            userService.getUser(d.userID)?.userID ?: "탈퇴한 사용자",
+            userService.getUser(d.userID)?.nickname ?: "탈퇴한 사용자",
             roomService.getRoomByID(d.roomID)?.roomName ?: "알 수 없음",
             seatService.getSeatByID(d.seatID)?.seatID.toString() ?: "알 수 없음",
             d.content,
@@ -126,7 +126,7 @@ class DocumentController {
             val docVO = DocumentVO(
                 d.docID,
                 d.userID,
-                userService.getUser(d.userID)?.userID ?: "탈퇴한 사용자",
+                userService.getUser(d.userID)?.nickname ?: "탈퇴한 사용자",
                 roomService.getRoomByID(d.roomID)?.roomName ?: "알 수 없음",
                 seatService.getSeatByID(d.seatID)?.seatID.toString() ?: "알 수 없음",
                 d.content,
