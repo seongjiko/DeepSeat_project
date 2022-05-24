@@ -7,30 +7,25 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.Fragment
-import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.deepseat.ds.GlobalData
 import com.deepseat.ds.R
 import com.deepseat.ds.activity.CommunityDetailActivity
+import com.deepseat.ds.activity.WritingActivity
 import com.deepseat.ds.adapter.CommunityAdapter
 import com.deepseat.ds.adapter.CommunityListAdapter
 import com.deepseat.ds.api.ServiceFactory
 import com.deepseat.ds.databinding.FragmentCommunityBinding
 import com.deepseat.ds.model.Room
 import com.deepseat.ds.model.Seat
-import com.deepseat.ds.model.User
-import com.deepseat.ds.viewholder.CommunityListViewHolder
 import com.deepseat.ds.viewholder.CommunityListViewHolder.Companion.ClickedItem.*
 import com.deepseat.ds.vo.CommunityListVO
-import com.deepseat.ds.vo.DocumentVO
 import com.deepseat.ds.vo.ResponseBody
 import com.deepseat.ds.vo.UserVO
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.google.android.material.snackbar.Snackbar
 import com.google.gson.Gson
-import com.google.gson.reflect.TypeToken
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -89,7 +84,10 @@ class CommunityFragment : Fragment() {
 
         binding.fabCommunity.setOnClickListener {
             if (user != null) {
-
+                val intent = Intent(requireContext(), WritingActivity::class.java)
+                intent.putExtra(WritingActivity.EXTRA_ROOM_ID, roomID)
+                intent.putExtra(WritingActivity.EXTRA_SEAT_ID, seatID)
+                startActivity(intent)
             } else {
                 snackbarMessage("커뮤니티를 이용하려면 로그인해야 합니다.")
             }
@@ -242,7 +240,7 @@ class CommunityFragment : Fragment() {
 
     private fun initCommunityListData(roomID: Int = -1, seatID: Int = -1) {
         val call: Call<String> =
-            if (roomID == -1 && seatID == -1) ServiceFactory.docService.getDocumentVOs(
+            if (roomID != -1 && seatID != -1) ServiceFactory.docService.getDocumentVOs(
                 roomID,
                 seatID
             )
