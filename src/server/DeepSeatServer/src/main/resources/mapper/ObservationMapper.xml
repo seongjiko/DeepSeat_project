@@ -18,7 +18,7 @@
           and date = #{date};
     </select>
 
-    <select id="getRecentObservationsByRoom" parameterType="integer" resultType="Observation">
+    <select id="getRecentObservationsByRoom" parameterType="int" resultType="Observation">
         select *
         from observation
         where roomID = #{roomID}

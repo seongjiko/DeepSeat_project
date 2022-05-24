@@ -9,15 +9,15 @@
         INSERT INTO liked(likedID, userID, docID, commentID) VALUES(#{likedID}, #{userID}, #{docID}, #{commentID});
     </insert>
 
-    <select id="getLikedById" parameterType="integer" resultType="Liked">
+    <select id="getLikedById" parameterType="int" resultType="Liked">
         SELECT * FROM liked WHERE likedID = #{likedID};
     </select>
 
-    <select id="getLikedCountOfDocument" parameterType="integer">
+    <select id="getLikedCountOfDocument" parameterType="int" resultType="int">
         SELECT COUNT(*) FROM liked WHERE docID = #{docID};
     </select>
 
-    <select id="getLikedCountOfComment" parameterType="integer">
+    <select id="getLikedCountOfComment" parameterType="int" resultType="int">
         SELECT COUNT(*) FROM liked WHERE commentID = #{commentID};
     </select>
 
@@ -29,7 +29,7 @@
         SELECT * FROM liked WHERE commentID = #{commentID} AND userID = #{userID};
     </select>
 
-    <delete id="deleteLike" parameterType="integer">
+    <delete id="deleteLike" parameterType="int">
         DELETE FROM liked WHERE likedID = #{likedID};
     </delete>
 

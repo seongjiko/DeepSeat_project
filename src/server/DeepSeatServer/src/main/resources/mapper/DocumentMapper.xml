@@ -22,13 +22,13 @@
           and seatID = #{seatID};
     </select>
 
-    <select id="getDocumentById" parameterType="integer" resultType="Document">
+    <select id="getDocumentById" parameterType="int" resultType="Document">
         SELECT *
         FROM document
         WHERE docID = #{docID};
     </select>
 
-    <delete id="deleteDocument" parameterType="integer">
+    <delete id="deleteDocument" parameterType="int">
         DELETE
         FROM document
         WHERE docID = #{docID};
