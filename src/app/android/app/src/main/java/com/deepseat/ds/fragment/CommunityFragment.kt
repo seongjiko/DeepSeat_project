@@ -84,10 +84,14 @@ class CommunityFragment : Fragment() {
 
         binding.fabCommunity.setOnClickListener {
             if (user != null) {
-                val intent = Intent(requireContext(), WritingActivity::class.java)
-                intent.putExtra(WritingActivity.EXTRA_ROOM_ID, roomID)
-                intent.putExtra(WritingActivity.EXTRA_SEAT_ID, seatID)
-                startActivity(intent)
+                if (roomID == -1 || seatID == -1) {
+                    snackbarMessage("글을 쓸 카테고리를 선택해 주세요.")
+                } else {
+                    val intent = Intent(requireContext(), WritingActivity::class.java)
+                    intent.putExtra(WritingActivity.EXTRA_ROOM_ID, roomID)
+                    intent.putExtra(WritingActivity.EXTRA_SEAT_ID, seatID)
+                    startActivity(intent)
+                }
             } else {
                 snackbarMessage("커뮤니티를 이용하려면 로그인해야 합니다.")
             }
