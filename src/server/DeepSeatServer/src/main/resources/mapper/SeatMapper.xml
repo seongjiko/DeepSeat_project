@@ -28,4 +28,13 @@
         where seatID = #{seatID};
     </delete>
 
+    <update id="updateSeat" parameterType="Seat">
+        update seat
+        set x      = #{x},
+            y      = #{y},
+            width  = #{width},
+            height = #{height}
+        where seatID = #{seatID};
+    </update>
+
 </mapper>
