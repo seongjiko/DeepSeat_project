@@ -19,11 +19,16 @@ class LikedController {
     @PostMapping("/liked/{docID}")
     fun liked(request: HttpServletRequest, @PathVariable("docID") docID: Int): String {
 
-        val userID = (request.session.getAttribute(SessionConstants.KEY_USER) as? String)
+        val user = request.session.getAttribute(SessionConstants.KEY_USER) as? User
             ?: return ResponseBodyBuilder<Void>(Errors.Companion.UserError.notSignedIn).toString()
 
-        val liked = Liked(userID = userID, docID = docID)
-        service.insertLike(liked)
+        val like = service.getLikedOfDocument(docID, user.userID)
+        if (like != null) {
+            service.deleteLike(like.likedID)
+        } else {
+            val liked = Liked(userID = user.userID, docID = docID)
+            service.insertLike(liked)
+        }
 
         return ResponseBodyBuilder<Void>().toString()
     }
