@@ -132,7 +132,7 @@ class CommunityFragment : Fragment() {
 
                     var seatID: Int? = null
                     for (s in communityAdapter.seats[roomID!!]!!) {
-                        if (s.seatName == doc.seatName) {
+                        if (s.seatID.toString() == doc.seatName) {
                             seatID = s.seatID
                         }
                     }
