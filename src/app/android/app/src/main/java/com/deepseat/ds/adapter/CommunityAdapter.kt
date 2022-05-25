@@ -123,7 +123,7 @@ class CommunityAdapter(private val context: Context) :
 
             is CommunitySubViewHolder -> {
                 val data = this._data[position - 1] as Seat
-                holder.bind(data.seatName, data.seatID)
+                holder.bind(data.seatID.toString(), data.seatID)
                 holder.onClickListener = { roomID ->
                     this.onCommunitySelectListener?.let {
                         it(data.roomID, roomID)

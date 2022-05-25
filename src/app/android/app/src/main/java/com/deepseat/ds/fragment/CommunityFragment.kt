@@ -101,7 +101,6 @@ class CommunityFragment : Fragment() {
     private fun initDocumentRecyclerView() {
         docAdapter = CommunityListAdapter(requireContext())
         docAdapter.onItemClickListener = { type, doc ->
-            // TODO
             when (type) {
                 CARD -> {
                     val intent = Intent(requireContext(), CommunityDetailActivity::class.java)
@@ -150,6 +149,8 @@ class CommunityFragment : Fragment() {
     private fun initCommunityRecyclerView() {
         communityAdapter = CommunityAdapter(requireContext())
         communityAdapter.onCommunitySelectListener = { roomID, seatID ->
+            this.roomID = roomID
+            this.seatID = seatID
             initCommunityListData(roomID, seatID)
         }
 
