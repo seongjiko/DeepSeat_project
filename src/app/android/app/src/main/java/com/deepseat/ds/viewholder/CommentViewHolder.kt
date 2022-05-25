@@ -28,7 +28,7 @@ class CommentViewHolder(private val binding: RowCmDetailCommentBinding) :
     fun bind(data: CommentVO) {
         this.data = data
 
-        binding.txtRowCmDetailNickname.text = data.nickname
+        binding.txtRowCmDetailNickname.text = data.userID
         binding.txtRowCmDetailTimestamp.text = data.wrote
         binding.txtRowCmDetailContent.text = data.content
         binding.txtRowCommentLiked.text = data.liked.toString()
