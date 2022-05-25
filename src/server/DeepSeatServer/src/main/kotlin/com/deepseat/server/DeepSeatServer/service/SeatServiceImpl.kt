@@ -26,4 +26,8 @@ class SeatServiceImpl : SeatService {
     override fun deleteSeat(seatID: Int) {
         mapper.deleteSeat(seatID)
     }
+
+    override fun updateSeat(seat: Seat) {
+        mapper.updateSeat(seat)
+    }
 }

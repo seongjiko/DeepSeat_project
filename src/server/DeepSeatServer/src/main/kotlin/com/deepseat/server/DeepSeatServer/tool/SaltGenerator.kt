@@ -7,7 +7,7 @@ class SaltGenerator {
 
     companion object {
         private val charPool: List<Char> =
-            ('a'..'z') + ('A'..'Z') + ('0'..'9') + listOf<Char>('!', '@', '#', '$', '%', '^', '&', '*', '(', ')', '_')
+            ('a'..'z') + ('A'..'Z') + ('0'..'9') + listOf<Char>('-', '_')
 
         fun generate(length: Int = 10): String {
             val builder = StringBuilder()

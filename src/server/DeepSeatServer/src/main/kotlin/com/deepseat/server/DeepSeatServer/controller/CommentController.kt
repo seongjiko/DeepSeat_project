@@ -2,6 +2,7 @@ package com.deepseat.server.DeepSeatServer.controller
 
 import com.deepseat.server.DeepSeatServer.error.Errors
 import com.deepseat.server.DeepSeatServer.service.CommentService
+import com.deepseat.server.DeepSeatServer.service.UserService
 import com.deepseat.server.DeepSeatServer.session.SessionConstants
 import com.deepseat.server.DeepSeatServer.tool.ResponseBodyBuilder
 import com.deepseat.server.DeepSeatServer.vo.Comment
@@ -13,6 +14,8 @@ import javax.servlet.http.HttpServletRequest
 @RestController
 class CommentController {
 
+    @Autowired
+    private lateinit var userService: UserService
     @Autowired
     private lateinit var service: CommentService
 
@@ -37,8 +40,16 @@ class CommentController {
     }
 
     @GetMapping("/comment/{docID}")
-    fun getCommentList(@PathVariable("docID") docID: Int): List<Comment> {
-        return service.getComments(docID)
+    fun getCommentList(@PathVariable("docID") docID: Int): String {
+        val comments = service.getComments(docID)
+        var result: ArrayList<Comment> = arrayListOf()
+
+        for (c in comments) {
+            c.userID = userService.getUser(c.userID)?.nickname ?: "알 수 없음"
+            result.add(c)
+        }
+
+        return ResponseBodyBuilder<List<Comment>>().data(result).toString()
     }
 
     @DeleteMapping("/comment/{commentID}")

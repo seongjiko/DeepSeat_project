@@ -78,7 +78,7 @@ class DocumentController {
     }
 
     @GetMapping("/doc/{docID}/vo")
-    fun getDocVO(request: HttpServletRequest, @RequestParam("docID") docID: Int): String {
+    fun getDocVO(request: HttpServletRequest, @PathVariable("docID") docID: Int): String {
         val user = request.session.getAttribute(SessionConstants.KEY_USER) as? User
         val userId = user?.userID
         val d = documentService.getDocumentById(docID)

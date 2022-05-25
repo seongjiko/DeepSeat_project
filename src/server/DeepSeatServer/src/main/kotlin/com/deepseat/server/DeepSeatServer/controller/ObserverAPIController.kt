@@ -156,7 +156,11 @@ class ObserverAPIController {
             val width = seatJson.get("width") as Int
             val height = seatJson.get("height") as Int
             val seat = Seat(seatID, roomID, x, y, width, height)
-            seatService.insertSeat(seat)
+            if (seatService.getSeatByID(seatID) != null) {
+                seatService.updateSeat(seat)
+            } else {
+                seatService.insertSeat(seat)
+            }
         }
 
         return ResponseBodyBuilder<Void>().toString()

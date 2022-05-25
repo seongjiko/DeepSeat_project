@@ -8,5 +8,6 @@ interface SeatService {
     public fun getSeats(roomID: Int): List<Seat>
     public fun getSeatByID(seatID: Int): Seat?
     public fun deleteSeat(seatID: Int)
+    public fun updateSeat(seat: Seat)
 
 }
