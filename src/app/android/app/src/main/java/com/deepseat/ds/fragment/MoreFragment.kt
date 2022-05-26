@@ -7,6 +7,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ArrayAdapter
 import android.widget.EditText
 import androidx.appcompat.app.AlertDialog
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -107,11 +108,11 @@ class MoreFragment : Fragment(), View.OnClickListener {
     private val onItemClick: ((String) -> Unit) = { id ->
         when (id) {
             "licenses" -> {
-                // TODO: do something
+                makeListAlert("오픈소스 라이선스", arrayListOf("https://fonts.google.com/icons", "https://square.github.io/retrofit/"))
             }
 
             "policy" -> {
-                // TODO: do something
+                makeListAlert("오픈소스 라이선스", arrayListOf("개인정보 처리방침"))
             }
         }
     }
@@ -191,6 +192,19 @@ class MoreFragment : Fragment(), View.OnClickListener {
         } else {
             startActivity(Intent(requireContext(), LoginActivity::class.java))
         }
+    }
+
+    private fun makeListAlert(title: String, list: ArrayList<String>) {
+        val adapter = ArrayAdapter(requireContext(), android.R.layout.simple_list_item_1, list)
+        val alert = AlertDialog.Builder(requireContext())
+        alert.setTitle(title)
+            .setAdapter(adapter) { dialog, position ->
+                dialog.dismiss()
+            }
+            .setPositiveButton("닫기") { dialog, _ ->
+                dialog.dismiss()
+            }
+            .show()
     }
 
 }
