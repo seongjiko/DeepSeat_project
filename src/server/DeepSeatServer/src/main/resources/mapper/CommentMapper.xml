@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.deepseat.server.DeepSeatServer.dao.CommentMapper">
+
+    <insert id="insertComment" parameterType="Comment">
+        INSERT INTO comment(userID, docID, content) VALUES(#{userID}, #{docID}, #{content});
+    </insert>
+
+    <select id="getCommentById" parameterType="int" resultType="Comment">
+        SELECT * FROM comment WHERE commentID = #{commentID};
+    </select>
+
+    <select id="getComments" parameterType="int" resultType="Comment">
+        SELECT * FROM comment WHERE docID = #{docID};
+    </select>
+
+    <delete id="deleteCommentById" parameterType="int">
+        DELETE FROM comment WHERE commentID = #{commentID};
+    </delete>
+
+    <update id="updateCommentById" parameterType="Comment">
+        UPDATE comment SET content = #{content}, edited = true WHERE commentID = #{commentID};
+    </update>
+
+</mapper>

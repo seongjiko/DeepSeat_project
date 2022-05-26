@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="color_accent">#4474BF</color>
+
+    <color name="bg_primary">#424448</color>
+    <color name="bg_secondary">#0C0E12</color>
+    <color name="bg_tertiary">#1A1C1E</color>
+    <color name="text_primary">#fff</color>
+    <color name="text_secondary">#99ffffff</color>
+    <color name="text_error">#FF8A65</color>
+    <color name="text_on_primary">#000</color>
+    <color name="tint_heart">#D32F50</color>
+</resources>

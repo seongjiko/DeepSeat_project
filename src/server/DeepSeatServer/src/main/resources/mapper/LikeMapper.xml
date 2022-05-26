@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.deepseat.server.DeepSeatServer.dao.LikeMapper">
+
+    <insert id="insertLike" parameterType="Liked">
+        INSERT INTO liked(likedID, userID, docID, commentID) VALUES(#{likedID}, #{userID}, #{docID}, #{commentID});
+    </insert>
+
+    <select id="getLikedById" parameterType="int" resultType="Liked">
+        SELECT * FROM liked WHERE likedID = #{likedID};
+    </select>
+
+    <select id="getLikedCountOfDocument" parameterType="int" resultType="int">
+        SELECT COUNT(*) FROM liked WHERE docID = #{docID};
+    </select>
+
+    <select id="getLikedCountOfComment" parameterType="int" resultType="int">
+        SELECT COUNT(*) FROM liked WHERE commentID = #{commentID};
+    </select>
+
+    <select id="getLikedOfDocument" resultType="Liked">
+        SELECT * FROM liked WHERE docID = #{docID} AND userID = #{userID};
+    </select>
+
+    <select id="getLikedOfComment" resultType="Liked">
+        SELECT * FROM liked WHERE commentID = #{commentID} AND userID = #{userID};
+    </select>
+
+    <delete id="deleteLike" parameterType="int">
+        DELETE FROM liked WHERE likedID = #{likedID};
+    </delete>
+
+    <delete id="deleteLikeFromDocument">
+        DELETE FROM liked WHERE docID = #{docID} AND userID = #{userID};
+    </delete>
+
+    <delete id="deleteLikeFromComment">
+        DELETE FROM liked WHERE commentID = #{docID} AND userID = #{userID};
+    </delete>
+
+</mapper>

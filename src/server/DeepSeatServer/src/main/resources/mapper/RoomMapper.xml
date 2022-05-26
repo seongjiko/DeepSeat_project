@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.deepseat.server.DeepSeatServer.dao.RoomMapper">
+
+    <insert id="insertRoom" parameterType="Room">
+        insert into room (roomName, apiKey)
+        VALUES (#{roomName}, #{apiKey});
+    </insert>
+
+    <select id="getRoomByApiKey" parameterType="string" resultType="Room">
+        select *
+        from room
+        where apiKey = #{apiKey}
+        order by roomID desc;
+    </select>
+
+    <select id="isRoomIDExists" parameterType="int" resultType="int">
+        select count(*)
+        from room
+        where roomID = #{roomID};
+    </select>
+
+    <select id="getRoomByID" parameterType="int" resultType="Room">
+        select *
+        from room
+        where roomID = #{roomID};
+    </select>
+
+    <select id="getRooms" resultType="Room">
+        select * from room;
+    </select>
+
+    <update id="updateRoom" parameterType="Room">
+        update room
+        set roomName = #{roomName},
+            apiKey   = #{apiKey}
+        where roomID = #{roomID};
+    </update>
+
+</mapper>

@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">DeepSeat</string>
+
+    <!--  General  -->
+    <string name="confirm">확인</string>
+    <string name="cancel">취소</string>
+    <string name="yes">예</string>
+    <string name="no">아니오</string>
+    <string name="dismiss">닫기</string>
+    <string name="agree">동의</string>
+    <string name="disagree">비동의</string>
+    <string name="grant">허용</string>
+    <string name="deny">거부</string>
+
+    <!--  MainActivity  -->
+    <string name="seats">좌석</string>
+    <string name="community">커뮤니티</string>
+    <string name="more">더보기</string>
+
+    <!--  MenuFragment  -->
+    <string name="menu_account_title">사용자 정보</string>
+    <string name="menu_application">애플리케이션</string>
+    <string name="menu_login">로그인</string>
+    <string name="menu_logout">로그아웃</string>
+    <string name="menu_app_build">빌드 버전</string>
+    <string name="menu_licenses">오픈소스 라이선스</string>
+    <string name="menu_policy">개인정보처리방침</string>
+    <string name="menu_edit_title">닉네임 변경</string>
+    <string name="menu_edit_message">변경할 새 닉네임을 입력하세요.</string>
+    <string name="menu_login_null">로그인해주세요</string>
+
+    <!--  LoginActivity  -->
+    <string name="login_id">ID</string>
+    <string name="login_email">Email</string>
+    <string name="login_password">Password</string>
+    <string name="login_pw">PW</string>
+    <string name="login_register">Register</string>
+    <string name="login">Login</string>
+    <string name="login_error">서버와 통신중 오류가 발생했습니다.</string>
+    <string name="login_error_account">ID 혹은 PW가 정확하지 않습니다.</string>
+    <string name="login_error_not_exist">해당 계정이 존재하지 않습니다.</string>
+
+    <!--  RegisterActivity  -->
+    <string name="register_title">Registration</string>
+    <string name="register_id">ID</string>
+    <string name="register_id_duplicated">Check</string>
+    <string name="register_hint_email">email</string>
+    <string name="register_hint_password">password</string>
+    <string name="register_pw">PW</string>
+    <string name="register_pw_check">PW 확인</string>
+    <string name="register_pw_warning">비밀번호가 일치하지 않습니다.</string>
+    <string name="register_nickname">NICKNAME</string>
+    <string name="register_hint_nickname">nickname</string>
+    <string name="register_submit">Register</string>
+
+    <!--  Community  -->
+    <string name="community_title">커뮤니티</string>
+    <string name="community_list">커뮤니티 리스트</string>
+    <string name="cmlst_like">좋아요</string>
+    <string name="cmlst_comment">댓글</string>
+    <string name="cmlst_more">더보기</string>
+    <string name="cmlst_sep">•</string>
+    <string name="cm_detail_comment">댓글</string>
+    <string name="cm_detail_comment_confirm">등록</string>
+    <string name="cm_detail_like">좋아요</string>
+    <string name="cm_detail_write_comment_hint">댓글을 입력하세요</string>
+    <string name="comment_edit">댓글 수정</string>
+    <string name="comment_delete">댓글 삭제</string>
+    <string name="fragment_seats">Seats</string>
+
+</resources>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.deepseat.server.DeepSeatServer.dao.ApiKeyMapper">
+
+    <insert id="insertApiKey" parameterType="string">
+        INSERT INTO apikey(apiKey)
+        VALUES (#{apiKey});
+    </insert>
+
+    <select id="authenticateApiKey" parameterType="string" resultType="string">
+        select apiKey
+        from apikey
+        where apiKey = #{apiKey};
+    </select>
+
+</mapper>

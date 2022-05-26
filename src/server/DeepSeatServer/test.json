@@ -1,0 +1,12 @@
+{
+  "apiKey": String,
+  "totalCnt": Int,
+  "data": {
+    "seatStats": [
+      {
+        "seatID": Int,
+        "status": Int
+      }
+    ]
+  }
+}

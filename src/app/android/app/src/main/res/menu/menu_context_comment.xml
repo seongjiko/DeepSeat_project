@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/action_comment_like"
+        android:title="@string/cm_detail_like"
+        android:icon="@drawable/ic_like_filled">
+    </item>
+
+    <item
+        android:id="@+id/action_comment_edit"
+        android:title="@string/comment_delete"
+        android:icon="@drawable/ic_action_edit">
+    </item>
+
+    <item
+        android:id="@+id/action_comment_delete"
+        android:title="@string/comment_delete"
+        android:icon="@drawable/ic_action_delete">
+    </item>
+</menu>
