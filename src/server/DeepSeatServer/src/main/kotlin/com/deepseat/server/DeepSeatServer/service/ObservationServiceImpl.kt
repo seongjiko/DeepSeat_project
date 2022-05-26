@@ -22,4 +22,8 @@ class ObservationServiceImpl : ObservationService {
     override fun getRecentObservationsByRoom(roomID: Int): List<Observation> {
         return mapper.getRecentObservationsByRoom(roomID)
     }
+
+    override fun getMostRecentObservation(roomID: Int, seatID: Int): Observation? {
+        return mapper.getMostRecentObservation(roomID, seatID)
+    }
 }

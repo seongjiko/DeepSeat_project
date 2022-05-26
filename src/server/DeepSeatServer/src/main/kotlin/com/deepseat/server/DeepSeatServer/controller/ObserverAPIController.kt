@@ -227,12 +227,24 @@ class ObserverAPIController {
         return ResponseBodyBuilder<Void>().toString()
     }
 
+    @ResponseBody
     @GetMapping("/api/room/{roomID}/status")
     public fun getStatus(
         locale: Locale,
         @PathVariable("roomID") roomID: Int
     ): String {
-        return ResponseBodyBuilder<List<Observation>>().data(obService.getRecentObservationsByRoom(roomID)).toString()
+        val room = roomService.getRoomByID(roomID)
+            ?: return ResponseBodyBuilder<Void>(Errors.Companion.DatabaseError.notExists).toString()
+
+        val seats = seatService.getSeats(room.roomID)
+        var observations = arrayListOf<Observation>()
+
+        for (s in seats) {
+            val observation = obService.getMostRecentObservation(room.roomID, s.seatID)
+            observation?.let { observations.add(it) }
+        }
+
+        return ResponseBodyBuilder<List<Observation>>().data(observations).toString()
     }
 
     @ResponseBody
