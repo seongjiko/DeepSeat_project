@@ -13,6 +13,4 @@ class Seat(
     val minY: Int get() = y - height / 2
     val maxX: Int get() = x + width / 2
     val maxY: Int get() = y + height / 2
-
-
 }

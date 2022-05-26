@@ -19,6 +19,10 @@ import com.deepseat.ds.vo.ResponseBody
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.google.android.material.snackbar.Snackbar
 import com.google.gson.Gson
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.async
+import kotlinx.coroutines.delay
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -37,6 +41,7 @@ class SeatsFragment : Fragment() {
     private var roomID: Int = 1
     private var seats: Array<Seat>? = null
     private var observations: Array<Observation>? = null
+    private var update: Boolean = true
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -47,11 +52,34 @@ class SeatsFragment : Fragment() {
 
         initView()
         initData()
-        initCommunityData()
+        initRoomData()
 
         initCommunityRecyclerView()
 
         return binding.root
+    }
+
+    override fun onResume() {
+        super.onResume()
+        update = true
+        updateLoop()
+    }
+
+    override fun onPause() {
+        super.onPause()
+        update = false
+    }
+
+    private fun updateLoop() {
+        CoroutineScope(Dispatchers.IO).async {
+            while (update) {
+                Log.e("SeatsFragment", "update")
+                seats = null
+                observations = null
+                initData()
+                delay(10000)
+            }
+        }
     }
 
     private fun initView() {
@@ -70,31 +98,7 @@ class SeatsFragment : Fragment() {
     }
 
     private fun initData() {
-        val obsCall: Call<String> = ServiceFactory.apiService.getStatus(roomID)
-
-        obsCall.enqueue(object : Callback<String> {
-            override fun onResponse(call: Call<String>, response: Response<String>) {
-                val responseBody = Gson().fromJson(response.body(), ResponseBody::class.java)
-
-                if (responseBody == null || responseBody.responseCode != 200) {
-                    Log.e("=== Fail ===", response.body() ?: "empty content")
-
-                    Snackbar.make(binding.root, "서버에 등록된 정보가 없습니다.", Snackbar.LENGTH_LONG).show()
-                } else {
-                    val data = Gson().toJson(responseBody.data)
-                    observations = Gson().fromJson(data, Array<Observation>::class.java)
-                    Log.e("=== Success ===", response.body() ?: "empty content")
-
-                    updateView()
-                }
-            }
-
-            override fun onFailure(call: Call<String>, t: Throwable) {
-                Log.e("=== Fail ===", t.toString())
-                Snackbar.make(binding.root, "error", Snackbar.LENGTH_LONG).show()
-            }
-
-        })
+        updateData()
 
         val seatCall: Call<String> = ServiceFactory.apiService.getSeats(roomID)
 
@@ -123,7 +127,35 @@ class SeatsFragment : Fragment() {
         })
     }
 
-    private fun initCommunityData() {
+    private fun updateData() {
+        val obsCall: Call<String> = ServiceFactory.apiService.getStatus(roomID)
+
+        obsCall.enqueue(object : Callback<String> {
+            override fun onResponse(call: Call<String>, response: Response<String>) {
+                val responseBody = Gson().fromJson(response.body(), ResponseBody::class.java)
+
+                if (responseBody == null || responseBody.responseCode != 200) {
+                    Log.e("=== Fail ===", response.body() ?: "empty content")
+
+                    Snackbar.make(binding.root, "서버에 등록된 정보가 없습니다.", Snackbar.LENGTH_LONG).show()
+                } else {
+                    val data = Gson().toJson(responseBody.data)
+                    observations = Gson().fromJson(data, Array<Observation>::class.java)
+                    Log.e("=== Success ===", response.body() ?: "empty content")
+
+                    updateView()
+                }
+            }
+
+            override fun onFailure(call: Call<String>, t: Throwable) {
+                Log.e("=== Fail ===", t.toString())
+                Snackbar.make(binding.root, "error", Snackbar.LENGTH_LONG).show()
+            }
+
+        })
+    }
+
+    private fun initRoomData() {
         val call: Call<String> = ServiceFactory.apiService.getRooms()
 
         call.enqueue(object : Callback<String> {
@@ -151,7 +183,7 @@ class SeatsFragment : Fragment() {
 
     private fun updateView() {
         if (seats != null && observations != null) {
-            binding.seatViewMain.setData(seats!!, observations!!)
+            binding.seatViewMain.drawSeats(seats!!, observations!!)
         }
     }
 
