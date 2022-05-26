@@ -6,12 +6,17 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.cardview.widget.CardView
+import androidx.recyclerview.widget.LinearLayoutManager
+import com.deepseat.ds.R
+import com.deepseat.ds.adapter.RoomAdapter
 import com.deepseat.ds.api.ServiceFactory
 import com.deepseat.ds.databinding.FragmentSeatsBinding
+import com.deepseat.ds.model.Room
 import com.deepseat.ds.model.Seat
 import com.deepseat.ds.vo.Observation
 import com.deepseat.ds.vo.ResponseBody
-import com.deepseat.ds.vo.UserVO
+import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.google.android.material.snackbar.Snackbar
 import com.google.gson.Gson
 import retrofit2.Call
@@ -26,6 +31,10 @@ class SeatsFragment : Fragment() {
     }
 
     private lateinit var binding: FragmentSeatsBinding
+    private lateinit var adapter: RoomAdapter
+    private lateinit var bottomSheetBehavior: BottomSheetBehavior<CardView>
+
+    private var roomID: Int = 1
     private var seats: Array<Seat>? = null
     private var observations: Array<Observation>? = null
 
@@ -36,13 +45,32 @@ class SeatsFragment : Fragment() {
         // Inflate the layout for this fragment
         binding = FragmentSeatsBinding.inflate(layoutInflater, container, false)
 
+        initView()
         initData()
+        initCommunityData()
+
+        initCommunityRecyclerView()
 
         return binding.root
     }
 
+    private fun initView() {
+        bottomSheetBehavior =
+            BottomSheetBehavior.from(binding.layoutSeatsBottomSheet.root)
+
+        bottomSheetBehavior.state = BottomSheetBehavior.STATE_HIDDEN
+
+        binding.btnSeatsSelect.setOnClickListener {
+            if (bottomSheetBehavior.state == BottomSheetBehavior.STATE_HIDDEN) {
+                bottomSheetBehavior.state = BottomSheetBehavior.STATE_COLLAPSED
+            } else {
+                bottomSheetBehavior.state = BottomSheetBehavior.STATE_HIDDEN
+            }
+        }
+    }
+
     private fun initData() {
-        val obsCall: Call<String> = ServiceFactory.apiService.getStatus(1)
+        val obsCall: Call<String> = ServiceFactory.apiService.getStatus(roomID)
 
         obsCall.enqueue(object : Callback<String> {
             override fun onResponse(call: Call<String>, response: Response<String>) {
@@ -57,7 +85,7 @@ class SeatsFragment : Fragment() {
                     observations = Gson().fromJson(data, Array<Observation>::class.java)
                     Log.e("=== Success ===", response.body() ?: "empty content")
 
-                    initView()
+                    updateView()
                 }
             }
 
@@ -68,7 +96,7 @@ class SeatsFragment : Fragment() {
 
         })
 
-        val seatCall: Call<String> = ServiceFactory.apiService.getSeats(1)
+        val seatCall: Call<String> = ServiceFactory.apiService.getSeats(roomID)
 
         seatCall.enqueue(object : Callback<String> {
             override fun onResponse(call: Call<String>, response: Response<String>) {
@@ -83,7 +111,7 @@ class SeatsFragment : Fragment() {
                     seats = Gson().fromJson(data, Array<Seat>::class.java)
                     Log.e("=== Success ===", response.body() ?: "empty content")
 
-                    initView()
+                    updateView()
                 }
             }
 
@@ -95,9 +123,55 @@ class SeatsFragment : Fragment() {
         })
     }
 
-    private fun initView() {
+    private fun initCommunityData() {
+        val call: Call<String> = ServiceFactory.apiService.getRooms()
+
+        call.enqueue(object : Callback<String> {
+            override fun onResponse(call: Call<String>, response: Response<String>) {
+                Log.e("=== Response ===", response.body() ?: "empty content")
+
+                val responseBody = Gson().fromJson(response.body(), ResponseBody::class.java)
+                if (responseBody != null && responseBody.responseCode == 200) {
+                    val data = Gson().toJson(responseBody.data)
+                    val result = Gson().fromJson(data, Array<Room>::class.java)
+                    val rooms = arrayListOf<Room>()
+                    rooms.addAll(result)
+
+                    adapter.data = rooms
+
+                }
+            }
+
+            override fun onFailure(call: Call<String>, t: Throwable) {
+                snackbarMessage("서버 오류가 발생했습니다.")
+            }
+
+        })
+    }
+
+    private fun updateView() {
         if (seats != null && observations != null) {
             binding.seatViewMain.setData(seats!!, observations!!)
         }
+    }
+
+    private fun initCommunityRecyclerView() {
+        adapter = RoomAdapter(requireContext())
+        adapter.onItemClickListener = { room, position ->
+            roomID = room.roomID
+            initData()
+
+            bottomSheetBehavior.state = BottomSheetBehavior.STATE_HIDDEN
+        }
+
+        binding.layoutSeatsBottomSheet.rvSeatsSelect.adapter = adapter
+        binding.layoutSeatsBottomSheet.rvSeatsSelect.layoutManager =
+            LinearLayoutManager(requireContext())
+    }
+
+    private fun snackbarMessage(message: String) {
+        Snackbar.make(binding.root, message, Snackbar.LENGTH_INDEFINITE)
+            .setAction(R.string.confirm) { }
+            .show()
     }
 }
