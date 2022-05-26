@@ -28,8 +28,14 @@
 ## 우지수
 ### 금주
 
+1. half modal view 구현
+2. comment UI 구현
+3. comment view controller 구현
 
 ### 차주
+
+1. more UI, view controller 구현
+2. 테스트 실행
 
 <br>
 
