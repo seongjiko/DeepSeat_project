@@ -2,6 +2,8 @@
 - 다른 폴더들은 주요 소스코드를 경로에 맞게 저장하였습니다.
 - 실행 결과를 확인하고 싶으시다면 yolov5 폴더를 다운 받아 실행시킵니다.
 
+![image](https://user-images.githubusercontent.com/38518648/170577833-d0bdf1df-5deb-48cc-9303-9845848b6e2b.png)
+
 
 ## Custom Model
 ### Custom data를 통한 Custom model 제작과정.
@@ -32,8 +34,20 @@
 - Custom Model 중 `테이블 정보 탐지 모델` 을 통해 나온 테이블 정보 PerspectiveTransform을 통해 BirdEye View로 변환합니다.
 - BirdEye View 로 변환된 이미지에서 cv2.warpPerspectiveTransform() 변환 공식을 통해 테이블 좌표만 변환시킵니다.
 - 반환 된 결과를 서버 혹은 pickle 파일을 통해 `테이블 정보` server.py를 서버에 저장합니다. (일정 시간마다 한번씩 실행)
+  - 서버에서 결과를 받아오는 경우 동기화 지연이 발생하는 문제가 발생할 우려가 있어 pickle 파일을 사용하였습니다 
 - `테이블 상태 탐지 모델`은 위와 같은 과정을 거친 후 서버에 저장됩니다. 
 - 이 후 `테이블 상태 탐지 모델`의 결과를 실시간으로 서버에 전달하여 사용자에게 전달이 가능하게 합니다.
+
+### BirdEye View
+- 아래 사진과 같이 위에서 본 것 같은 느낌을 주는 것처럼 변환하는 방법.
+
+![image](https://user-images.githubusercontent.com/38518648/170578016-c379e4ba-6710-48fb-9d28-dc843332d443.png)
+
+- 변환 및 
+
+![image](https://user-images.githubusercontent.com/38518648/170578595-c9a3c0c3-4198-4584-8f3c-d938b487dd6d.png)
+![image](https://user-images.githubusercontent.com/38518648/170578149-2d7a016c-c1e3-4f70-8ac6-1b3600d0bb88.png)
+
 
 
 
