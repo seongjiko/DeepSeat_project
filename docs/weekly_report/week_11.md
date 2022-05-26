@@ -41,7 +41,11 @@
 ## 최명근
 ### 금주
 
+1. Data Access Object를 Mybatis로 변경
+2. 동일한 Response를 반환하도록 ResponseBody 및 Builder 개발
 
 ### 차주
+
+1. 서버 커뮤니티 API 연동
 
 <br>
