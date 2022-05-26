@@ -21,8 +21,13 @@ Raspberry Pi YOLO v5 설치 및 적용
 -----
 ## 나영훈
 ### 금주
+1. YOLOV1 논문 정독
+2. Custom Model 중 테이블 정보 탐지 모델 데이터 라벨링 
+3. Custom Model 중 테이블 정보 탐지 모델 구축 -> 데이터 셋 부족으로 인한 성능 낮음. 
 
 ### 차주
+1. Custom Model 중 테이블 정보 탐지 모델의 성능을 높이기 위한 데이터 증강.
+2. Custom Data 
 
 <br>
 
