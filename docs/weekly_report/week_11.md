@@ -23,7 +23,12 @@ perspective projection에 공부 및 테이블 상태 자체를 커스텀 데이
 ## 나영훈
 ### 금주
 
+- YOLOV1 논문 정독
+- Perspectivetransform을 통한 BirdEye View 구현
+- 테이블 상태 탐지 모델 구축을 위한 Custom Data 수집
+
 ### 차주
+- 테이블 상태 탐지 모델 구축을 위한 Custom Data 라벨링
 
 <br>
 
