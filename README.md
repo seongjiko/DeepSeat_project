@@ -1,6 +1,6 @@
 
 
-<img src="res/deepseat_cover_icon.gif" width="128" height="128">
+<img src="res/deepseat_cover_icon.gif" width="256" height="256">
 
 # DeepSeat
 > OpenCV 및 딥러닝(YOLO v5)을 이용한 Single-Cam 좌석 알리미 Android & iOS 앱
