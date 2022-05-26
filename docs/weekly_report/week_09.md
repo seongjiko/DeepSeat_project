@@ -28,8 +28,11 @@
 ## 우지수
 ### 금주
 
+application UI 디자인
 
 ### 차주
+
+http 통신을 이요한 api 구현
 
 <br>
 
