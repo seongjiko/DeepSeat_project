@@ -66,7 +66,7 @@ DeepSeat는 책상 위 낙서의 아날로그 감성을 디지털로 구현한 �
 
 ## Demo (Android Application)
 
-(v1.0-SNAPSHOT01 APK 다운로드)[https://github.com/seongjiko/DeepSeat_project/releases/tag/v1.0-SNAPSHOT01]
+[v1.0-SNAPSHOT01 APK 다운로드](https://github.com/seongjiko/DeepSeat_project/releases/tag/v1.0-SNAPSHOT01)
 
 ❗서버가 실행중이지 않으므로 정상적인 이용이 불가할 수 있습니다.
 
