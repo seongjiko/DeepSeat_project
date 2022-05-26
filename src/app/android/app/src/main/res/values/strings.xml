@@ -22,7 +22,7 @@
     <string name="menu_account_title">Account</string>
     <string name="menu_application">Application</string>
     <string name="menu_logout">Logout</string>
-    <string name="menu_login">Logout</string>
+    <string name="menu_login">LogIn</string>
     <string name="menu_app_build">Build #</string>
     <string name="menu_licenses">Licenses</string>
     <string name="menu_policy">Privacy Policy</string>

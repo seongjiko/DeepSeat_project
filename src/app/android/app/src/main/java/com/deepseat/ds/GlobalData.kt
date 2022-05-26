@@ -5,8 +5,8 @@ import com.deepseat.ds.model.User
 class GlobalData {
 
     companion object {
-        val user: User? = null
-        var sessionId: String? = null
+        var userID: String? = null
+        var userPW: String? = null
     }
 
 }

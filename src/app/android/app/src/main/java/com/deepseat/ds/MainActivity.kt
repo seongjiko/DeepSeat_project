@@ -1,5 +1,6 @@
 package com.deepseat.ds
 
+import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.MenuItem
@@ -7,12 +8,15 @@ import android.view.View
 import android.view.ViewTreeObserver
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.fragment.app.Fragment
+import com.deepseat.ds.api.LoginHandler
 import com.deepseat.ds.databinding.ActivityMainBinding
 import com.deepseat.ds.fragment.CommunityFragment
 import com.deepseat.ds.fragment.MoreFragment
 import com.deepseat.ds.fragment.SeatsFragment
+import com.deepseat.ds.vo.UserVO
 import com.google.android.material.navigation.NavigationBarView
 import kotlinx.coroutines.*
+import okhttp3.internal.wait
 
 class MainActivity : AppCompatActivity(), NavigationBarView.OnItemSelectedListener {
 
@@ -21,6 +25,7 @@ class MainActivity : AppCompatActivity(), NavigationBarView.OnItemSelectedListen
     private val moreFragment = MoreFragment.newInstance()
 
     private lateinit var binding: ActivityMainBinding
+    private lateinit var pref: SharedPreferences
 
     private var logInReady: Boolean = false
 
@@ -34,16 +39,15 @@ class MainActivity : AppCompatActivity(), NavigationBarView.OnItemSelectedListen
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        pref = getSharedPreferences("user", 0)
+
         // Initial Fragment
         replaceFragment(seatsFragment)
 
         // Bottom Nav View
         binding.bnvMain.setOnItemSelectedListener(this)
 
-        CoroutineScope(Dispatchers.Main).launch {
-            delay(timeMillis = 1000)
-            logInReady = true
-        }
+        autoLogin()
     }
 
     private fun initSplashScreen() {
@@ -83,6 +87,33 @@ class MainActivity : AppCompatActivity(), NavigationBarView.OnItemSelectedListen
         val transaction = this.supportFragmentManager.beginTransaction()
         transaction.replace(R.id.fl_main, fragment)
         transaction.commit()
+    }
+
+
+    private fun autoLogin() {
+        val userID = pref.getString("userID", null)
+        val userPW = pref.getString("userPW", null)
+
+        if (userID != null && userPW != null) {
+
+            val loginHandler = LoginHandler(this)
+
+            loginHandler.onLoginCompleteListener = {
+                if (it == 200) {
+                    GlobalData.userID = userID
+                    GlobalData.userPW = userPW
+                }
+
+                logInReady = true
+            }
+
+            loginHandler.login(userID, userPW)
+        } else {
+            CoroutineScope(Dispatchers.Main).launch {
+                delay(1000)
+                logInReady = true
+            }
+        }
     }
 
 }

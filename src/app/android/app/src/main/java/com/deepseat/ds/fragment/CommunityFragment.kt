@@ -15,6 +15,7 @@ import com.deepseat.ds.activity.CommunityDetailActivity
 import com.deepseat.ds.activity.WritingActivity
 import com.deepseat.ds.adapter.CommunityAdapter
 import com.deepseat.ds.adapter.CommunityListAdapter
+import com.deepseat.ds.api.LoginHandler
 import com.deepseat.ds.api.ServiceFactory
 import com.deepseat.ds.databinding.FragmentCommunityBinding
 import com.deepseat.ds.model.Room
@@ -41,10 +42,10 @@ class CommunityFragment : Fragment() {
 
     private lateinit var docAdapter: CommunityListAdapter
     private lateinit var communityAdapter: CommunityAdapter
-
-    private var user: UserVO? = null
     private var roomID: Int = -1
     private var seatID: Int = -1
+
+    private var user: UserVO? = null
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -83,7 +84,7 @@ class CommunityFragment : Fragment() {
         }
 
         binding.fabCommunity.setOnClickListener {
-            if (user != null) {
+            if (this.user != null) {
                 if (roomID == -1 || seatID == -1) {
                     snackbarMessage("글을 쓸 카테고리를 선택해 주세요.")
                 } else {
@@ -95,6 +96,11 @@ class CommunityFragment : Fragment() {
             } else {
                 snackbarMessage("커뮤니티를 이용하려면 로그인해야 합니다.")
             }
+        }
+
+        binding.srlCommunityList.setOnRefreshListener {
+            initCommunityData()
+            initCommunityListData()
         }
     }
 
@@ -136,7 +142,7 @@ class CommunityFragment : Fragment() {
                             seatID = s.seatID
                         }
                     }
-                    
+
                     initCommunityListData(roomID, seatID!!)
                 }
             }
@@ -160,34 +166,16 @@ class CommunityFragment : Fragment() {
     }
 
     private fun initUser() {
-        if (GlobalData.sessionId == null) return
+        if (GlobalData.userID == null || GlobalData.userPW == null) return
 
-        val call: Call<String> =
-            ServiceFactory.userService.getUser()
-
-        call.enqueue(object : Callback<String> {
-            override fun onResponse(call: Call<String>, response: Response<String>) {
-                val responseBody = Gson().fromJson(response.body(), ResponseBody::class.java)
-
-                if (responseBody == null || responseBody.responseCode != 200) {
-                    Log.e("=== Fail ===", response.body() ?: "empty content")
-
-                    Snackbar.make(binding.root, "error", Snackbar.LENGTH_LONG).show()
-                } else {
-                    val data = Gson().toJson(responseBody.data)
-                    user = Gson().fromJson(data, UserVO::class.java)
-                    Log.e("=== Success ===", response.body() ?: "empty content")
-
-                    initView()
-                }
+        val loginHandler = LoginHandler(requireContext())
+        loginHandler.onUserGetCompleteListener = {
+            if (it != null) {
+                this.user = it
             }
+        }
 
-            override fun onFailure(call: Call<String>, t: Throwable) {
-                Log.e("=== Fail ===", t.toString())
-                Snackbar.make(binding.root, "error", Snackbar.LENGTH_LONG).show()
-            }
-
-        })
+        loginHandler.getUser()
     }
 
     private fun initCommunityData() {
@@ -244,6 +232,8 @@ class CommunityFragment : Fragment() {
     }
 
     private fun initCommunityListData(roomID: Int = -1, seatID: Int = -1) {
+        binding.srlCommunityList.isRefreshing = true
+
         val call: Call<String> =
             if (roomID != -1 && seatID != -1) ServiceFactory.docService.getDocumentVOs(
                 roomID,
@@ -266,10 +256,13 @@ class CommunityFragment : Fragment() {
                     docAdapter.data = resultList
                     docAdapter.notifyDataSetChanged()
                 }
+
+                binding.srlCommunityList.isRefreshing = false
             }
 
             override fun onFailure(call: Call<String>, t: Throwable) {
                 snackbarMessage("서버 오류가 발생했습니다.")
+                binding.srlCommunityList.isRefreshing = false
             }
 
         })

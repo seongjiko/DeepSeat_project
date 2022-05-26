@@ -1,7 +1,6 @@
 package com.deepseat.ds.viewholder
 
 import android.content.res.ColorStateList
-import android.graphics.PorterDuff
 import android.view.View
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
@@ -21,6 +20,7 @@ class CommunityListViewHolder(private val binding: RowCommunityListBinding) :
     }
 
     var onClickListener: ((clickedItem: ClickedItem) -> Unit)? = null
+    var iLiked: Boolean = false
 
     fun bind(data: CommunityListVO) {
 
@@ -30,14 +30,10 @@ class CommunityListViewHolder(private val binding: RowCommunityListBinding) :
         binding.chipCmlstRoom.text = data.roomName
         binding.chipCmlstSeat.text = data.seatName
 
+        iLiked = data.iLiked
+
         // Mark liked icon if I liked
-        if (data.iLiked) {
-            binding.imgCmlstLike.setImageResource(R.drawable.ic_like_filled)
-            binding.imgCmlstLike.imageTintList = ColorStateList.valueOf(ContextCompat.getColor(binding.root.context, R.color.tint_heart))
-        } else {
-            binding.imgCmlstLike.setImageResource(R.drawable.ic_like_outlined)
-            binding.imgCmlstLike.imageTintList = ColorStateList.valueOf(ContextCompat.getColor(binding.root.context, R.color.text_primary))
-        }
+        toggleLiked()
 
         // Show comments info
         if (data.comments > 0) {
@@ -71,7 +67,10 @@ class CommunityListViewHolder(private val binding: RowCommunityListBinding) :
 
         // Liked ClickListener
         binding.btnCmlstLike.setOnClickListener {
-            this.onClickListener?.let { it(ClickedItem.LIKED) }
+            toggleLiked()
+            this.onClickListener?.let {
+                it(ClickedItem.LIKED)
+            }
         }
 
         // Comments ClickListener
@@ -88,6 +87,18 @@ class CommunityListViewHolder(private val binding: RowCommunityListBinding) :
         binding.chipCmlstSeat.setOnClickListener {
             this.onClickListener?.let { it(ClickedItem.SEAT) }
         }
+    }
+
+    private fun toggleLiked() {
+        // Mark liked icon if I liked
+        if (iLiked) {
+            binding.imgCmlstLike.setImageResource(R.drawable.ic_like_filled)
+            binding.imgCmlstLike.imageTintList = ColorStateList.valueOf(ContextCompat.getColor(binding.root.context, R.color.tint_heart))
+        } else {
+            binding.imgCmlstLike.setImageResource(R.drawable.ic_like_outlined)
+            binding.imgCmlstLike.imageTintList = ColorStateList.valueOf(ContextCompat.getColor(binding.root.context, R.color.text_primary))
+        }
+        iLiked = !iLiked
     }
 
 }

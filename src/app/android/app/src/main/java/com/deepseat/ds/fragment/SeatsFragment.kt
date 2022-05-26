@@ -36,21 +36,6 @@ class SeatsFragment : Fragment() {
         // Inflate the layout for this fragment
         binding = FragmentSeatsBinding.inflate(layoutInflater, container, false)
 
-        observations = arrayOf(
-            Observation(1, 1, 1, "", "", 0),
-            Observation(2, 1, 2, "", "", 2),
-            Observation(3, 1, 3, "", "", 1),
-            Observation(4, 1, 4, "", "", 3),
-            Observation(5, 1, 5, "", "", 0),
-            Observation(6, 1, 6, "", "", 0),
-            Observation(7, 1, 7, "", "", 2),
-            Observation(8, 1, 8, "", "", 0),
-        )
-
-//        seats = arrayOf(
-//            Seat(1, 1, )
-//        )
-
         initData()
 
         return binding.root
