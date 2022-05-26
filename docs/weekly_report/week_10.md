@@ -28,8 +28,13 @@
 ## 우지수
 ### 금주
 
+1. login / register UI 구현
+2.  login / register view controller 구현
 
 ### 차주
+
+1. community UI 구현
+2. community view controller 구현
 
 <br>
 
