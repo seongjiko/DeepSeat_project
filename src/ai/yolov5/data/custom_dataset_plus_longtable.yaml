@@ -1,0 +1,7 @@
+path: C:/Users/hallym/Desktop/capstone/custom_dataset_plus_longtable         # dataset root dir
+train: C:/Users/hallym/Desktop/capstone/custom_dataset_plus_longtable/train   # train images (relative to 'path') 90% of 150 train images
+val: C:/Users/hallym/Desktop/capstone/custom_dataset_plus_longtable/valid     # train images (relative to 'path') 10% of 150 train images
+
+# Classes
+nc: 2  # number of classes
+names: ['table', 'longtable'] # class names

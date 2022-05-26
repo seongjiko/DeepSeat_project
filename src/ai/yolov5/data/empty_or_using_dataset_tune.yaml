@@ -1,0 +1,7 @@
+path: /home/nyh/yolov5/empty_or_using_dataset_tune  # dataset root dir
+train: /home/nyh/yolov5/empty_or_using_dataset_tune/train  # train images (relative to 'path') 90% of 150 train images
+val: /home/nyh/yolov5/empty_or_using_dataset_tune/valid  # train images (relative to 'path') 10% of 150 train images
+
+# Classes
+nc: 3  # number of classes
+names: ['empty_table', 'using_table', 'step_out'] # class names

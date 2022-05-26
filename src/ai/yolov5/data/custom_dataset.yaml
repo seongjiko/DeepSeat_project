@@ -1,0 +1,7 @@
+path: /home/nyh/yolov5/custom_dataset  # dataset root dir
+train: /home/nyh/yolov5/custom_dataset/train  # train images (relative to 'path') 90% of 150 train images
+val: /home/nyh/yolov5/custom_dataset/valid  # train images (relative to 'path') 10% of 150 train images
+
+# Classes
+nc: 1  # number of classes
+names: ['table'] # class names
