@@ -49,7 +49,7 @@
 ![image](https://user-images.githubusercontent.com/38518648/170578149-2d7a016c-c1e3-4f70-8ac6-1b3600d0bb88.png)
 
 - 테이블의 중심좌표를 추출하여 시각화. 
- - 중간과정에서 테이블 마다 보정을 해주어 더 깔끔하게 출
+ - 중간과정에서 테이블 마다 보정을 해주어 더 깔끔하게 출력
 
 <img width = "30%" src = "https://user-images.githubusercontent.com/38518648/170579135-ebbb5458-ed5a-4188-869e-c0f6e2cb0ed9.png"/> 
 <img width = "30%" src = "https://user-images.githubusercontent.com/38518648/170580599-5cff7641-53c8-48eb-b74c-1a800ce344af.png"/> 
