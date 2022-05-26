@@ -1,7 +1,9 @@
 package com.deepseat.ds.activity
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.ContextMenu
 import android.view.MenuItem
 import android.view.View
@@ -12,13 +14,21 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.deepseat.ds.R
 import com.deepseat.ds.adapter.CommentAdapter
+import com.deepseat.ds.api.ServiceFactory
 import com.deepseat.ds.databinding.ActivityCommunityDetailBinding
 import com.deepseat.ds.vo.CommentVO
+import com.deepseat.ds.vo.CommunityListVO
 import com.deepseat.ds.vo.DocumentVO
+import com.deepseat.ds.vo.ResponseBody
+import com.google.android.material.snackbar.Snackbar
+import com.google.gson.Gson
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.async
 import kotlinx.coroutines.launch
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 class CommunityDetailActivity : AppCompatActivity() {
     companion object {
@@ -39,6 +49,8 @@ class CommunityDetailActivity : AppCompatActivity() {
         setSupportActionBar(binding.toolbarCmDetail)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
+        initView()
+
         // Initialize Views
         initRecyclerView()
 
@@ -46,22 +58,49 @@ class CommunityDetailActivity : AppCompatActivity() {
         initData()
     }
 
+    private fun initView() {
+        binding.cardCmDetailCommentWriteBtn.setOnClickListener {
+            if (binding.edtxtCmDetailComment.text.toString().isEmpty()) {
+                snackbarMessage("내용을 입력하세요")
+                return@setOnClickListener
+            }
+
+            val call: Call<String> = ServiceFactory.commentService.writeComment(
+                intent.getIntExtra(EXTRA_DOC_ID, 1),
+                binding.edtxtCmDetailComment.text.toString()
+            )
+
+            call.enqueue(object : Callback<String> {
+                override fun onResponse(call: Call<String>, response: Response<String>) {
+                    Log.e("=== Response ===", response.body() ?: "empty content")
+
+                    val responseBody = Gson().fromJson(response.body(), ResponseBody::class.java)
+
+                    if (responseBody == null || responseBody.responseCode != 200) {
+                        snackbarMessage("서버 오류가 발생했습니다.")
+                        return
+                    }
+
+                    initData()
+                }
+
+                override fun onFailure(call: Call<String>, t: Throwable) {
+                    snackbarMessage("서버 오류가 발생했습니다.")
+                }
+
+            })
+        }
+
+        binding.srlCmDetail.setOnRefreshListener {
+            initData()
+        }
+    }
+
     private fun initRecyclerView() {
         adapter = CommentAdapter(this)
         adapter.onItemClickListener = { position ->
 
         }
-
-        adapter.data = arrayListOf(
-            CommentVO(
-                1, 1, "soc06212@gmail.com", "mgdgc",
-                "Test", "1999/02/01 21:30:55", false, 5
-            ),
-            CommentVO(
-                1, 1, "soc06202@gmail.com", "SJKoh",
-                "Test2", "2022/05/23 21:30:55", false, 0
-            )
-        )
 
         binding.rvCmDetailComments.adapter = adapter
 
@@ -74,15 +113,74 @@ class CommunityDetailActivity : AppCompatActivity() {
     private fun initData() {
         binding.srlCmDetail.isRefreshing = true
 
-        CoroutineScope(Dispatchers.IO).async {
-            // TODO: Get Document
-            // TODO: Get Comments
+        val call: Call<String> = ServiceFactory.docService.getDocumentVO(
+            docID = intent.getIntExtra(
+                EXTRA_DOC_ID, 1
+            )
+        )
 
-            CoroutineScope(Dispatchers.Main).launch {
+        call.enqueue(object : Callback<String> {
+            override fun onResponse(call: Call<String>, response: Response<String>) {
+                Log.e("=== Response ===", response.body() ?: "empty content")
+
+                val responseBody = Gson().fromJson(response.body(), ResponseBody::class.java)
+
+                if (responseBody == null || responseBody.responseCode != 200) {
+                    snackbarMessage("서버 오류가 발생했습니다.")
+                    return
+                }
+
+                val data = Gson().toJson(responseBody.data)
+                val result = Gson().fromJson(data, CommunityListVO::class.java)
+
+                binding.txtCmDetailDate.text = result.wrote
+                binding.txtCmDetailWriter.text = result.nickname
+                binding.txtCmDetailLiked.text = result.liked.toString()
+                binding.txtCmDetailComments.text = result.comments.toString()
+                binding.txtCmDetailContent.text = result.content
+
                 binding.srlCmDetail.isRefreshing = false
-                // TODO: Set adapter data
             }
-        }
+
+            override fun onFailure(call: Call<String>, t: Throwable) {
+                snackbarMessage("서버 오류가 발생했습니다.")
+            }
+
+        })
+
+        val cmCall: Call<String> = ServiceFactory.commentService.getComments(
+            intent.getIntExtra(
+                EXTRA_DOC_ID, 1
+            )
+        )
+
+        cmCall.enqueue(object : Callback<String> {
+            @SuppressLint("NotifyDataSetChanged")
+            override fun onResponse(call: Call<String>, response: Response<String>) {
+                Log.e("=== Response ===", response.body() ?: "empty content")
+
+                val responseBody = Gson().fromJson(response.body(), ResponseBody::class.java)
+
+                if (responseBody == null || responseBody.responseCode != 200) {
+                    snackbarMessage("서버 오류가 발생했습니다.")
+                    return
+                }
+
+                val data = Gson().toJson(responseBody.data)
+                val result = Gson().fromJson(data, Array<CommentVO>::class.java)
+
+                adapter.data.clear()
+                adapter.data.addAll(result)
+                adapter.notifyDataSetChanged()
+
+                binding.srlCmDetail.isRefreshing = false
+            }
+
+            override fun onFailure(call: Call<String>, t: Throwable) {
+                snackbarMessage("서버 오류가 발생했습니다.")
+            }
+
+        })
     }
 
     override fun onContextItemSelected(item: MenuItem): Boolean {
@@ -101,5 +199,18 @@ class CommunityDetailActivity : AppCompatActivity() {
             }
         }
         return super.onContextItemSelected(item)
+    }
+
+    private fun snackbarMessage(message: String) {
+        Snackbar.make(binding.root, message, Snackbar.LENGTH_INDEFINITE)
+            .setAction(R.string.confirm) { }
+            .show()
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        if (item.itemId == android.R.id.home) {
+            this.finish()
+        }
+        return super.onOptionsItemSelected(item)
     }
 }

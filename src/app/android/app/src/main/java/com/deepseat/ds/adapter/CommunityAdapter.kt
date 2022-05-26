@@ -2,7 +2,6 @@ package com.deepseat.ds.adapter
 
 import android.annotation.SuppressLint
 import android.content.Context
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
@@ -19,8 +18,8 @@ import com.deepseat.ds.viewholder.CommunitySubViewHolder
 class CommunityAdapter(private val context: Context) :
     RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
-    private var rooms: ArrayList<Room> = ArrayList()
-    private var seats: HashMap<Int, ArrayList<Seat>> = HashMap()
+    var rooms: ArrayList<Room> = ArrayList()
+    var seats: HashMap<Int, ArrayList<Seat>> = HashMap()
     private var _data: ArrayList<Any> = ArrayList()
     private var expanded: Int = -1
     private var expandedID: Int = -1
@@ -124,7 +123,7 @@ class CommunityAdapter(private val context: Context) :
 
             is CommunitySubViewHolder -> {
                 val data = this._data[position - 1] as Seat
-                holder.bind(data.seatName, data.seatID)
+                holder.bind(data.seatID.toString(), data.seatID)
                 holder.onClickListener = { roomID ->
                     this.onCommunitySelectListener?.let {
                         it(data.roomID, roomID)

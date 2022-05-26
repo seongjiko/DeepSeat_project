@@ -15,6 +15,7 @@ import com.deepseat.ds.MainActivity
 import com.deepseat.ds.R
 import com.deepseat.ds.activity.LoginActivity
 import com.deepseat.ds.adapter.MenuAdapter
+import com.deepseat.ds.api.LoginHandler
 import com.deepseat.ds.api.ServiceFactory
 import com.deepseat.ds.databinding.FragmentMoreBinding
 import com.deepseat.ds.datasource.MenuDataSource
@@ -47,13 +48,9 @@ class MoreFragment : Fragment(), View.OnClickListener {
 
         (requireActivity() as MainActivity).setSupportActionBar(binding.toolbarMenu)
 
-        return binding.root
-    }
-
-    override fun onResume() {
-        super.onResume()
-        initView()
         initData()
+
+        return binding.root
     }
 
     private fun initView() {
@@ -82,34 +79,20 @@ class MoreFragment : Fragment(), View.OnClickListener {
     }
 
     private fun initData() {
-        if (GlobalData.sessionId == null) return
+        if (GlobalData.userID == null || GlobalData.userPW == null) return
 
-        val call: Call<String> =
-            ServiceFactory.userService.getUser()
+        val loginHandler = LoginHandler(requireContext())
 
-        call.enqueue(object : Callback<String> {
-            override fun onResponse(call: Call<String>, response: Response<String>) {
-                val responseBody = Gson().fromJson(response.body(), ResponseBody::class.java)
-
-                if (responseBody == null || responseBody.responseCode != 200) {
-                    Log.e("=== Fail ===", response.body() ?: "empty content")
-
-                    Snackbar.make(binding.root, "error", Snackbar.LENGTH_LONG).show()
-                } else {
-                    val data = Gson().toJson(responseBody.data)
-                    user = Gson().fromJson(data, UserVO::class.java)
-                    Log.e("=== Success ===", response.body() ?: "empty content")
-
-                    initView()
-                }
-            }
-
-            override fun onFailure(call: Call<String>, t: Throwable) {
-                Log.e("=== Fail ===", t.toString())
+        loginHandler.onUserGetCompleteListener = {
+            if (it == null) {
                 Snackbar.make(binding.root, "error", Snackbar.LENGTH_LONG).show()
+            } else {
+                user = it
             }
+            initView()
+        }
 
-        })
+        loginHandler.getUser()
     }
 
     private fun initRecyclerView() {
@@ -176,14 +159,18 @@ class MoreFragment : Fragment(), View.OnClickListener {
     }
 
     private fun handleLogoutButton(v: View) {
-        if (GlobalData.sessionId != null) {
+        if (GlobalData.userID != null && GlobalData.userPW != null) {
             val call: Call<String> = ServiceFactory.userService.logoutUser()
             call.enqueue(object : Callback<String> {
                 override fun onResponse(call: Call<String>, response: Response<String>) {
                     Log.e("=== Success ===", response.body() ?: "empty content")
                     Snackbar.make(binding.root, R.string.menu_logout, Snackbar.LENGTH_LONG).show()
-                    GlobalData.sessionId = null
+
+                    GlobalData.userID = null
+                    GlobalData.userPW = null
+
                     this@MoreFragment.user = null
+
                     initData()
                     initView()
                 }
@@ -191,8 +178,12 @@ class MoreFragment : Fragment(), View.OnClickListener {
                 override fun onFailure(call: Call<String>, t: Throwable) {
                     Log.e("=== Fail ===", t.toString())
                     Snackbar.make(binding.root, "error", Snackbar.LENGTH_LONG).show()
-                    GlobalData.sessionId = null
+
+                    GlobalData.userID = null
+                    GlobalData.userPW = null
+
                     this@MoreFragment.user = null
+
                     initData()
                     initView()
                 }
