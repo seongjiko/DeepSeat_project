@@ -2,7 +2,7 @@
 
 <img src="res/deepseat_cover_icon.gif" width="256" height="256">
 
-# DeepSeat
+# *DeepSeat*
 > OpenCV 및 딥러닝(YOLO v5)을 이용한 Single-Cam 좌석 알리미 Android & iOS 앱
 
 <img src="https://img.shields.io/badge/Kotlin-7F52FF?style=flat&logo=Kotlin&logoColor=white" />
