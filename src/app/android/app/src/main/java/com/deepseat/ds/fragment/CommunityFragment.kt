@@ -7,6 +7,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.cardview.widget.CardView
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.deepseat.ds.GlobalData
@@ -42,6 +43,8 @@ class CommunityFragment : Fragment() {
 
     private lateinit var docAdapter: CommunityListAdapter
     private lateinit var communityAdapter: CommunityAdapter
+    private lateinit var bottomSheetBehavior: BottomSheetBehavior<CardView>
+
     private var roomID: Int = -1
     private var seatID: Int = -1
 
@@ -70,7 +73,7 @@ class CommunityFragment : Fragment() {
     }
 
     private fun initView() {
-        val bottomSheetBehavior =
+        bottomSheetBehavior =
             BottomSheetBehavior.from(binding.layoutCommunityBottomSheet.root)
 
         bottomSheetBehavior.state = BottomSheetBehavior.STATE_HIDDEN
@@ -158,6 +161,7 @@ class CommunityFragment : Fragment() {
             this.roomID = roomID
             this.seatID = seatID
             initCommunityListData(roomID, seatID)
+            bottomSheetBehavior.state = BottomSheetBehavior.STATE_HIDDEN
         }
 
         binding.layoutCommunityBottomSheet.rvCommunitySelect.adapter = communityAdapter
