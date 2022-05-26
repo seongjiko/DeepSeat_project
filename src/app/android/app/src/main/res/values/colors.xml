@@ -23,4 +23,5 @@
     <color name="color_using">#FF03DAC5</color>
     <color name="color_absent">#FFEE58</color>
     <color name="color_absent_long">#FF7043</color>
+    <color name="color_error">#EC407A</color>
 </resources>

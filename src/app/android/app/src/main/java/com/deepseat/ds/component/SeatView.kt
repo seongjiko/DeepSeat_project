@@ -38,6 +38,13 @@ class SeatView @JvmOverloads constructor(
         buildBitmap()
     }
 
+    private fun buildBitmap() {
+        invalidate()
+        val bitmap = Bitmap.createBitmap(640, 480, Bitmap.Config.ARGB_8888)
+        val canvas = Canvas(bitmap)
+        draw(canvas)
+    }
+
     override fun onDraw(canvas: Canvas?) {
         super.onDraw(canvas)
 
@@ -45,14 +52,16 @@ class SeatView @JvmOverloads constructor(
 
         for (seat in seats) {
             val rect = Rect(seat.minX, seat.minY, seat.maxX, seat.maxY)
-            val paint = when (observations[seat.seatID]!!.state) {
-                0 -> paintEmpty
-                1 -> paintUsing
-                2 -> paintAbsent
-                3 -> paintLongAbsent
-                else -> paintEmpty
+            observations[seat.seatID]?.let {
+                val paint = when (it.state) {
+                    0 -> paintEmpty
+                    1 -> paintUsing
+                    2 -> paintAbsent
+                    3 -> paintLongAbsent
+                    else -> paintError
+                }
+                canvas?.drawRect(rect, paint)
             }
-            canvas?.drawRect(rect, paint)
             Log.e("seatview", "${rect.left}, ${rect.top}, ${rect.right}, ${rect.bottom}")
         }
     }
@@ -101,10 +110,10 @@ class SeatView @JvmOverloads constructor(
         this.strokeWidth = 0f
     }
 
-    private fun buildBitmap() {
-        invalidate()
-        val bitmap = Bitmap.createBitmap(640, 480, Bitmap.Config.ARGB_8888)
-        val canvas = Canvas(bitmap)
-        draw(canvas)
+    private val paintError = Paint().apply {
+        this.isAntiAlias = true
+        this.color = context.getColor(R.color.color_error)
+        this.style = Paint.Style.FILL
+        this.strokeWidth = 0f
     }
 }
