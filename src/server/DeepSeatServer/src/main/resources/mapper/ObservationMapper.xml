@@ -25,4 +25,13 @@
         order by date, time desc;
     </select>
 
+    <select id="getMostRecentObservation" resultType="Observation">
+        select *
+        from observation
+        where roomID = #{roomID}
+          and seatID = #{seatID}
+        order by date, time desc
+        limit 1;
+    </select>
+
 </mapper>
