@@ -40,7 +40,12 @@ http 통신을 이요한 api 구현
 ## 최명근
 ### 금주
 
+1. 로그인 기능 구현
+2. 로그인 유지 기능 (Session 설계)
+3. Session 테스트 및 UserController 개발
 
 ### 차주
+
+1. REST Controller 개발
 
 <br>
