@@ -28,8 +28,12 @@
 ## 우지수
 ### 금주
 
+1. community UI 구현
+2. community view controller 구현
 
 ### 차주
+
+1. half modal view 구현
 
 <br>
 
