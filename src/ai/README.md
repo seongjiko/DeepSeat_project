@@ -2,7 +2,7 @@
 
 1. AI 모델 실행 방법.
 - yolov5 폴더를 다운 받아 실행시킵니다.
-- 다른 폴더들은 주요 소스코드입니다.
+- 다른 폴더들은 주요 소스코드를 경로에 맞게 저장하였습니다.
 ``` python:
   #train , train.py 파일을 통해 학습, --data를 통해 경로, --epochs를 통해 학습 횟수 지정
   !python train.py --data "data/custom_dataset_plus_longtable.yaml" --epochs 150 #epoch 150회
