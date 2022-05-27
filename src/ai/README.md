@@ -3,6 +3,7 @@
 - 실행 결과를 확인하고 싶으시다면 yolov5 폴더를 다운 받아 실행시킵니다.
 
 ![image](https://user-images.githubusercontent.com/38518648/170577833-d0bdf1df-5deb-48cc-9303-9845848b6e2b.png)
+![image](https://user-images.githubusercontent.com/38518648/170653277-0a6bd3af-7f8e-4ce2-a8dc-a2d3f63eff72.jpeg)
 
 
 ## Custom Model
@@ -46,8 +47,8 @@
 - `테이블 정보 탐지 모델`은 위와 같은 과정을 거친 후 서버에 저장됩니다. 
 - 이 후 `테이블 상태 탐지 모델`의 결과를 실시간으로 서버에 전달하여 사용자에게 전달이 가능하게 합니다.
 
-### BirdEye View
-- 아래 사진과 같이 위에서 새가  본 것 같은 느낌을 주는 것처럼 변환하는 방법.
+### BirdEye View를 이용한 좌석 정보 변환.
+- 아래 사진과 같이 위에서 새가 본 것 같은 느낌을 주는 것처럼 변환하는 방법.
 
 ![image](https://user-images.githubusercontent.com/38518648/170578016-c379e4ba-6710-48fb-9d28-dc843332d443.png)
 
