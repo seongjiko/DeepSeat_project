@@ -18,6 +18,11 @@
       - yolov5/exp 폴더 안의 train_batch 파일들을 통해 라벨링 한 이미지를 보실 수 있습니다.
   - Data Argumentation
     - 밝기 +50 증가, -50 감소, Gaussian Noise, Gaussian Blur, GrayScale 을 사용하였습니다.
+    - 원본 이미지의 2배 3배 정도를 Image Augmentation으로 처리하였습니다.
+      - 총 학습에 사용된 이미지 수 = 모델 당 400장 ~ 500장 내외
+      - train : 전체 이미지의 90%
+      - valid : 전체 이미지의 10%
+      - test  : 라즈베리파이에서 찍은 가장 최신 사진을 매번 test set으로 바꿔갔으며, 이미 사용된 test set은 valid 폴더로 옮겨졌습니다.
     - 영상처리 프로그래밍 수업에서 배운 내용을 활용하여 보았습니다.
 
 ### Custom Model Train & Test
