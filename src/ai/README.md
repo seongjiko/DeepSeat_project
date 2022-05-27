@@ -2,9 +2,10 @@
 - 다른 폴더들은 주요 소스코드를 경로에 맞게 저장하였습니다.
 - 실행 결과를 확인하고 싶으시다면 yolov5 폴더를 다운 받아 실행시킵니다.
 
-![image](https://user-images.githubusercontent.com/38518648/170577833-d0bdf1df-5deb-48cc-9303-9845848b6e2b.png)
-![image](https://user-images.githubusercontent.com/38518648/170653277-0a6bd3af-7f8e-4ce2-a8dc-a2d3f63eff72.jpeg)
-
+<p>
+  <img src = "https://user-images.githubusercontent.com/38518648/170577833-d0bdf1df-5deb-48cc-9303-9845848b6e2b.png" width = "35%"/>
+  <img src = "https://user-images.githubusercontent.com/38518648/170653277-0a6bd3af-7f8e-4ce2-a8dc-a2d3f63eff72.jpeg" width = "35%"/>
+</p>
 
 ## Custom Model
 ### Custom data를 통한 Custom model 제작과정.
