@@ -2,6 +2,8 @@
 
 <img src="res/deepseat_cover_icon.gif" width="256" height="256">
 
+[![Hits](https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgithub.com%2Fseongjiko%2FDeepSeat_project&count_bg=%2366D90F&title_bg=%23000000&icon=seat.svg&icon_color=%23FF0000&title=hits&edge_flat=false)](https://hits.seeyoufarm.com)
+
 # *DeepSeat*
 > OpenCV 및 딥러닝(YOLO v5)을 이용한 Single-Cam 좌석 알리미 Android & iOS 앱
 
