@@ -6,7 +6,7 @@
 
 # *DeepSeat*
 > OpenCV 및 딥러닝(YOLO v5)을 이용한 Single-Cam 좌석 알리미 Android & iOS 앱
-
+> 22년도 1학기 한림대학교 SW 캡스톤 경진대회 금상 수상작
 <img src="https://img.shields.io/badge/Kotlin-7F52FF?style=flat&logo=Kotlin&logoColor=white" />
 <img src="https://img.shields.io/badge/Swift-FA7343?style=flat&logo=Swift&logoColor=white" />
 <img src="https://img.shields.io/badge/Python-0d47a1?style=flat&logo=Python&logoColor=yellow" />
