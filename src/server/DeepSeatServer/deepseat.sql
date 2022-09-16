@@ -55,20 +55,22 @@ create table DeepSeat.liked
 
 create table DeepSeat.room
 (
-    roomID   integer     not null primary key auto_increment,
-    roomName varchar(30) not null,
-    apiKey   varchar(64) not null,
+    roomID    integer     not null primary key auto_increment,
+    roomName  varchar(30) not null,
+    apiKey    varchar(64) not null,
+    latitude  double      not null,
+    longitude double      not null,
     foreign key (apiKey) references DeepSeat.apikey (apiKey)
 );
 
 create table DeepSeat.seat
 (
-    seatID   integer not null,
-    roomID   integer not null,
-    x        integer not null,
-    y        integer not null,
-    width    integer not null,
-    height   integer not null,
+    seatID integer not null,
+    roomID integer not null,
+    x      integer not null,
+    y      integer not null,
+    width  integer not null,
+    height integer not null,
     foreign key (roomID) references room (roomID),
     primary key (roomID, seatID)
 );

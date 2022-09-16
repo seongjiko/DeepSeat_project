@@ -36,9 +36,9 @@ dependencies {
 	implementation("org.apache.tomcat.embed:tomcat-embed-jasper")
 	implementation("org.json:json:20220320")
 	implementation("com.google.code.gson:gson:2.9.0")
-	compileOnly("org.projectlombok:lombok")
+	implementation("org.projectlombok:lombok")
 	developmentOnly("org.springframework.boot:spring-boot-devtools")
-	runtimeOnly("org.mariadb.jdbc:mariadb-java-client")
+	implementation("org.mariadb.jdbc:mariadb-java-client")
 	annotationProcessor("org.projectlombok:lombok")
 	testImplementation("org.springframework.boot:spring-boot-starter-test")
 }

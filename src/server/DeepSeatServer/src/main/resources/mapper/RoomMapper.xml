@@ -6,8 +6,8 @@
 <mapper namespace="com.deepseat.server.DeepSeatServer.dao.RoomMapper">
 
     <insert id="insertRoom" parameterType="Room">
-        insert into room (roomName, apiKey)
-        VALUES (#{roomName}, #{apiKey});
+        insert into room (roomName, apiKey, latitude, longitude)
+        VALUES (#{roomName}, #{apiKey}, #latitude, #longitude);
     </insert>
 
     <select id="getRoomByApiKey" parameterType="string" resultType="Room">
@@ -29,8 +29,29 @@
         where roomID = #{roomID};
     </select>
 
+    <select id="getRoomsByGeoPoint" parameterMap="double" resultType="Room">
+        select *
+        from room
+        where #{longitude} between #{maxLon} and #{minLon}
+          and #{latitude} between #{maxLat} and #{minLat};
+    </select>
+
+    <select id="getSeatCount" parameterType="int" resultType="list">
+        select count(*)
+        from seat
+        where roomID = #{roomID};
+    </select>
+
+    <select id="getAvailableSeatCount" parameterType="int" resultType="int">
+        select count(*)
+        from observation
+                 inner join seat
+        where seat.roomID = #{roomID} and state = 0;
+    </select>
+
     <select id="getRooms" resultType="Room">
-        select * from room;
+        select *
+        from room;
     </select>
 
     <update id="updateRoom" parameterType="Room">

@@ -22,6 +22,12 @@
         where seatID = #{seatID};
     </select>
 
+    <select id="getSeatCount" parameterType="int" resultType="int">
+        select count(*)
+        from seat
+        where roomID = #{roomID};
+    </select>
+
     <delete id="deleteSeat" parameterType="int">
         delete
         from seat
