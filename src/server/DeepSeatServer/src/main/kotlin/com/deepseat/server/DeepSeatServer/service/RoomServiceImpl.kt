@@ -23,6 +23,25 @@ class RoomServiceImpl : RoomService {
         return mapper.getRoomByID(roomID)
     }
 
+    override fun getRoomsByGeoPoint(
+        longitude: Double,
+        latitude: Double
+    ): List<Room> {
+        val maxLon = longitude + 0.05
+        val minLon = longitude - 0.05
+        val maxLat = longitude + 0.05
+        val minLat = longitude - 0.05
+        return mapper.getRoomsByGeoPoint(longitude, latitude, maxLon, minLon, maxLat, minLat)
+    }
+
+    override fun getSeatCount(roomID: Int): Int {
+        return mapper.getSeatCount(roomID)
+    }
+
+    override fun getAvailableSeatCount(roomID: Int): Int {
+        return getAvailableSeatCount(roomID)
+    }
+
     override fun getRecentCreatedRoomByApiKey(apiKey: String): Room {
         return mapper.getRoomByApiKey(apiKey)[0]
     }

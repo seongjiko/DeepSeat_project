@@ -30,7 +30,7 @@
         from observation
         where roomID = #{roomID}
           and seatID = #{seatID}
-        order by date, time desc
+        order by observerID desc
         limit 1;
     </select>
 
