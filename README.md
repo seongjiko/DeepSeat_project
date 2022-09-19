@@ -41,6 +41,7 @@ https://www.notion.so/DeepSeat-146664ef61fd400983e0c7cb555fa16d
 |[고성지](https://github.com/seongjiko)|빅데이터전공 18학번|AI|
 |[나영훈](https://github.com/younghoonNa)|박데이터전공 18학번|AI|
 |[최명근](https://mgchoi.com)|콘텐츠IT전공 18학번|백엔드/안드로이드|
+|[이제일](https://github.com/WorldOneTop)|박데이터전공 18학번|백엔드/안드로이드|
 |[우지수](https://github.com/wjs0414)|스마트IoT전공 18학번|백엔드/iOS|
 
 <br>
