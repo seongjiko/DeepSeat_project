@@ -5,8 +5,9 @@
 [![Hits](https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgithub.com%2Fseongjiko%2FDeepSeat_project&count_bg=%2366D90F&title_bg=%23000000&icon=seat.svg&icon_color=%23FF0000&title=hits&edge_flat=false)](https://hits.seeyoufarm.com)
 
 # *DeepSeat*
-> OpenCV 및 딥러닝(YOLO v5)을 이용한 Single-Cam 좌석 알리미 Android & iOS 앱
+> 신뢰할 수 있는 AI기반 Single-Cam 좌석 알리미 Android & iOS 앱
 - 22년도 1학기 한림대학교 SW 캡스톤 경진대회 금상 수상작
+- 제 9회 대한민국 SW해커톤 과학기술정보통신부 장관상(대상) 수상작
 <img src="https://img.shields.io/badge/Kotlin-7F52FF?style=flat&logo=Kotlin&logoColor=white" />
 <img src="https://img.shields.io/badge/Swift-FA7343?style=flat&logo=Swift&logoColor=white" />
 <img src="https://img.shields.io/badge/Python-0d47a1?style=flat&logo=Python&logoColor=yellow" />
