@@ -107,3 +107,16 @@ https://www.notion.so/DeepSeat-146664ef61fd400983e0c7cb555fa16d
 
 ❗서버가 실행중이지 않으므로 정상적인 이용이 불가할 수 있습니다.
 
+# 씨애랑 SW전시회 추가내역 (22/10/30)
+기존 캡스톤 프로젝트에서 변경된 사항들
+1. 모델 변경시도, 22년 7월 탐지 퍼포먼스와 탐지 속도가 크게 향상된 yolo v7도입예정
+2. 코드 정리 및 DeepSeat 아키텍처 변경
+  - 서버에 전송할 Json Format을 변경하여 보다 빠른 전송속도를 가지며 적은 용량의 데이터를 보냄
+3. 탐지 결과 시각화 색상변경
+  - 사용중: 하늘색 --> 회색
+  - 사용가능: 회색 --> 하늘색
+  - 더욱 가독성있는 색상으로 변환
+  -<img width="799" alt="image" src="https://user-images.githubusercontent.com/46768743/198882594-2a86c555-8060-49fd-a604-42f4865eedfa.png">
+
+4. 주변 DeepSeat 설치 지점을 구글지도 API에 시각화하는 프로토타입 제작
+  -  <img width="216" alt="image" src="https://user-images.githubusercontent.com/46768743/198882495-d0a2ee55-e1db-4516-86a1-1f6825190578.png">
