@@ -35,6 +35,8 @@
 `제9회 '대한민국 SW융합 해커톤' 대회 성황리에 종료` - 전자신문
 - https://m.etnews.com/20220919000015
 
+<img width="500" alt="image" src="https://user-images.githubusercontent.com/46768743/190939569-b2afd7c5-72e0-4913-9890-5fca3e013e28.png"> <br>
+<img width="500" alt="image" src="https://user-images.githubusercontent.com/46768743/196549111-0078650a-bb13-4ff4-92f4-835f140335dc.png">
 
 <br>
 
